@@ -30,9 +30,9 @@ LB = zeros (6,1);
  % ====================== Comptable ======================
  
  % ====================== Responsable d'atelier ======================
- [X, opt, C] = Atelier(A,B,LB);
+
  % ====================== Responsable des stocks ======================
- 
+ [X, opt, C] = Stock(A,B,LB);
  % ====================== Responsable commercial ======================
  
  % ====================== Responsable du personnal ======================
