@@ -4,7 +4,7 @@
 %  
 %  ------------
 % 
-%% Définition des contraintes générales
+%% ================ Définition des contraintes générales ================
 
 % vecteur de la quantité de produits par semaine
 %X =[xa; xb; xc; xd; xe; xf];
@@ -22,4 +22,17 @@ B = [ 4800 ; 4800; 4800; 4800; 4800; 4800; 350; 620; 485];
 % vecteur de containtes de domaine
 LB = zeros (6,1);
 
-%% ================ Partie 1: Programmation linéaire multi-critères   ================
+%% ================ Partie 1: Programmation linéaire multi-critères ================
+
+% Chaque cadre ayant un objectif de production, il faut dans un premier
+% temps considérer indépendamment chacun des objectifs.
+
+ % ====================== Comptable ======================
+ 
+ % ====================== Responsable d'atelier ======================
+ 
+ % ====================== Responsable des stocks ======================
+ 
+ % ====================== Responsable commercial ======================
+ 
+ % ====================== Responsable du personnal ======================
