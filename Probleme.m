@@ -22,7 +22,7 @@ B = [ 4800 ; 4800; 4800; 4800; 4800; 4800; 350; 620; 485];
 % vecteur de containtes de domaine
 LB = zeros (6,1);
 
-%% ================ Partie 1: Programmation linéaire multi-critères ================
+%% ================ Partie 1: Programmation linéaire mono-critère ================
 
 % Chaque cadre ayant un objectif de production, il faut dans un premier
 % temps considérer indépendamment chacun des objectifs.
