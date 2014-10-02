@@ -28,11 +28,13 @@ LB = zeros (6,1);
 % temps considérer indépendamment chacun des objectifs.
 
  % ====================== Comptable ======================
- 
+ [Xcompta, optcompta, Ccompta] = Comptable(A,B,LB);
  % ====================== Responsable d'atelier ======================
-
+ [Xatel, optatel, Catel] = Atelier(A,B,LB);
  % ====================== Responsable des stocks ======================
- [X, opt, C] = Stock(A,B,LB);
+ [Xstock, optstock, Cstock] = Stock(A,B,LB);
  % ====================== Responsable commercial ======================
- 
+ [Xcom, optcom, Ccom] = Commercial(A,B,LB);
  % ====================== Responsable du personnal ======================
+ [Xpers, optpers, Cpers] = Personnel(A,B,LB);
+ 
