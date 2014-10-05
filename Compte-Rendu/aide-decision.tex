@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[frenchb]{babel}
+%\usepackage{fontenc}
+
+\usepackage{fancyhdr, graphicx}
+\usepackage[normalem]{ulem}
+\usepackage{fullpage}
+
+\newcommand*\tick{\item[\Checkmark]}
+\newcommand*\fail{\item[\XSolidBrush]}
+\newcommand*\bulet{\item[$\bullet$]}
+\newcommand*\diamont{\item[$\diamond$]}
+
+\title{Projet d'aide à la décision \\ Compte rendu client.}
+\date{\today}
+\author{Ségolène Minjard \and Salma El-Alaoui-Talibi \and Quentin Dupont \and Donovan Fournier \and Benjamin Legrand \and Zied Thabet \and Hexanôme H4304 \\ \\ Enseignants: Maryvonne \textsc{Miquel}
+et Anne \textsc{Legait}  }
+
+\begin{document}
+
+\maketitle
+
+\vspace{25pt}
+\setcounter{tocdepth}{2}
+\tableofcontents % needs 2compilations
+\pagebreak
+
+\section{Introduction}
+Ce document est un compte rendu de l'étude menée par notre hexanôme H4304 pour le compte de la société FaBrique. Cette étude a pour but d'optimiser l'utilisation des ressources de l'entreprise en proposant le meilleur plan de production à mettre en place. \newline
+En premier lieu, nous considèrerons indépendamment les objectifs métiers de chacun des cadres impliqués dans cette étude d'aide à la décision pour apporter une solution optimale à chacun.
+En second lieu, nous proposons au responsable d'entreprise une solution qui satisfait au mieux l'ensemble des points de vue.
+Finalement, nous dégagerons parmi les 8 propositions de gestion de l'atelier, la solution optimale au vu des critères définis par les décideurs de l'entreprise.    
+
+
+%\begin{description}
+%\item[Figure :]  Une figure peut être un cercle, un rectangle, une ligne, une polyligne ou un agrégat. L’agrégat est composé d’autant de figures que l’ont veut et celles-ci peuvent aussi être des agrégats.
+%\item[Point :] Une  structure Point est définie, elle contient les coordonnées x et y d’un point sous forme de longs.
+%\end{description}
+
+%\subsection{Choix Généraux}
+%\begin{itemize}
+%\item La caste est importante autant pour les noms que pour les commandes. Une commande invalide générera une réponse ERR.
+%\end{itemize}
+%
+% 
+%\subsection{Détail des fonctionnalités et choix spécifiques}
+%\subsubsection{Création d'une figure}
+%\begin{description}
+%\item[Cercle :] {\tt C Name X1 Y1 R }, avec Name son nom, X1,Y1 les coordonnées de son centre et R son rayon. Le rayon doit être supérieur ou égal à 0. Le nom doit être composé de lettres et de chiffres, les autres paramètres sont des long. Un nom ne peut pas être composé de plusieurs mots.
+%\end{description}
+
+\section{Prise en compte des contraintes globales}
+TODO :D
+
+\section{Analyse des objectifs de chacun des cadres}
+Dans cette partie, on met en oeuvre des techniques de programmation linéaire monocritère afin de proposer individuellement à chaque cadre la solution qui permet d'optimiser son objectif métier.
+\subsection{Le comptable}
+L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bénéfice est calculé en tenant compte des coûts de fonctionnement des machines et du coût d'achat des matières premières. Pour chaque matière le bénéfice unitaire (i.e. pour un produit vendu) sera donc donné par la formule suivante : \begin{center} $pv - \sum_{i=1}^{3}(paMP_{i} * qteMP_{i}) - \frac{1}{60} \sum_{j=1}^{7}(tupM_{j} * chM_{j}) $ \end{center} avec: \newline 
+\begin{description}
+\item[pv: ]Prix de vente du produit considéré fini.
+\item[$\mathbf{paMP_{i} :}$] Le prix d'achat de la matière première de numéro i.
+\item[$\mathbf{qteMP_{i} :}$] La quantité de matière première i, nécessaire pour la fabrication du produit considéré.
+\item[$\mathbf{tupM_{j} :}$] Temps unitaire d'usinage du produit considéré sur la machine j.
+\item[$\mathbf{chM_{j} :}$] Coût horaire de la machine j.
+\end{description}
+Il en ressort le problème de programmation linéaire monocritère suivant : \newline 
+\noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
+Maximiser $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F}$ 
+\\ 
+sous les contraintes : \\
+:D Contraintes :D  }}
+\\
+On peut à partir des coefficients de la fonction objectif classer les produits selon le bénéfice unitaire qu'ils permettent de dégager. On obtient dans l'ordre décroissant de bénéfice unitaire : E, F, C, B, A, D.
+\\
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+\begin{center}
+$\mathbf{X^{*}_{comptable} = 
+   \left (
+   \begin{array}{c}
+      x_{A} = 0 \\
+      x_{B} = 20.41 \\
+      x_{C} = 0 \\
+      x_{D} = 0 \\
+      x_{E} = 242.50 \\
+      x_{F} = 94.18 \\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+On constate que les produits les plus rentables (E puis F) sont beaucoup produits. Les produits
+les moins rentables (A et D) ne sont pas du tout produits. Le produit C est légèrement plus rentable que le produit B mais B est préféré à C car il n'utilise pas la matière première 3 qui est beaucoup utilisée par E (présence d'une contrainte sur l'utilisation des matières premières).
+\\
+\begin{center}
+\textbf{Bénéfice maximal = 10512}
+\end{center}
+
+Satisfaction des contraintes : 
+\begin{center}
+$\mathbf{A.X^{*}_{comptable} - b = 
+   \left (
+   \begin{array}{c}
+      -3552 \\
+      -1952 \\
+      0 \\
+      -784 \\
+      -20 \\
+      -2758 \\
+      -4080 \\
+      -121 \\
+      0 \\
+      0\\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+Les 7 premières lignes correspondent à l’utilisation des machines. On constate que les
+machines 1 et 7 sont les moins utilisées. Ceci s’explique par le fait que ces machines ne sont
+pas nécessaires pour produire E qui est le produit le plus réalisé. La machine 3 est utilisée au maximum car elle est très utilisée par les produits les plus réalisés (E et F). Les matières premières 2 et 3 sont consommées au maximum. En effet ce sont les matières premières nécessaires à la production de E. La production de E est ainsi poussée au maximum (jusqu'à épuisement des matières premières nécessaires).
+
+\subsection{Le responsable d'atelier}
+T
+\subsection{Le responsable des stocks}
+O
+\subsection{Le responsable commercial}
+D
+\subsection{Le responsable du personnel}
+O
+%\begin{figure}
+%	\begin{center}
+%	\includegraphics[scale=0.7]{UML.png}
+%	\end{center}
+%	\caption{Diagramme de classes de l'application}
+%\end{figure}
+
+%\pagebreak
+
+
+%\include{partie_1} % \include == \clearpage + \input
+
+
+\end{document}

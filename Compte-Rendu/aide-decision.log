@@ -1,0 +1,248 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.31)  5 OCT 2014 23:43
+entering extended mode
+**aide-decision.tex
+("C:\Users\Zied\Desktop\4IF\Aide à la décision\aide-decision.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+(C:\Users\Zied\Desktop\Latex\tex\latex\base\article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(C:\Users\Zied\Desktop\Latex\tex\latex\base\size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count87
+\uc@combtoks=\toks14
+\uc@combtoksb=\toks15
+\uc@temptokena=\toks16
+)
+(C:\Users\Zied\Desktop\Latex\tex\latex\base\inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+(C:\Users\Zied\Desktop\Latex\tex\generic\babel\babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Zied\Desktop\Latex\tex\latex\00miktex\bblopts.cfg
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+(C:\Users\Zied\Desktop\Latex\tex\generic\babel\frenchb.ldf
+Language: frenchb 2009/03/16 v2.3d French support from the babel system
+
+(C:\Users\Zied\Desktop\Latex\tex\generic\babel\babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+Package babel Info: Making : an active character on input line 120.
+Package babel Info: Making ; an active character on input line 121.
+Package babel Info: Making ! an active character on input line 122.
+Package babel Info: Making ? an active character on input line 123.
+\FB@Mht=\dimen104
+\std@mcc=\count89
+\dec@mcc=\count90
+\parindentFFN=\dimen105
+
+*************************************
+* Local config file frenchb.cfg used
+*
+(C:\Users\Zied\Desktop\Latex\tex\generic\babel\frenchb.cfg)))
+(C:\Users\Zied\Desktop\Latex\tex\latex\carlisle\scalefnt.sty)
+(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(C:\Users\Zied\Desktop\Latex\tex\latex\fancyhdr\fancyhdr.sty
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+)
+(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(C:\Users\Zied\Desktop\Latex\tex\latex\00miktex\graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\pdftex-def\pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(C:\Users\Zied\Desktop\Latex\tex\generic\oberdiek\infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(C:\Users\Zied\Desktop\Latex\tex\generic\oberdiek\ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count91
+))
+\Gin@req@height=\dimen106
+\Gin@req@width=\dimen107
+)
+(C:\Users\Zied\Desktop\Latex\tex\latex\ulem\ulem.sty
+\UL@box=\box26
+\UL@hyphenbox=\box27
+\UL@skip=\skip52
+\UL@hook=\toks20
+\UL@height=\dimen108
+\UL@pe=\count92
+\UL@pixel=\dimen109
+\ULC@box=\box28
+Package: ulem 2012/05/18
+\ULdepth=\dimen110
+)
+(C:\Users\Zied\Desktop\Latex\tex\latex\preprint\fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip53
+)
+("C:\Users\Zied\Desktop\4IF\Aide à la décision\aide-decision.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+LaTeX Info: Redefining \degres on input line 22.
+LaTeX Info: Redefining \dots on input line 22.
+LaTeX Info: Redefining \up on input line 22.
+
+
+Package frenchb.ldf Warning: OT1 encoding should not be used for French. 
+(frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
+(frenchb.ldf)                of your document, on input line 22.
+
+(C:\Users\Zied\Desktop\Latex\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count93
+\scratchdimen=\dimen111
+\scratchbox=\box29
+\nofMPsegments=\count94
+\nofMParguments=\count95
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count96
+\MPscratchDim=\dimen112
+\MPnumerator=\count97
+\makeMPintoPDFobject=\count98
+\everyMPtoPDFconversion=\toks22
+) (C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-0.def
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 24.
+
+("C:\Users\Zied\Desktop\4IF\Aide à la décision\aide-decision.toc"
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 5.
+)
+\tf@toc=\write3
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 69--79
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--79
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 93--96
+
+ []
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+) [3] [4]
+("C:\Users\Zied\Desktop\4IF\Aide à la décision\aide-decision.aux") ) 
+Here is how much of TeX's memory you used:
+ 3059 strings out of 493921
+ 39889 string characters out of 3147284
+ 102165 words of memory out of 3000000
+ 6337 multiletter control sequences out of 15000+200000
+ 9836 words of font info for 35 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,9n,43p,500b,597s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users
+/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Zied/De
+sktop/Latex/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Zied/Desktop/Lat
+ex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Zied/Desktop/Latex/font
+s/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/
+public/amsfonts/cm/cmmi12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmr17.p
+fb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Use
+rs/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Zied/
+Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on aide-decision.pdf (4 pages, 128337 bytes).
+PDF statistics:
+ 59 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
