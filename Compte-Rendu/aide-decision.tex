@@ -36,7 +36,38 @@ Finalement, nous dégagerons parmi les 8 propositions de gestion de l'atelier, l
 
 
 \section{Prise en compte des contraintes globales}
-TODO :D
+Deux critères nous semblent limitants d'un point de vue de la production. En effet, les machines ne peuvent fonctionner qu'en présence des ouvriers et leurs horaires de travail sont limités. Il convient donc de limiter les temps d'utilisation de chacune d'elles.
+En prenant en compte les durées de production respectives de chacun des produits sur les différentes machines, on introduit les 7 contraintes suivantes :
+\begin{center}
+$\mathbf{ 
+   \lbrace
+   \begin{array}{c}
+      8 * x_{A} + 15 * x_{B} + 0 * x_{C} + 5 * x_{D} + 0 * x_{E} + 10 * x_{F}\leq 4800 \\
+      7 * x_{A} + 1 * x_{B} + 2 * x_{C} + 15 * x_{D} + 7 * x_{E} + 12 * x_{F} \leq 4800 \\
+      8 * x_{A} + 1 * x_{B} + 11 * x_{C} + 0 * x_{D} + 10 * x_{E} + 25 * x_{F} \leq 4800 \\
+      2 * x_{A} + 10 * x_{B} + 5 * x_{C} + 4 * x_{D} + 13 * x_{E} + 7 * x_{F} \leq 4800 \\
+      5 * x_{A} + 0 * x_{B} + 0 * x_{C} + 7 * x_{D} + 10 * x_{E} + 25 * x_{F} \leq 4800 \\
+      5 * x_{A} + 5 * x_{B} + 3 * x_{C} + 12 * x_{D} + 8 * x_{E} + 0 * x_{F} \leq 4800 \\
+      5 * x_{A} + 3 * x_{B} + 5 * x_{C} + 8 * x_{D} + 0 * x_{E} + 7 * x_{F} \leq 4800 \\
+   \end{array}
+ } $ 
+\end{center}
+
+De plus, la production est limitée par les matières premières. De fait, en appliquant les pondérations associées, on trouve :
+\begin{center}
+$\mathbf{
+   \lbrace
+   \begin{array}{c}
+      1 * x_{A} + 2 * x_{B} + 1 * x_{C} + 5 * x_{D} + 0 * x_{E} + 2 * x_{F}\leq 350 \\
+      2 * x_{A} + 2 * x_{B} + 1 * x_{C} + 2 * x_{D} + 2 * x_{E} + 2 * x_{F} \leq 620 \\
+      1 * x_{A} + 0 * x_{B} + 3 * x_{C} + 2 * x_{D} + 2 * x_{E} + 0 * x_{F} \leq 485 \\
+   \end{array}
+ } $ 
+\end{center}
+
+Par ailleurs, nous devons ajouter des contraintes de domaines. En effet, la production ne peut pas être négative. Nous avons donc :
+$ x_{A} \geq 0$, $x_{B}  \geq 0$, $x_{C} \geq 0$, $x_{D} \geq 0$, $x_{E} \geq 0$, $x_{F} \geq 0 $
+Des contraintes relatives aux différents cas d'analyses seront ajoutées aux précédentes par la suite.
 
 \section{Analyse des objectifs de chacun des cadres}
 Dans cette partie, on met en oeuvre des techniques de programmation linéaire monocritère afin de proposer individuellement à chaque cadre la solution qui permet d'optimiser son objectif métier.
@@ -108,7 +139,55 @@ T
 \subsection{Le responsable des stocks}
 O
 \subsection{Le responsable commercial}
-D
+L'objectif du commercial est de conserver une certaine diversité dans sa gamme de produits tout en produisant le plus de produits. Concrètement, l’entreprise doit produire autant de produit de la gamme 1 (composée des produits A,B,C) que de la gamme 2 (composée des produits D,E,F).
+On peut donc en déduire une contrainte d’égalité :\begin{center} $(x_{a} + x_{b} + x_{c}) - (x_{d} + x_{e} + x_{f}) = 0$ \end{center}
+
+De plus, il nous semble légitime de rajouter dans notre modèle le souhait de produire le plus de produits (comme dans le modèle du responsable atelier).
+On cherchera donc à maximiser f tel que :\begin{center} $f_{commercial}(X)=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f}$ \end{center}
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+\begin{center}
+$\mathbf{X^{*}_{commercial} = 
+   \left (
+   \begin{array}{c}
+      x_{A} = 142.12 \\
+      x_{B} = 0 \\
+      x_{C} = 44.42 \\
+      x_{D} = 0 \\
+      x_{E} = 104.81 \\
+      x_{F} = 81.73 \\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+On vérifie facilement que la contrainte inhérente au problème du commercial est respecté : le lot de produits A et C est produits en même quantité que le lot de produits E et F.
+On remarque que les produits B et D sont totalement supprimés de la production. Cette particularité montre que le modèle B demande plus de ressources et/ou de temps de travail que ses modèles équivalents (A et C) et que d'un point de vue quantitatif, il est préférable de choisir ces derniers. 
+
+\begin{center}
+\textbf{Nombre de produits total = 373.08}
+\end{center}
+
+Satisfaction des contraintes : 
+\begin{center}
+$\mathbf{A.X^{*}_{commercial} - b = 
+   \left (
+   \begin{array}{c}
+      -2846 \\
+      -2002 \\
+      -83 \\
+      -2359 \\
+      -998 \\
+      -3118 \\
+      -32952 \\
+      0 \\
+      0 \\
+      0\\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+Ces valeurs nous indiquent que les facteurs limitants de notre problème sont les ressources de productions. Une augmentation de ces dernières augmenterai le nombre maximum de produits.
+Dans ces conditions, la machine 7 est sous-exploitée tandis que la 3ème est presque en constante utilisation. Ces constatations sont explicables par l'importante productions des modèles A, E et F. 
+
 \subsection{Le responsable du personnel}
 O
 %\begin{figure}
