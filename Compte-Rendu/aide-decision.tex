@@ -29,13 +29,50 @@ et Anne \textsc{Legait}  }
 \pagebreak
 
 \section{Introduction}
+\subsection{Contexte de l'étude}
 Ce document est un compte rendu de l'étude menée par notre hexanôme H4304 pour le compte de la société FaBrique. Cette étude a pour but d'optimiser l'utilisation des ressources de l'entreprise en proposant le meilleur plan de production à mettre en place. \newline
 En premier lieu, nous considèrerons indépendamment les objectifs métiers de chacun des cadres impliqués dans cette étude d'aide à la décision pour apporter une solution optimale à chacun.
 En second lieu, nous proposons au responsable d'entreprise une solution qui satisfait au mieux l'ensemble des points de vue.
 Finalement, nous dégagerons parmi les 8 propositions de gestion de l'atelier, la solution optimale au vu des critères définis par les décideurs de l'entreprise.    
+\subsection{Notations et conventions}
+Nous expliquons dans ce paragraphe les notations qui seront adoptées dans la suite du document.
+\begin{description}
+\item[• $Z_{poste\_responsable}$ :] Fonction objectif à optimiser pour le responsable.
+\item[• $\mathbf{X = 
+   \left (
+   \begin{array}{c}
+      x_{A} \\
+      x_{B} \\
+      x_{C} \\
+      x_{D} \\
+      x_{E} \\
+      x_{F} \\
+   \end{array}
+   \right )
+ } $ :] Vecteur où chaque composante $x_{i}$ représente la production hebdomadaire de la matière $i$. Valeurs à $10^{-2}$ près.
+\end{description}
+Nous présenterons pour chaque responsable 3 résultats significatifs permettant d'analyser notre solution par rapport à l'objectif défini, il s'agit de :
+\begin{description}
 
+\item[• $\mathbf{X^{*} = 
+   \left (
+   \begin{array}{c}
+      x_{A} \\
+      x_{B} \\
+      x_{C} \\
+      x_{D} \\
+      x_{E} \\
+      x_{F} \\
+   \end{array}
+   \right )
+ } $ :] Vecteur X (défini ci-dessus) où la fonction objectif atteint son optimum.
+ \item[• ] La valeur de la fonction objectif en cet optimum.
+ \item[• $A.X^{*}-b$] : TODO (la flemme à 23h30 ^^ ) Valeurs arrondies à l'unité.
+ 
+\end{description}
 
 \section{Prise en compte des contraintes globales}
+\label{globconst}
 Deux critères nous semblent limitants d'un point de vue de la production. En effet, les machines ne peuvent fonctionner qu'en présence des ouvriers et leurs horaires de travail sont limités. Il convient donc de limiter les temps d'utilisation de chacune d'elles.
 En prenant en compte les durées de production respectives de chacun des produits sur les différentes machines, on introduit les 7 contraintes suivantes :
 \begin{center}
@@ -68,9 +105,8 @@ $\mathbf{
 Par ailleurs, nous devons ajouter des contraintes de domaines. En effet, la production ne peut pas être négative. Nous avons donc :
 $ x_{A} \geq 0$, $x_{B}  \geq 0$, $x_{C} \geq 0$, $x_{D} \geq 0$, $x_{E} \geq 0$, $x_{F} \geq 0 $
 Des contraintes relatives aux différents cas d'analyses seront ajoutées aux précédentes par la suite.
-
 \section{Analyse des objectifs de chacun des cadres}
-Dans cette partie, on met en oeuvre des techniques de programmation linéaire monocritère afin de proposer individuellement à chaque cadre la solution qui permet d'optimiser son objectif métier.
+Dans cette partie, nous mettons en œuvre des techniques de programmation linéaire monocritère afin de proposer à chaque cadre la solution qui permet d'optimiser son objectif métier.
 \subsection{Le comptable}
 L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bénéfice est calculé en tenant compte des coûts de fonctionnement des machines et du coût d'achat des matières premières. Pour chaque matière le bénéfice unitaire (i.e. pour un produit vendu) sera donc donné par la formule suivante : \begin{center} $pv - \sum_{i=1}^{3}(paMP_{i} * qteMP_{i}) - \frac{1}{60} \sum_{j=1}^{7}(tupM_{j} * chM_{j}) $ \end{center} avec: \newline 
 \begin{description}
@@ -81,11 +117,14 @@ L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bén�
 \item[$\mathbf{chM_{j} :}$] Coût horaire de la machine j.
 \end{description}
 Il en ressort le problème de programmation linéaire monocritère suivant : \newline 
+\\
 \noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
 Maximiser $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F}$ 
 \\ 
 sous les contraintes : \\
-:D Contraintes :D  }}
+	contraintes globales (cf section 2 - Prise en compte des contraintes globales )
+  }}
+\\
 \\
 On peut à partir des coefficients de la fonction objectif classer les produits selon le bénéfice unitaire qu'ils permettent de dégager. On obtient dans l'ordre décroissant de bénéfice unitaire : E, F, C, B, A, D.
 \\
@@ -135,15 +174,149 @@ machines 1 et 7 sont les moins utilisées. Ceci s’explique par le fait que ces
 pas nécessaires pour produire E qui est le produit le plus réalisé. La machine 3 est utilisée au maximum car elle est très utilisée par les produits les plus réalisés (E et F). Les matières premières 2 et 3 sont consommées au maximum. En effet ce sont les matières premières nécessaires à la production de E. La production de E est ainsi poussée au maximum (jusqu'à épuisement des matières premières nécessaires).
 
 \subsection{Le responsable d'atelier}
-T
+L'objectif du responsable d'atelier est de maximiser la quantité de produits fabriqués. 
+Il en ressort le problème de programmation linéaire monocritère suivant : \newline 
+\\
+\noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
+Maximiser $ Z_{atelier}= x_{A} + x_{B} + x_{C} + x_{D} + x_{E} + x_{F}$ 
+\\ 
+sous les contraintes : \\
+	contraintes globales (cf section 2 - Prise en compte des contraintes globales )
+  }}
+\\
+\\
+
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+
+
+
+\begin{center}
+$\mathbf{X^{*}_{atelier} = 
+   \left (
+   \begin{array}{c}
+      x_{A} = 0 \\
+      x_{B} = 56.73 \\
+      x_{C} = 38.69 \\
+      x_{D} = 0 \\
+      x_{E} = 184.46 \\
+      x_{F} = 98.92 \\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+Nous remarquons que le modèle A n'est pas du tout produit car il mobilise toutes les machines ni le produit D car il mobilise en quantité toutes les matières premières. On produit en quantité les produits B, E et F car ils n’utilisent pas toutes les matières premières. On produit aussi du C car il n’utilise pas du tout 2 machines.
+\\
+\begin{center}
+\textbf{Quantité totale maximale de produits réalisés = 378.81}
+\end{center}
+La quantité est cohérente car celle-ci ne peut dépasser 620 (quantité maximale de matière
+première 2, matière qui est toujours utilisée). La plupart des produits utilisent 2 unités de 
+matière première 2 ce qui nous rapproche de 310. Les autres matières premières ont un maximum du même ordre de grandeur.
+
+Satisfaction des contraintes : 
+\begin{center}
+$\mathbf{A.X^{*}_{atelier} - b = 
+   \left (
+   \begin{array}{c}
+      -2960 \\
+      -2188 \\
+      0 \\
+      -949 \\
+      -482\\
+      -2925 \\
+      -3744 \\
+      0 \\
+      0 \\
+      0\\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+D’après les 3 dernières lignes, toutes les matières premières ont été utilisées au maximum, ce 
+qui signifie qu’on a fabriqué le maximum de produits possibles. L'objectif est donc atteint.
+
 \subsection{Le responsable des stocks}
-O
+L'objectif du responsable des stocks est de minimiser le nombre de produits dans son stock. \\
+TODO: Expliquer comment les coeff sont obtenus.
+Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulle (de l'ordre de $ 10 ^{-16}$ ).\\
+Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale. 
+Il en ressort le problème de programmation linéaire monocritère suivant :\\
+\\
+\noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
+Minimiser $ Z_{stocks}= 5*x_{A} + 5*x_{B} + 6*x_{C} + 10*x_{D} + 5*x_{E} + 4*x_{F}$ 
+\\ 
+sous les contraintes : \\
+	contraintes globales (cf section 2 - Prise en compte des contraintes globales ),\\
+	$ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
+	
+  }}
+\\
+\\
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+
+\begin{center}
+$\mathbf{X^{*}_{stocks} = 
+   \left (
+   \begin{array}{c}
+      x_{A} = 0 \\
+      x_{B} = 0 \\
+      x_{C} = 0 \\
+      x_{D} = 0 \\
+      x_{E} = 13.74 \\
+      x_{F} = 175 \\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+
+TODO : Analyser le résultat
+\\
+\begin{center}
+\textbf{Quantité minimale de produits en stock = 768.70}
+\end{center}
+
+TODO : Analyser le résultat
+
+Satisfaction des contraintes : 
+\begin{center}
+$\mathbf{A.X^{*}_{stocks} - b = 
+   \left (
+   \begin{array}{c}
+      -3050 \\
+      -2604 \\
+      0 \\
+      -288 \\
+      -3396\\
+      -288 \\
+      -4690 \\
+      -3575 \\
+      -418 \\
+      -458\\
+      0\\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+
+TODO : Analyser résulats
+
 \subsection{Le responsable commercial}
 L'objectif du commercial est de conserver une certaine diversité dans sa gamme de produits tout en produisant le plus de produits. Concrètement, l’entreprise doit produire autant de produit de la gamme 1 (composée des produits A,B,C) que de la gamme 2 (composée des produits D,E,F).
 On peut donc en déduire une contrainte d’égalité :\begin{center} $(x_{a} + x_{b} + x_{c}) - (x_{d} + x_{e} + x_{f}) = 0$ \end{center}
 
 De plus, il nous semble légitime de rajouter dans notre modèle le souhait de produire le plus de produits (comme dans le modèle du responsable atelier).
-On cherchera donc à maximiser f tel que :\begin{center} $f_{commercial}(X)=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f}$ \end{center}
+Il en ressort le problème de programmation linéaire monocritère suivant :\\
+\\
+\noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
+Maximiser $ Z_{commercial}(X)=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f}$ 
+\\ 
+sous les contraintes : \\
+	contraintes globales (cf section 2 - Prise en compte des contraintes globales ),\\
+	$(x_{a} + x_{b} + x_{c}) - (x_{d} + x_{e} + x_{f}) = 0$
+	
+  }}
+\\
+\\
 La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
 \begin{center}
 $\mathbf{X^{*}_{commercial} = 
@@ -177,7 +350,7 @@ $\mathbf{A.X^{*}_{commercial} - b =
       -2359 \\
       -998 \\
       -3118 \\
-      -32952 \\
+      -3295 \\
       0 \\
       0 \\
       0\\
@@ -189,7 +362,65 @@ Ces valeurs nous indiquent que les facteurs limitants de notre problème sont le
 Dans ces conditions, la machine 7 est sous-exploitée tandis que la 3ème est presque en constante utilisation. Ces constatations sont explicables par l'importante productions des modèles A, E et F. 
 
 \subsection{Le responsable du personnel}
-O
+L'objectif du responsable du personnel est de minimiser l'usage des machines 3 et 5 (ces machines étant délicates). 
+\\
+TODO : EExpliquer calcul des coefficients\\
+De même que pour le responsable des stocks, il faudra rajouter ici une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles. Nous avons retenu la même contrainte à savoir : le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale.
+ 
+
+Il en ressort le problème de programmation linéaire monocritère suivant :\\
+\\
+\noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
+Minimiser $ Z_{personnel}= 13*x_{A} + x_{B} + 11*x_{C} + 7*x_{D} + 20*x_{E} + 50*x_{F}$ 
+\\ 
+sous les contraintes : \\
+	contraintes globales (cf section 2 - Prise en compte des contraintes globales ),\\
+	$ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
+	
+  }}
+\\
+\\
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+\begin{center}
+$\mathbf{X^{*}_{personnel} = 
+   \left (
+   \begin{array}{c}
+      x_{A} = 0 \\
+      x_{B} = 175.00 \\
+      x_{C} = 0 \\
+      x_{D} = 0 \\
+      x_{E} = 100.38 \\
+      x_{F} = 0 \\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+TODO : Analyser résultats.
+
+\begin{center}
+\textbf{Usage minimal des machines en ?? = 2182.7}
+\end{center}
+
+Satisfaction des contraintes : 
+\begin{center}
+$\mathbf{A.X^{*}_{personnel} - b = 
+   \left (
+   \begin{array}{c}
+      -2175 \\
+      -3922 \\
+      -3612 \\
+      -1745 \\
+      -3792 \\
+      -3122 \\
+      -4275 \\
+      0 \\
+      -69 \\
+      -284\\
+   \end{array}
+   \right )
+ } $ 
+\end{center}
+TODO : Analyser résultats 
 %\begin{figure}
 %	\begin{center}
 %	\includegraphics[scale=0.7]{UML.png}

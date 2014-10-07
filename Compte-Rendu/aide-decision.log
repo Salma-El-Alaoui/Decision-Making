@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.31)  5 OCT 2014 23:53
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.31)  7 OCT 2014 23:34
 entering extended mode
 **aide-decision.tex
 (C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.tex
@@ -188,62 +188,179 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 (C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 5.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
+(Font)              <6> on input line 3.
 )
 \tf@toc=\write3
 
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
+
+(C:\Users\Zied\Desktop\Latex\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 40.
+ [2]
+(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-1.def
+File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
+)
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 119--132
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 52--62
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 119--132
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--62
+Underfull \hbox (badness 10000) in paragraph at lines 119--132
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 76--79
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--132
 
  []
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [3] [4]
-(C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--149
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 177--188
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 177--188
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 239--256
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 239--256
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 307--321
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 307--321
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--321
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--321
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 371--384
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 371--384
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--384
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--384
+
+ []
+
+[8] [9] (C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.aux
+) ) 
 Here is how much of TeX's memory you used:
- 3059 strings out of 493921
- 39943 string characters out of 3147284
- 102165 words of memory out of 3000000
- 6337 multiletter control sequences out of 15000+200000
- 9836 words of font info for 35 fonts, out of 3000000 for 9000
+ 3690 strings out of 493921
+ 46453 string characters out of 3147284
+ 103165 words of memory out of 3000000
+ 6961 multiletter control sequences out of 15000+200000
+ 10091 words of font info for 36 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,9n,43p,500b,597s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/U
-sers/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Zie
-d/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Zied/Desktop
-/Latex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Zied/Desktop/Latex/
-fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Zied/Desktop/Latex/fonts/ty
-pe1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/publ
-ic/amsfonts/cm/cmmi8.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmr
-17.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:
-/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Z
-ied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on aide-decision.pdf (4 pages, 128319 bytes).
+ 27i,10n,43p,500b,597s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/
+Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Zi
+ed/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Zied/Deskto
+p/Latex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Zied/Desktop/Latex
+/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Zied/Desktop/Latex/fonts/t
+ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cm
+r17.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
+:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
+Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on aide-decision.pdf (9 pages, 159043 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
