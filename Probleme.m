@@ -40,6 +40,31 @@ LB = zeros (6,1);
  
  %% ================ Partie 2: Programmation linéaire multicritère ================
 % On calcule la matrice de gain pour les différentes solutions trouvées précédemment. 
-% On maximise toutes les fonctions sauf fstock et fpers.
+% On maximise toutes les fonctions sauf fstock et fpers (et fm3 et fm5).
 
-MG = MatriceGain( Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock,fpers, fm3, fm5 )
+MG = MatriceGain( Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock,fpers, fm3, fm5 );
+Moy = sum(MG,1)/5;
+Med = median(MG,1);
+
+% réecriture du problème
+% On veut maximiser le bénefice. On transforme les autres fonctions
+% objectif en contraintes.
+A2 = [A;(-fatel)';fstock';(-fcom)';fpers';fm3';fm5'];
+B2 = [B; -360; 1690; -190; 9000; 4700; 4320]; 
+[X1, opt1, C1, fcompta] = Comptable(A2,B2,LB)
+%On essaye d'améliorer les critères
+ajustement = eye(16,16);
+ajustement(:,11)= ajustement(:,11)*1.1;
+ajustement(:,12)= ajustement(:,12)*1.1;
+ajustement(:,13)= ajustement(:,13)*1.1;
+ajustement(:,14)= ajustement(:,14)*1.1;
+ajustement(:,15)= ajustement(:,15)*1.1;
+ajustement(:,16)= ajustement(:,16)*1.1;
+
+B3 =  ajustement*B2
+[X2, opt2, C2, fcompta] = Comptable(A2,B3,LB)
+
+
+
+
+
