@@ -42,4 +42,4 @@ LB = zeros (6,1);
 % On calcule la matrice de gain pour les différentes solutions trouvées précédemment. 
 % On maximise toutes les fonctions sauf fstock et fpers.
 
-MG = MatriceGain(Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock, fcom,fpers) 
+MG = MatriceGain(Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock, fcom,fpers);
