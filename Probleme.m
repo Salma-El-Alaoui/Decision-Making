@@ -36,10 +36,10 @@ LB = zeros (6,1);
  % ====================== Responsable commercial ======================
  [Xcom, optcom, Ccom, fcom] = Commercial(A,B,LB);
  % ====================== Responsable du personnal ======================
- [Xpers, optpers, Cpers, fpers] = Personnel(A,B,LB);
+ [Xpers,Xm3, Xm5, opt,opt3, opt5,C,Cm3, Cm5 ,fpers, fm3, fm5 ] = Personnel(A,B,LB);
  
  %% ================ Partie 2: Programmation linéaire multicritère ================
 % On calcule la matrice de gain pour les différentes solutions trouvées précédemment. 
 % On maximise toutes les fonctions sauf fstock et fpers.
 
-MG = MatriceGain(Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock, fcom,fpers);
+MG = MatriceGain( Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock,fpers, fm3, fm5 )
