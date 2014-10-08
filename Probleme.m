@@ -22,19 +22,24 @@ B = [ 4800 ; 4800; 4800; 4800;4800; 4800; 4800; 350; 620; 485];
 % vecteur de containtes de domaine
 LB = zeros (6,1);
 
-%% ================ Partie 1: Programmation linéaire mono-critère ================
+%% ================ Partie 1: Programmation linéaire monocritère ================
 
 % Chaque cadre ayant un objectif de production, il faut dans un premier
 % temps considérer indépendamment chacun des objectifs.
 
  % ====================== Comptable ======================
- [Xcompta, optcompta, Ccompta] = Comptable(A,B,LB);
+ [Xcompta, optcompta, Ccompta, fcompta] = Comptable(A,B,LB);
  % ====================== Responsable d'atelier ======================
- [Xatel, optatel, Catel] = Atelier(A,B,LB);
+ [Xatel, optatel, Catel, fatel] = Atelier(A,B,LB);
  % ====================== Responsable des stocks ======================
- [Xstock, optstock, Cstock] = Stock(A,B,LB);
+ [Xstock, optstock, Cstock, fstock] = Stock(A,B,LB);
  % ====================== Responsable commercial ======================
- [Xcom, optcom, Ccom] = Commercial(A,B,LB);
+ [Xcom, optcom, Ccom, fcom] = Commercial(A,B,LB);
  % ====================== Responsable du personnal ======================
- [Xpers, optpers, Cpers] = Personnel(A,B,LB);
+ [Xpers, optpers, Cpers, fpers] = Personnel(A,B,LB);
  
+ %% ================ Partie 2: Programmation linéaire multicritère ================
+% On calcule la matrice de gain pour les différentes solutions trouvées précédemment. 
+% On maximise toutes les fonctions sauf fstock et fpers.
+
+MG = MatriceGain(Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock, fcom,fpers) 

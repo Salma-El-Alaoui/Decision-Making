@@ -1,4 +1,4 @@
-function [ X, opt, C ] = Stock( A, B, LB )
+function [ X, opt, C, f ] = Stock( A, B, LB )
 %On veut minimiser la fonction objectif des stocks
 % On rajoute une contrainte pour assurer un bénéfice minimum 
 

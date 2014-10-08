@@ -1,4 +1,4 @@
-function [ X, opt, C ] = Personnel( A, B, LB )
+function [ X, opt, C,f ] = Personnel( A, B, LB )
 %On veut minimiser la fonction objectif du personnel
 %On veut un bénéfice minimum de 50% du bénéfice optimal
 

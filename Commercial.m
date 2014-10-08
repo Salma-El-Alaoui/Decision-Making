@@ -1,6 +1,5 @@
-function [ X, opt, C ] = Commercial( A, B, lb )
+function [ X, opt, C, FMax ] = Commercial( A, B, lb )
 %Commercial 
-%
 
 Aeq = [1, 1, 1, -1, -1, -1];
 Beq = 0;
