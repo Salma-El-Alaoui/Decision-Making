@@ -1,21 +1,21 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.31)  7 OCT 2014 23:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.10.7)  8 OCT 2014 09:58
 entering extended mode
 **aide-decision.tex
-(C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.tex
+(D:\Smartgit_INSA\Repositories\Aide-Decision\Compte-Rendu\aide-decision.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
 croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
 ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
  lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(C:\Users\Zied\Desktop\Latex\tex\latex\base\article.cls
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(C:\Users\Zied\Desktop\Latex\tex\latex\base\size12.clo
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,10 +30,10 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\ucs.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucs.sty"
 Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-global.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-global.def"
 File: uni-global.def 2013/05/13 UCS: Unicode global data
 )
 \uc@secondtry=\count87
@@ -41,27 +41,27 @@ File: uni-global.def 2013/05/13 UCS: Unicode global data
 \uc@combtoksb=\toks15
 \uc@temptokena=\toks16
 )
-(C:\Users\Zied\Desktop\Latex\tex\latex\base\inputenc.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\utf8x.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\utf8x.def"
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 ))
-(C:\Users\Zied\Desktop\Latex\tex\generic\babel\babel.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\Zied\Desktop\Latex\tex\latex\00miktex\bblopts.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-(C:\Users\Zied\Desktop\Latex\tex\generic\babel\frenchb.ldf
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\frenchb.ldf"
 Language: frenchb 2009/03/16 v2.3d French support from the babel system
 
-(C:\Users\Zied\Desktop\Latex\tex\generic\babel\babel.def
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
@@ -78,13 +78,13 @@ Package babel Info: Making ? an active character on input line 123.
 *************************************
 * Local config file frenchb.cfg used
 *
-(C:\Users\Zied\Desktop\Latex\tex\generic\babel\frenchb.cfg)))
-(C:\Users\Zied\Desktop\Latex\tex\latex\carlisle\scalefnt.sty)
-(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\keyval.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\frenchb.cfg")))
+("C:\Program Files\MiKTeX 2.9\tex\latex\carlisle\scalefnt.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks19
 )
-(C:\Users\Zied\Desktop\Latex\tex\latex\fancyhdr\fancyhdr.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -95,27 +95,27 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
 )
-(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\graphicx.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\graphics.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\graphics\trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(C:\Users\Zied\Desktop\Latex\tex\latex\00miktex\graphics.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\pdftex-def\pdftex.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(C:\Users\Zied\Desktop\Latex\tex\generic\oberdiek\infwarerr.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(C:\Users\Zied\Desktop\Latex\tex\generic\oberdiek\ltxcmds.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count91
@@ -123,7 +123,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen106
 \Gin@req@width=\dimen107
 )
-(C:\Users\Zied\Desktop\Latex\tex\latex\ulem\ulem.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ulem\ulem.sty"
 \UL@box=\box26
 \UL@hyphenbox=\box27
 \UL@skip=\skip52
@@ -135,11 +135,11 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 Package: ulem 2012/05/18
 \ULdepth=\dimen110
 )
-(C:\Users\Zied\Desktop\Latex\tex\latex\preprint\fullpage.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip53
 )
-(C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.aux)
+(D:\Smartgit_INSA\Repositories\Aide-Decision\Compte-Rendu\aide-decision.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
@@ -153,7 +153,7 @@ LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\ucsencs.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucsencs.def"
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 LaTeX Info: Redefining \degres on input line 22.
@@ -165,7 +165,7 @@ Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
 (frenchb.ldf)                of your document, on input line 22.
 
-(C:\Users\Zied\Desktop\Latex\tex\context\base\supp-pdf.mkii
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count93
 \scratchdimen=\dimen111
@@ -178,7 +178,7 @@ Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 \MPnumerator=\count97
 \makeMPintoPDFobject=\count98
 \everyMPtoPDFconversion=\toks22
-) (C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-0.def
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-0.def"
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -186,7 +186,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 24.
 
-(C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.toc
+(D:\Smartgit_INSA\Repositories\Aide-Decision\Compte-Rendu\aide-decision.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -199,18 +199,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-32.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-32.def"
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
 
-(C:\Users\Zied\Desktop\Latex\tex\latex\base\omscmr.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 40.
  [2]
-(C:\Users\Zied\Desktop\Latex\tex\latex\ucs\uni-1.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-1.def"
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 )
 Underfull \hbox (badness 10000) in paragraph at lines 111--112
@@ -337,30 +337,191 @@ Underfull \hbox (badness 10000) in paragraph at lines 371--384
 
  []
 
-[8] [9] (C:\Users\Zied\Desktop\4IF\Aide-Decision\Compte-Rendu\aide-decision.aux
-) ) 
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 432--434
+
+ []
+
+[9]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 474.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 474.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 474.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 474.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 474.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 474.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 475.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 475.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 475.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 475.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 475.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 476.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 476.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 476.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 476.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 476.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 477.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 477.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 477.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 477.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 477.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 478.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 478.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 478.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 478.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 478.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 487.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 487.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 487.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 487.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 487.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 488.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 488.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 488.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 488.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 488.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 489.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 489.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 489.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 489.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 489.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 490.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 490.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 490.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 490.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 490.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 491.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 491.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 491.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 491.
+
+
+LaTeX Warning: Command \textbullet invalid in math mode on input line 491.
+
+[10]
+(D:\Smartgit_INSA\Repositories\Aide-Decision\Compte-Rendu\aide-decision.aux) ) 
 Here is how much of TeX's memory you used:
- 3690 strings out of 493921
- 46453 string characters out of 3147284
- 103165 words of memory out of 3000000
- 6961 multiletter control sequences out of 15000+200000
- 10091 words of font info for 36 fonts, out of 3000000 for 9000
+ 3693 strings out of 493921
+ 46524 string characters out of 3147276
+ 105165 words of memory out of 3000000
+ 6963 multiletter control sequences out of 15000+200000
+ 10438 words of font info for 37 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,10n,43p,500b,597s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/
-Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Zi
-ed/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Zied/Deskto
-p/Latex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Zied/Desktop/Latex
-/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Zied/Desktop/Latex/fonts/t
-ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfo
-nts/cm/cmr12.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cm
-r17.pfb><C:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
-:/Users/Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
-Zied/Desktop/Latex/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on aide-decision.pdf (9 pages, 159043 bytes).
+<
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on aide-decision.pdf (10 pages, 173336 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
