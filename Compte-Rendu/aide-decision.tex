@@ -8,7 +8,9 @@
 \usepackage{amsmath}
 \usepackage{ragged2e}
 \usepackage{tcolorbox}
-
+\usepackage[a4paper,pdftex]{geometry}	% Use A4 paper margins
+\usepackage{xcolor} % Required for specifying custom colors
+\usepackage{fix-cm} % Allows increasing the font size of specific fonts beyond LaTeX default specifications
 \usepackage{fancyhdr, graphicx}
 \usepackage[normalem]{ulem}
 \usepackage{fullpage}
@@ -18,20 +20,60 @@
 \newcommand*\bulet{\item[$\bullet$]}
 \newcommand*\diamont{\item[$\diamond$]}
 
+\setlength{\oddsidemargin}{0mm} % Adjust margins to center the colored title box
+\setlength{\evensidemargin}{0mm} % Margins on even pages - only necessary if adding more content to this template
+
+\newcommand{\HRule}[1]{\hfill \rule{0.2\linewidth}{#1}} % Horizontal rule at the bottom of the page, adjust width here
+
+\definecolor{grey}{rgb}{0.9,0.9,0.9} % Color of the box surrounding the title - these values can be changed to give the box a different color	
+%----------------------------------------------------------------------------------------
 \title{Projet d'aide à la décision \\ Compte rendu client.}
 \date{\today}
 \author{Ségolène Minjard \and Salma El-Alaoui-Talibi \and Quentin Dupont \and Donovan Fournier \and Benjamin Legrand \and Zied Thabet \and Hexanôme H4304 \\ \\ Enseignants: Maryvonne \textsc{Miquel}
 et Anne \textsc{Legait}  }
 
 \begin{document}
+\thispagestyle{empty} % Remove page numbering on this page
 
-\maketitle
+%----------------------------------------------------------------------------------------
+\colorbox{grey}{
+	\parbox[t]{1.0\linewidth}{
+		\centering \fontsize{40pt}{80pt}\selectfont % The first argument for fontsize is the font size of the text and the second is the line spacing - you may need to play with these for your particular title
+		\vspace*{0.7cm} % Space between the start of the title and the top of the grey box
+		
+		\hfill Aide à la décision \\
+		\hfill Compte rendu client\par
+		
+		\vspace*{0.7cm} % Space between the end of the title and the bottom of the grey box
+	}
+}
+
+%----------------------------------------------------------------------------------------
+
+\vfill % Space between the title box and author information
+
+%----------------------------------------------------------------------------------------
+
+{\centering \large 
+\hfill Salma El Alaoui Talibi \\
+\hfill Zied Thabet \\
+\hfill Donovan Fournier \\
+\hfill Ségolène Minjard \\
+\hfill Benjamin Legrand \\
+\hfill Quentin Dupont \\
+\hfill \texttt{H 4304} \\
+
+\HRule{1.5pt}} % Horizontal line, thickness changed here
+
+%----------------------------------------------------------------------------------------
+
+\clearpage % Whitespace to the end of the page
 
 \vspace{25pt}
 \setcounter{tocdepth}{2}
 \tableofcontents % needs 2compilations
 \pagebreak
-
+%----------------------------------------------------------------------------------------
 \section{Introduction}
 \subsection{Contexte de l'étude}
 Ce document est un compte rendu de l'étude menée par notre hexanôme H4304 pour le compte de la société FaBrique. Cette étude a pour but d'optimiser l'utilisation des ressources de l'entreprise en proposant le meilleur plan de production à mettre en place. \newline
@@ -377,7 +419,7 @@ Il en ressort le problème de programmation linéaire mono-critère suivant :
 \begin{tcolorbox}
 Minimiser
 \begin{equation*}
- Z_{personnel}= 13*x_{A} + x_{B} + 11*x_{C} + 7*x_{D} + 20*x_{E} + 50*x_{F}
+ Z_{personnel}= 13x_{A} + x_{B} + 11x_{C} + 7x_{D} + 20x_{E} + 50x_{F}
 \end{equation*}
 Sous les contraintes :
 \begin{itemize}
