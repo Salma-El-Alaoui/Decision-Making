@@ -7,6 +7,8 @@
 %amazing maths packages
 \usepackage{amsmath}
 \usepackage{ragged2e}
+\usepackage{tcolorbox}
+
 \usepackage{fancyhdr, graphicx}
 \usepackage[normalem]{ulem}
 \usepackage{fullpage}
@@ -99,70 +101,69 @@ En prenant en compte les durées de production respectives de chacun des produit
 \right\}
 \end{equation*}
 De plus, la production est limitée par les matières premières. De fait, en appliquant les pondérations associées, on trouve :
-\begin{center}
-$\mathbf{
-   \lbrace
-   \begin{array}{c}
-      1 * x_{A} + 2 * x_{B} + 1 * x_{C} + 5 * x_{D} + 0 * x_{E} + 2 * x_{F}\leq 350 \\
-      2 * x_{A} + 2 * x_{B} + 1 * x_{C} + 2 * x_{D} + 2 * x_{E} + 2 * x_{F} \leq 620 \\
-      1 * x_{A} + 0 * x_{B} + 3 * x_{C} + 2 * x_{D} + 2 * x_{E} + 0 * x_{F} \leq 485 \\
-   \end{array}
- } $ 
-\end{center}
-
+\begin{equation*}
+\left.
+\begin{aligned}
+         1x_{A} + 2x_{B} + 1x_{C} + 5x_{D} + 0x_{E} + 2x_{F} &\leq 350 \quad\\
+      2x_{A} + 2x_{B} + 1x_{C} + 2x_{D} + 2x_{E} + 2x_{F} &\leq 620 \\
+      1x_{A} + 0x_{B} + 3x_{C} + 2x_{D} + 2x_{E} + 0x_{F} &\leq 485 \\
+\end{aligned}
+\right\}
+\end{equation*}
 Par ailleurs, nous devons ajouter des contraintes de domaines. En effet, la production ne peut pas être négative. Nous avons donc :
-$ x_{A} \geq 0$, $x_{B}  \geq 0$, $x_{C} \geq 0$, $x_{D} \geq 0$, $x_{E} \geq 0$, $x_{F} \geq 0 $
+\(x_{A} \geq 0\), \(x_{B} \geq\), \(x_{C} \geq 0\), \(x_{D} \geq 0\), \(x_{E} \geq 0\), \(x_{F} \geq 0 \).
 Des contraintes relatives aux différents cas d'analyses seront ajoutées aux précédentes par la suite.
 \section{Analyse des objectifs de chacun des cadres : programmation linéaire monocritère}
 Dans cette partie, nous mettons en œuvre des techniques de programmation linéaire monocritère afin de proposer à chaque cadre la solution qui permet d'optimiser son objectif métier.
 \subsection{Le comptable}
-L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bénéfice est calculé en tenant compte des coûts de fonctionnement des machines et du coût d'achat des matières premières. Pour chaque produit le bénéfice unitaire (i.e. pour un produit vendu) sera donc donné par la formule suivante : \begin{center} $pv - \sum_{i=1}^{3}(paMP_{i} * qteMP_{i}) - \frac{1}{60} \sum_{j=1}^{7}(tupM_{j} * chM_{j}) $ \end{center} avec:
+L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bénéfice est calculé en tenant compte des coûts de fonctionnement des machines et du coût d'achat des matières premières. Pour chaque produit le bénéfice unitaire (i.e. pour un produit vendu) sera donc donné par la formule suivante : 
+\begin{equation*} 
+pv - \sum_{i=1}^{3}(paMP_{i} * qteMP_{i}) - \frac{1}{60} \sum_{j=1}^{7}(tupM_{j} * chM_{j})  
+\end{equation*}
 \begin{description}
-\item[pv: ]Prix de vente du produit considéré fini.
-\item[$\mathbf{paMP_{i} :}$] Le prix d'achat de la matière première de numéro i.
-\item[$\mathbf{qteMP_{i} :}$] La quantité de matière première i, nécessaire pour la fabrication du produit considéré.
-\item[$\mathbf{tupM_{j} :}$] Temps unitaire d'usinage du produit considéré sur la machine j.
-\item[$\mathbf{chM_{j} :}$] Coût horaire de la machine j.
+\item[$\boldsymbol{pv}$]\hfill \\Prix de vente du produit considéré fini.
+\item[$\boldsymbol{paMP_{i}}$]\hfill \\ Le prix d'achat de la matière première de numéro i.
+\item[$\boldsymbol{qteMP_{i}}$]\hfill \\ La quantité de matière première i, nécessaire pour la fabrication du produit considéré.
+\item[$\boldsymbol{tupM_{j}}$]\hfill \\ Temps unitaire d'usinage du produit considéré sur la machine j.
+\item[$\boldsymbol{chM_{j}}$]\hfill \\ Coût horaire de la machine j.
 \end{description}
-Il en ressort le problème de programmation linéaire monocritère suivant : \newline 
-\\
-\noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
-Maximiser $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F}$ 
-\\ 
-sous les contraintes : \\
-	contraintes globales (cf section 2 - Prise en compte des contraintes globales )
-  }}
-\\
-\\
-On peut à partir des coefficients de la fonction objectif classer les produits selon le bénéfice unitaire qu'ils permettent de dégager. On obtient dans l'ordre décroissant de bénéfice unitaire : E, F, C, B, A, D.
-\\
-La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
-\begin{center}
-$\mathbf{X^{*}_{comptable} = 
+Il en ressort le problème de programmation linéaire monocritère suivant:
+\begin{tcolorbox}
+Minimiser
+\begin{align*}
+Z_{comptable}= 5.67x_{A} +11.88x_{B} +12.27x_{C} +1.03x_{D} +31.65x_{E} +27.55x_{F}
+\end{align*}
+Sous les contraintes :
+\begin{itemize}
+\item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
+\end{itemize}
+\end{tcolorbox}
+On peut à partir des coefficients de la fonction objectif classer les produits selon le bénéfice unitaire qu'ils permettent de dégager. On obtient dans l'ordre décroissant de bénéfice unitaire : E, F, C, B, A, D.\\
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :
+\begin{align*} 
+	\boldsymbol{X^{*}_{comptable} = 
    \left (
-   \begin{array}{c}
-      x_{A} = 0 \\
-      x_{B} = 20.41 \\
-      x_{C} = 0 \\
-      x_{D} = 0 \\
-      x_{E} = 242.50 \\
-      x_{F} = 94.18 \\
-   \end{array}
+   \begin{aligned}
+      x_{A} &= 0 \\
+      x_{B} &= 20.41 \\
+      x_{C} &= 0 \\
+      x_{D} &= 0 \\
+      x_{E} &= 242.50 \\
+      x_{F} &= 94.18 
+   \end{aligned}
    \right )
- } $ 
-\end{center}
+ }
+\end{align*}
 On constate que les produits les plus rentables (E puis F) sont beaucoup produits. Les produits
 les moins rentables (A et D) ne sont pas du tout produits. Le produit C est légèrement plus rentable que le produit B mais B est préféré à C car il n'utilise pas la matière première 3 qui est beaucoup utilisée par E (présence d'une contrainte sur l'utilisation des matières premières).
-\\
-\begin{center}
+\begin{align*}
 \textbf{Bénéfice maximal = 10512}
-\end{center}
-
-Satisfaction des contraintes : 
-\begin{center}
-$\mathbf{A.X^{*}_{comptable} - b = 
+\end{align*}
+Satisfaction des contraintes: 
+\begin{align*} 
+	\boldsymbol{A.X^{*}_{comptable} - b = 
    \left (
-   \begin{array}{c}
+   \begin{aligned}
       -3552 \\
       -1952 \\
       0 \\
@@ -173,9 +174,11 @@ $\mathbf{A.X^{*}_{comptable} - b =
       -121 \\
       0 \\
       0\\
-   \end{array}
-   \right )
- } $ 
+   \end{aligned}
+   \right )}
+\end{align*}
+\begin{center}
+
 \end{center}
 Les 7 premières lignes correspondent à l’utilisation des machines. On constate que les
 machines 1 et 7 sont les moins utilisées. Ceci s’explique par le fait que ces machines ne sont
@@ -248,18 +251,18 @@ Cette quantité est calculée en ajoutant le nombre de matières premières util
 \end{description}
 Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulle (de l'ordre de $ 10 ^{-16}$ ).\\
 Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale. 
-Il en ressort le problème de programmation linéaire monocritère suivant :\\
-\\
-\noindent\fbox{\parbox{\linewidth\fboxrule-2\fboxsep}{
-Minimiser $ Z_{stocks}= 5*x_{A} + 5*x_{B} + 6*x_{C} + 10*x_{D} + 5*x_{E} + 4*x_{F}$ 
-\\ 
-sous les contraintes : \\
-	contraintes globales (cf section 2 - Prise en compte des contraintes globales ),\\
-	$ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
-	
-  }}
-\\
-\\
+Il en ressort le problème de programmation linéaire monocritère suivant:
+\begin{tcolorbox}
+Minimiser \\
+\begin{equation*}
+ Z_{stocks}= 5x_{A} + 5x_{B} + 6x_{C} + 10x_{D} + 5x_{E} + 4x_{F}
+\end{equation*}
+Sous les contraintes :
+\begin{itemize}
+\item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
+\item $Z_{comptable}= 5.67x_{A} +11.88x_{B} +12.27x_{C} +1.03x_{D} +31.65x_{E} +27.55x_{F} \geq 5256$
+\end{itemize}
+\end{tcolorbox}
 La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
 
 \begin{center}
