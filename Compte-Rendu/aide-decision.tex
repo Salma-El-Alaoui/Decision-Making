@@ -4,7 +4,8 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[frenchb]{babel}
 %\usepackage{fontenc}
-
+\usepackage{amsmath}
+\usepackage{ragged2e}
 \usepackage{fancyhdr, graphicx}
 \usepackage[normalem]{ulem}
 \usepackage{fullpage}
@@ -36,9 +37,14 @@ En second lieu, nous proposons au responsable d'entreprise une solution qui sati
 Finalement, nous dégagerons parmi les 8 propositions de gestion de l'atelier, la solution optimale au vu des critères définis par les décideurs de l'entreprise.    
 \subsection{Notations et conventions}
 Nous expliquons dans ce paragraphe les notations qui seront adoptées dans la suite du document.
-\begin{description}
-\item[• $Z_{poste\_responsable}$ :] Fonction objectif à optimiser pour le responsable.
-\item[• $\mathbf{X = 
+\begin{itemize}
+\item Fonction objectif à optimiser pour le responsable.
+\begin{align*} 
+	\boldsymbol{Z_{poste\_responsable}}
+\end{align*}
+\item Vecteur où chaque composante $x_{i}$ représente la production hebdomadaire du produit $i$. Les valeurs sont à $10^{-2}$ près.
+\begin{align*} 
+	\boldsymbol{X = 
    \left (
    \begin{array}{c}
       x_{A} \\
@@ -48,12 +54,14 @@ Nous expliquons dans ce paragraphe les notations qui seront adoptées dans la su
       x_{E} \\
       x_{F} \\
    \end{array}
-   \right )
- } $ :] Vecteur où chaque composante $x_{i}$ représente la production hebdomadaire du produit $i$. Valeurs à $10^{-2}$ près.
-\end{description}
+   \right )}
+\end{align*}
+\end{itemize}
 Nous présenterons pour chaque responsable 3 résultats significatifs permettant d'analyser notre solution par rapport à l'objectif défini, il s'agit de :
-\begin{description}
-\item[• $\mathbf{X^{*} = 
+\begin{itemize}
+\item Vecteur X (défini ci-dessus) où la fonction objectif atteint son optimum.
+\begin{align*}
+\boldsymbol{X^{*} = 
    \left (
    \begin{array}{c}
       x_{A} \\
@@ -63,12 +71,14 @@ Nous présenterons pour chaque responsable 3 résultats significatifs permettant
       x_{E} \\
       x_{F} \\
    \end{array}
-   \right )
- } $ :] Vecteur X (défini ci-dessus) où la fonction objectif atteint son optimum.
- \item[• ] La valeur de la fonction objectif en cet optimum.
- \item[• $A.X^{*}-b$] : Vecteur donnant la distance entre les contraintes et la solution optimale. Valeurs arrondies à l'unité.
- 
-\end{description}
+   \right )}
+ \end{align*}
+ \item La valeur de la fonction objectif en cet optimum.
+ \item Vecteur donnant la distance entre les contraintes et la solution optimale. Valeurs arrondies à l'unité.
+ \begin{align*} 
+ \boldsymbol{A.X^{*}-b}
+ \end{align*}
+\end{itemize}
 
 \section{Prise en compte des contraintes globales}
 \label{globconst}
