@@ -4,6 +4,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[frenchb]{babel}
 %\usepackage{fontenc}
+%amazing maths packages
 \usepackage{amsmath}
 \usepackage{ragged2e}
 \usepackage{fancyhdr, graphicx}
@@ -74,31 +75,29 @@ Nous présenterons pour chaque responsable 3 résultats significatifs permettant
    \right )}
  \end{align*}
  \item La valeur de la fonction objectif en cet optimum.
- \item Vecteur donnant la distance entre les contraintes et la solution optimale. Valeurs arrondies à l'unité.
+ \item Vecteur donnant la distance entre les contraintes et la solution optimale. Les valeurs sont arrondies à l'unité.
  \begin{align*} 
  \boldsymbol{A.X^{*}-b}
  \end{align*}
 \end{itemize}
-
 \section{Prise en compte des contraintes globales}
 \label{globconst}
 Deux critères nous semblent limitants d'un point de vue de la production. En effet, les machines ne peuvent fonctionner qu'en présence des ouvriers et leurs horaires de travail sont limités. Il convient donc de limiter les temps d'utilisation de chacune d'elles.
 En prenant en compte les durées de production respectives de chacun des produits sur les différentes machines, on introduit les 7 contraintes suivantes :
-\begin{center}
-$\mathbf{ 
-   \lbrace
-   \begin{array}{c}
-      8 * x_{A} + 15 * x_{B} + 0 * x_{C} + 5 * x_{D} + 0 * x_{E} + 10 * x_{F}\leq 4800 \\
-      7 * x_{A} + 1 * x_{B} + 2 * x_{C} + 15 * x_{D} + 7 * x_{E} + 12 * x_{F} \leq 4800 \\
-      8 * x_{A} + 1 * x_{B} + 11 * x_{C} + 0 * x_{D} + 10 * x_{E} + 25 * x_{F} \leq 4800 \\
-      2 * x_{A} + 10 * x_{B} + 5 * x_{C} + 4 * x_{D} + 13 * x_{E} + 7 * x_{F} \leq 4800 \\
-      5 * x_{A} + 0 * x_{B} + 0 * x_{C} + 7 * x_{D} + 10 * x_{E} + 25 * x_{F} \leq 4800 \\
-      5 * x_{A} + 5 * x_{B} + 3 * x_{C} + 12 * x_{D} + 8 * x_{E} + 0 * x_{F} \leq 4800 \\
-      5 * x_{A} + 3 * x_{B} + 5 * x_{C} + 8 * x_{D} + 0 * x_{E} + 7 * x_{F} \leq 4800 \\
-   \end{array}
- } $ 
-\end{center}
-
+\begin{equation*}
+\left.
+\begin{aligned}
+    8x_{A} + 15x_{B} + 0x_{C} + 5x_{D} + 0x_{E} + 10x_{F} &\leq 4800
+    \quad\\
+      7x_{A} + 1x_{B} + 2x_{C} + 15x_{D} + 7x_{E} + 12x_{F} &\leq 4800 \\
+      8x_{A} + 1x_{B} + 11x_{C} + 0x_{D} + 10x_{E} + 25x_{F} &\leq 4800 \\
+      2x_{A} + 10x_{B} + 5x_{C} + 4x_{D} + 13x_{E} + 7x_{F} &\leq 4800 \\
+      5x_{A} + 0x_{B} + 0x_{C} + 7x_{D} + 10x_{E} + 25x_{F} &\leq 4800 \\
+      5x_{A} + 5x_{B} + 3x_{C} + 12x_{D} + 8x_{E} + 0x_{F} &\leq 4800 \\
+      5x_{A} + 3x_{B} + 5x_{C} + 8x_{D} + 0x_{E} + 7x_{F} &\leq 4800 
+\end{aligned}
+\right\}
+\end{equation*}
 De plus, la production est limitée par les matières premières. De fait, en appliquant les pondérations associées, on trouve :
 \begin{center}
 $\mathbf{
