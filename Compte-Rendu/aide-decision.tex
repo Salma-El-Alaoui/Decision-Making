@@ -49,11 +49,10 @@ Nous expliquons dans ce paragraphe les notations qui seront adoptées dans la su
       x_{F} \\
    \end{array}
    \right )
- } $ :] Vecteur où chaque composante $x_{i}$ représente la production hebdomadaire de la matière $i$. Valeurs à $10^{-2}$ près.
+ } $ :] Vecteur où chaque composante $x_{i}$ représente la production hebdomadaire du produit $i$. Valeurs à $10^{-2}$ près.
 \end{description}
 Nous présenterons pour chaque responsable 3 résultats significatifs permettant d'analyser notre solution par rapport à l'objectif défini, il s'agit de :
 \begin{description}
-
 \item[• $\mathbf{X^{*} = 
    \left (
    \begin{array}{c}
@@ -67,7 +66,7 @@ Nous présenterons pour chaque responsable 3 résultats significatifs permettant
    \right )
  } $ :] Vecteur X (défini ci-dessus) où la fonction objectif atteint son optimum.
  \item[• ] La valeur de la fonction objectif en cet optimum.
- \item[• $A.X^{*}-b$] : TODO (la flemme à 23h30 ^^ ) Valeurs arrondies à l'unité.
+ \item[• $A.X^{*}-b$] : Vecteur donnant la distance entre les contraintes et la solution optimale. Valeurs arrondies à l'unité.
  
 \end{description}
 
@@ -108,7 +107,7 @@ Des contraintes relatives aux différents cas d'analyses seront ajoutées aux pr
 \section{Analyse des objectifs de chacun des cadres : programmation linéaire monocritère}
 Dans cette partie, nous mettons en œuvre des techniques de programmation linéaire monocritère afin de proposer à chaque cadre la solution qui permet d'optimiser son objectif métier.
 \subsection{Le comptable}
-L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bénéfice est calculé en tenant compte des coûts de fonctionnement des machines et du coût d'achat des matières premières. Pour chaque matière le bénéfice unitaire (i.e. pour un produit vendu) sera donc donné par la formule suivante : \begin{center} $pv - \sum_{i=1}^{3}(paMP_{i} * qteMP_{i}) - \frac{1}{60} \sum_{j=1}^{7}(tupM_{j} * chM_{j}) $ \end{center} avec: \newline 
+L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bénéfice est calculé en tenant compte des coûts de fonctionnement des machines et du coût d'achat des matières premières. Pour chaque produit le bénéfice unitaire (i.e. pour un produit vendu) sera donc donné par la formule suivante : \begin{center} $pv - \sum_{i=1}^{3}(paMP_{i} * qteMP_{i}) - \frac{1}{60} \sum_{j=1}^{7}(tupM_{j} * chM_{j}) $ \end{center} avec:
 \begin{description}
 \item[pv: ]Prix de vente du produit considéré fini.
 \item[$\mathbf{paMP_{i} :}$] Le prix d'achat de la matière première de numéro i.
@@ -185,11 +184,7 @@ sous les contraintes : \\
   }}
 \\
 \\
-
-La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
-
-
-
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :
 \begin{center}
 $\mathbf{X^{*}_{atelier} = 
    \left (
@@ -205,15 +200,14 @@ $\mathbf{X^{*}_{atelier} =
  } $ 
 \end{center}
 Nous remarquons que le modèle A n'est pas du tout produit car il mobilise toutes les machines ni le produit D car il mobilise en quantité toutes les matières premières. On produit en quantité les produits B, E et F car ils n’utilisent pas toutes les matières premières. On produit aussi du C car il n’utilise pas du tout 2 machines.
-\\
 \begin{center}
 \textbf{Quantité totale maximale de produits réalisés = 378.81}
 \end{center}
 La quantité est cohérente car celle-ci ne peut dépasser 620 (quantité maximale de matière
 première 2, matière qui est toujours utilisée). La plupart des produits utilisent 2 unités de 
 matière première 2 ce qui nous rapproche de 310. Les autres matières premières ont un maximum du même ordre de grandeur.
-
-Satisfaction des contraintes : 
+\\
+Satisfaction des contraintes :
 \begin{center}
 $\mathbf{A.X^{*}_{atelier} - b = 
    \left (
@@ -232,12 +226,17 @@ $\mathbf{A.X^{*}_{atelier} - b =
    \right )
  } $ 
 \end{center}
-D’après les 3 dernières lignes, toutes les matières premières ont été utilisées au maximum, ce 
-qui signifie qu’on a fabriqué le maximum de produits possibles. L'objectif est donc atteint.
+D’après les 3 dernières lignes, toutes les matières premières ont été utilisées au maximum, ce résultat est cohérent par rapport à l'objectif.
 
 \subsection{Le responsable des stocks}
 L'objectif du responsable des stocks est de minimiser le nombre de produits dans son stock. \\
-TODO: Expliquer comment les coeff sont obtenus.
+Cette quantité est calculée en ajoutant le nombre de matières premières utilisées au nombre de produits usinés. Les coefficients de chaque produit sont donc calculés de la manière suivante : 
+\begin{center} $ C_{i} = 1 +  \sum_{j=1}^{3}(qteMP_{j}) $ \end{center} avec:
+\begin{description}
+\item[$\mathbf{C_{i} :}$] Coefficient associé au produit i.
+\item[$\mathbf{1} :$] Valeur correspondant au stockage du produit fini.
+\item[$\mathbf{qteMP_{j} :}$] La quantité de matière première j, nécessaire pour la fabrication du produit considéré.
+\end{description}
 Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulle (de l'ordre de $ 10 ^{-16}$ ).\\
 Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale. 
 Il en ressort le problème de programmation linéaire monocritère suivant :\\
@@ -269,10 +268,10 @@ $\mathbf{X^{*}_{stocks} =
  } $ 
 \end{center}
 
-TODO : Analyser le résultat
+On remarque que le produit F est le plus fabriqué. De fait, il s'agit du produit qui utilise le moins de matières premières. Ensuite, les produits B et E consomment la même quantité de matières premières. Toutefois, les contraintes associées aux matières premières nous encouragent à préférer l'utilisation de la matière 3 par rapport à la matière 1 (Plus de disponibilité).
 \\
 \begin{center}
-\textbf{Quantité minimale de produits en stock = 768.70}
+\textbf{Quantité minimale de produits et de matières premières en stock = 768.70}
 \end{center}
 
 TODO : Analyser le résultat
@@ -284,12 +283,12 @@ $\mathbf{A.X^{*}_{stocks} - b =
    \begin{array}{c}
       -3050 \\
       -2604 \\
-      0 \\
       -288 \\
       -3396\\
       -288 \\
       -4690 \\
       -3575 \\
+      0\\
       -418 \\
       -458\\
       0\\
@@ -298,7 +297,8 @@ $\mathbf{A.X^{*}_{stocks} - b =
  } $ 
 \end{center}
 
-TODO : Analyser résulats
+On remarque que la matière 1 est limitante car il est légitime de privilégier le produit F jusqu'à épuisement de la ressource 1.
+On constate également que l'on pourrait utiliser plus de ressource 2 et 3 et les différentes machines. Néanmoins, le critère de bénéfice minimal étant atteint, la production est arrêtée malgré les disponibilités.
 
 \subsection{Le responsable commercial}
 L'objectif du commercial est de conserver une certaine diversité dans sa gamme de produits tout en produisant le plus de produits. Concrètement, l’entreprise doit produire autant de produit de la gamme 1 (composée des produits A,B,C) que de la gamme 2 (composée des produits D,E,F).
@@ -332,13 +332,14 @@ $\mathbf{X^{*}_{commercial} =
    \right )
  } $ 
 \end{center}
-On vérifie facilement que la contrainte inhérente au problème du commercial est respecté : le lot de produits A et C est produits en même quantité que le lot de produits E et F.
+On vérifie facilement que la contrainte inhérente au problème du commercial est respecté : le lot de produits A et C est usiné en même quantité que le lot de produits E et F.
 On remarque que les produits B et D sont totalement supprimés de la production. Cette particularité montre que le modèle B demande plus de ressources et/ou de temps de travail que ses modèles équivalents (A et C) et que d'un point de vue quantitatif, il est préférable de choisir ces derniers. 
 
 \begin{center}
 \textbf{Nombre de produits total = 373.08}
 \end{center}
-
+On trouve une valeur cohérente par rapport à celle trouvée pour le chef d'atelier.\\
+\\
 Satisfaction des contraintes : 
 \begin{center}
 $\mathbf{A.X^{*}_{commercial} - b = 
@@ -358,14 +359,18 @@ $\mathbf{A.X^{*}_{commercial} - b =
    \right )
  } $ 
 \end{center}
-Ces valeurs nous indiquent que les facteurs limitants de notre problème sont les ressources de productions. Une augmentation de ces dernières augmenterai le nombre maximum de produits.
-Dans ces conditions, la machine 7 est sous-exploitée tandis que la 3ème est presque en constante utilisation. Ces constatations sont explicables par l'importante productions des modèles A, E et F. 
+Ces valeurs nous indiquent que les facteurs limitants de notre problème sont les ressources de production. Une augmentation de ces dernières permettrait de fabriquer plus de produits.
+Dans ces conditions, la machine 7 est sous-exploitée tandis que la 3ème est presque en constante utilisation. Ces constatations sont explicables par l'importante production des modèles A, E et F. 
 
 \subsection{Le responsable du personnel}
 L'objectif du responsable du personnel est de minimiser l'usage des machines 3 et 5 (ces machines étant délicates). 
-\\
-TODO : EExpliquer calcul des coefficients\\
-De même que pour le responsable des stocks, il faudra rajouter ici une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles. Nous avons retenu la même contrainte à savoir : le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale.
+On calcule donc les temps passés sur les machines pour chaque produit, d'où la formule suivante permettant de calculer les coefficients de la fonction : 
+\begin{center} $ C_{i} = \sum_{j\in\lbrace3;5\rbrace}tupM_{j} $ \end{center} avec:
+\begin{description}
+\item[$\mathbf{C_{i} :}$] Coefficient associé au produit i.
+\item[$\mathbf{tupM_{j} :}$] Temps unitaire d'usinage du produit considéré sur la machine j.
+\end{description}
+De même que pour le responsable des stocks, il faudra rajouter ici une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles. Nous avons retenu la même contrainte, à savoir que le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale.
  
 
 Il en ressort le problème de programmation linéaire monocritère suivant :\\
@@ -389,7 +394,7 @@ $\mathbf{X^{*}_{personnel} =
       x_{B} = 175.00 \\
       x_{C} = 0 \\
       x_{D} = 0 \\
-      x_{E} = 100.38 \\
+      x_{E} = 100.38 \\ 
       x_{F} = 0 \\
    \end{array}
    \right )
