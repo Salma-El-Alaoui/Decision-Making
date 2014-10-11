@@ -129,7 +129,7 @@ Nous présenterons pour chaque responsable 3 résultats significatifs permettant
 Deux critères nous semblent limitants d'un point de vue de la production. En effet, les machines ne peuvent fonctionner qu'en présence des ouvriers et leurs horaires de travail sont limités. Il convient donc de limiter les temps d'utilisation de chacune d'elles.
 En prenant en compte les durées de production respectives de chacun des produits sur les différentes machines, on introduit les 7 contraintes suivantes :
 \begin{equation*}
-\left.
+\left\{
 \begin{aligned}
     8x_{A} + 15x_{B} + 0x_{C} + 5x_{D} + 0x_{E} + 10x_{F} &\leq 4800
     \quad\\
@@ -140,17 +140,17 @@ En prenant en compte les durées de production respectives de chacun des produit
       5x_{A} + 5x_{B} + 3x_{C} + 12x_{D} + 8x_{E} + 0x_{F} &\leq 4800 \\
       5x_{A} + 3x_{B} + 5x_{C} + 8x_{D} + 0x_{E} + 7x_{F} &\leq 4800 
 \end{aligned}
-\right\}
+\right.
 \end{equation*}
 De plus, la production est limitée par les matières premières. De fait, en appliquant les pondérations associées, on trouve :
 \begin{equation*}
-\left.
+\left\{
 \begin{aligned}
          1x_{A} + 2x_{B} + 1x_{C} + 5x_{D} + 0x_{E} + 2x_{F} &\leq 350 \quad\\
       2x_{A} + 2x_{B} + 1x_{C} + 2x_{D} + 2x_{E} + 2x_{F} &\leq 620 \\
       1x_{A} + 0x_{B} + 3x_{C} + 2x_{D} + 2x_{E} + 0x_{F} &\leq 485 \\
 \end{aligned}
-\right\}
+\right.
 \end{equation*}
 Par ailleurs, nous devons ajouter des contraintes de domaines. En effet, la production ne peut pas être négative. Nous avons donc :
 \(x_{A} \geq 0\), \(x_{B} \geq\), \(x_{C} \geq 0\), \(x_{D} \geq 0\), \(x_{E} \geq 0\), \(x_{F} \geq 0 \).
@@ -442,9 +442,9 @@ La résolution mathématique de ce problème de programmation linéaire donne le
    \right )
  } 
 \end{equation*}
-TODO : Analyser résultats.
+On constate qu'il est préférable de fabriquer les produits B et E. En effet, le produit B ne demande qu'une minute de temps d'utilisation cumulé sur les 2 machines, il semble donc correspondre au mieux aux critères. La production seule de ce produits ne permettant pas d'atteindre le seuil de rentabilité défini précédemment, il est nécessaire de produire une autre gamme. Malgré son fort taux d'utilisation, le produit E a été choisi pour compléter la production. L'analyse de la satisfaction des contraintes nous permet de comprendre cette préférence.
 \begin{align*}
-\textbf{Usage minimal des machines en ?? = 2182.7}
+\textbf{Usage minimal des machines en min = 2182.7}
 \end{align*}
 Satisfaction des contraintes : 
 \begin{align*}
@@ -465,7 +465,8 @@ Satisfaction des contraintes :
    \right )
  } 
 \end{align*}
-TODO : Analyser résultats 
+Bien que le produit B ait été préférable, sa production est limitée par la quantité de matière première 1 (Contrainte nulle). Il a donc fallu compléter la production avec un produit n'utilisant pas cette matière, seul le produit E correspond à ce critère d'où sa production en second choix.
+Comme pour le cas du responsable des Stocks, il est encore possible d'augmenter la production (MP 2 et 3 ne sont pas écoulées). Néanmoins, le plan de production donné ici respecte la contrainte de minimum de chiffre d'affaire donnée en début de partie.
 
 \section{Point de vue du Responsable d'entreprise : programmation linéaire multicritère}
 Nous avons défini la matrice de gain suivante:
@@ -515,7 +516,7 @@ h & 3 & 5 & 6.2 & 4.6 \\
 Pour résoudre ce problème et trouver la meilleure solution possible, nous avons utilisé la méthode \emph{Electre 1}.
 Dans un premier temps, nous avons déterminé les dominances fortes sur les critères précédents. Ainsi, nous avons déterminé que :
 \begin{description}
-\item[•]b et h dominent c
+\item[•] b et h dominent c
 \item[•] e domine g
 \item[•] h domine f
 \end{description}
@@ -533,7 +534,8 @@ $
 \end{array}
 \right) 
 $
-
+\end{center}
+\begin{center}
 $
 \textbf{Matrice de Discordance} = 
 \left( 
@@ -547,10 +549,10 @@ $
 \right) 
 $
 \end{center}
-Après plusieurs itérations, nous avons choisi les seuils suivants :
+Durant les itérations, nous avons choisi les seuils suivants :
 \begin{description}
-\item[$C_{1}$] = Seuil de concordance = 
-\item[$C_{2}$] = Seuil de discordance = 
+\item[$C_{1}$] = Seuil de concordance = ...
+\item[$C_{2}$] = Seuil de discordance = ...
 \end{description}
 En appliquant ces valeurs, nous obtenons le graphe de surclassement suivant :
 %\begin{figure}
