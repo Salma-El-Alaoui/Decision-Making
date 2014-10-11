@@ -60,15 +60,11 @@ ajustement(:,13)= ajustement(:,13)*1.1;
 ajustement(:,14)= ajustement(:,14)*1.1;
 ajustement(:,15)= ajustement(:,15)*1.1;
 ajustement(:,16)= ajustement(:,16)*1.1;
-B3 =  ajustement*B2;
-[X2, opt2, C2, fcompta] = Comptable(A2,B3,LB);
-%% ================ Partie 3: Analyse multi-critère ================
-Matrice_jugement = [6 5 5 5; 5 4 9 3; 3 4 7 3; 3 7 5 4; 5 4 3 9; 2 5 7 3;5 4 2 9; 3 5 7 4];
-Matrice_jugement_sans_domines = [6 5 5 5; 5 4 9 3; 3 7 5 4; 5 4 3 9; 3 5 7 4];
-% matrices de concordances et discordance sans application des poids.
-MC=concordance(Matrice_jugement_sans_domines )
-MD = discordance(Matrice_jugement_sans_domines)
-% matrices de concordances et discordance avec application des poids aux critères.
-MC1=concordance(changement_echelle(Matrice_jugement_sans_domines))
-MD1 = discordance(changement_echelle(Matrice_jugement_sans_domines))
+
+B3 =  ajustement*B2
+[X2, opt2, C2, fcompta] = Comptable(A2,B3,LB)
+
+
+
+
 
