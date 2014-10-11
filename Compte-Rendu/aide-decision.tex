@@ -88,7 +88,7 @@ Nous expliquons dans ce paragraphe les notations qui seront adoptées dans la su
 \begin{align*} 
 	\boldsymbol{Z_{poste\_responsable}}
 \end{align*}
-\item Vecteur où chaque composante $x_{i}$ représente la production hebdomadaire du produit $i$. Les valeurs sont à $10^{-2}$ près.
+\item Vecteur où chaque composante $x_{i}$ représente la \underline{production hebdomadaire} du produit $i$. Les valeurs sont à $10^{-2}$ près.
 \begin{align*} 
 	\boldsymbol{X = 
    \left (
@@ -105,7 +105,7 @@ Nous expliquons dans ce paragraphe les notations qui seront adoptées dans la su
 \end{itemize}
 Nous présenterons pour chaque responsable 3 résultats significatifs permettant d'analyser notre solution par rapport à l'objectif défini, il s'agit de :
 \begin{itemize}
-\item Vecteur X (défini ci-dessus) où la fonction objectif atteint son optimum.
+\item Vecteur $X^{*}$ (défini ci-dessus) où la fonction objectif atteint son optimum.
 \begin{align*}
 \boldsymbol{X^{*} = 
    \left (
@@ -125,6 +125,7 @@ Nous présenterons pour chaque responsable 3 résultats significatifs permettant
  \boldsymbol{A.X^{*}-b}
  \end{align*}
 \end{itemize}
+La matrice A est la matrice donnant les coefficients exprimant les contraintes et b le vecteur des seuils appliqués à chaque contrainte (cf section 2 - Prise en compte des contraintes globales). Dans ce vecteur plus la valeur est proche de 0 plus la contrainte correspondante a été satisfaite. 
 \section{Prise en compte des contraintes globales}
 \label{globconst}
 Deux critères nous semblent limitants d'un point de vue de la production. En effet, les machines ne peuvent fonctionner qu'en présence des ouvriers et leurs horaires de travail sont limités. Il convient donc de limiter les temps d'utilisation de chacune d'elles.
@@ -153,10 +154,42 @@ De plus, la production est limitée par les matières premières. De fait, en ap
 \end{aligned}
 \right.
 \end{equation*}
+Il en découle les matrices A et b (définies à la section précédente) suivante :
+\begin{align*}
+A =
+ \begin{pmatrix}
+  8	&15	&0 &5& 0 &10\\
+7	&1	&2	&15	&7	&12\\
+8	&1	&11	&0	&10	&25\\
+2	&10	&5	&4	&13	&7\\
+5	&0 &0 &7	&10   &25\\
+5 &5 &3 &12 &8 &0\\
+5 &3 &5 &8 &0 &7\\
+1 &2 &1 &5 &0 &2\\
+2 &2 &1 &2 &2 &2\\
+1 &0 &3 &2 &2 &0
+ \end{pmatrix}
+  , b = 
+   \left (
+   \begin{aligned}
+      4800 \\
+      4800 \\
+      4800 \\
+      4800 \\
+      4800 \\
+      4800 \\
+      4800\\
+      350\\
+      620\\
+      485
+   \end{aligned}
+   \right ) 
+ \end{align*}
+ 
 Par ailleurs, nous devons ajouter des contraintes de domaines. En effet, la production ne peut pas être négative. Nous avons donc :
 \(x_{A} \geq 0\), \(x_{B} \geq\), \(x_{C} \geq 0\), \(x_{D} \geq 0\), \(x_{E} \geq 0\), \(x_{F} \geq 0 \).
 Des contraintes relatives aux différents cas d'analyses seront ajoutées aux précédentes par la suite.
-\section{Analyse des objectifs de chacun des cadres : programmation linéaire mono-critère}
+\section{Analyse des objectifs de chacun des cadres}
 Dans cette partie, nous mettons en œuvre des techniques de programmation linéaire mono-critère afin de proposer à chaque cadre la solution qui permet d'optimiser son objectif métier.
 \subsection{Le comptable}
 L'objectif du comptable est de maximiser le bénéfice de l'entreprise. Ce bénéfice est calculé en tenant compte des coûts de fonctionnement des machines et du coût d'achat des matières premières. Pour chaque produit le bénéfice unitaire (i.e. pour un produit vendu) sera donc donné par la formule suivante : 
@@ -194,8 +227,7 @@ La résolution mathématique de ce problème de programmation linéaire donne le
       x_{E} &= 242.50 \\
       x_{F} &= 94.18 
    \end{aligned}
-   \right )
- }
+   \right )}
 \end{align*}
 On constate que les produits les plus rentables (E puis F) sont beaucoup produits. Les produits
 les moins rentables (A et D) ne sont pas du tout produits. Le produit C est légèrement plus rentable que le produit B mais B est préféré à C car il n'utilise pas la matière première 3 qui est beaucoup utilisée par E (présence d'une contrainte sur l'utilisation des matières premières).
@@ -204,9 +236,9 @@ les moins rentables (A et D) ne sont pas du tout produits. Le produit C est lég
 \end{align*}
 Satisfaction des contraintes: 
 \begin{align*} 
-	\boldsymbol{A.X^{*}_{comptable} - b = 
-   \left (
-   \begin{aligned}
+	\boldsymbol{A.X^{*}_{comptable} - b = 	
+   \left(
+   \begin{aligned}    
       -3552 \\
       -1952 \\
       0 \\
@@ -377,7 +409,11 @@ La résolution mathématique de ce problème de programmation linéaire donne le
    \right )
  } 
 \end{align*}
-On vérifie facilement que la contrainte inhérente au problème du commercial est respecté : le lot de produits A et C est usiné en même quantité que le lot de produits E et F.
+On vérifie facilement que la contrainte inhérente au problème du commercial est respecté : le lot de produits \{A, B, C\} est usiné en même quantité que le lot de produits \{D, E, F\}. 
+\begin{align*}
+x_{A} + x_{B} + x_{C} = 142.12 + 0 + 44.42 = 186.54 \\
+x_{D} + x_{E} + x_{F} = 0 + 104.81 + 81.73 = 186.54
+\end{align*}
 On remarque que les produits B et D sont totalement supprimés de la production. Cette particularité montre que le modèle B demande plus de ressources et/ou de temps de travail que ses modèles équivalents (A et C) et que d'un point de vue quantitatif, il est préférable de choisir ces derniers. 
 \begin{align*}
 \textbf{Nombre de produits total = 373.08}
@@ -404,9 +440,27 @@ Satisfaction des contraintes :
 \end{align*}
 Ces valeurs nous indiquent que les facteurs limitants de notre problème sont les ressources de production. Une augmentation de ces dernières permettrait de fabriquer plus de produits.
 Dans ces conditions, la machine 7 est sous-exploitée tandis que la 3ème est presque en constante utilisation. Ces constatations sont explicables par l'importante production des modèles A, E et F. 
-
 \subsection{Le responsable du personnel}
-L'objectif du responsable du personnel est de minimiser l'usage des machines 3 et 5 (ces machines étant délicates). 
+L'objectif du responsable du personnel est de minimiser l'usage des machines 3 et 5 (ces machines étant délicates).
+Nous étudierons 3 cas de figures : Minimiser le temps d'usage de la machine 3, minimiser le temps d'usage de la machine 5 et minimiser la somme des temps d'usage des deux machines.
+De même que pour le responsable des stocks, il faudra pour chacun de ces cas rajouter une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles. Nous avons retenu la même contrainte, à savoir que le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale.
+\subsubsection{Limitation de l'usage de la machine 3}
+Le problème de programmation linéaire monocritère posé ici est le suivant :
+\begin{tcolorbox}
+Minimiser
+\begin{equation*}
+ Z_{personnel}= 8*x_{A} + x_{B} + 11*x_{C} + 10*x_{E} + 25*x_{F}
+\end{equation*}
+Sous les contraintes :
+\begin{itemize}
+\item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
+\item $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
+\end{itemize}
+\end{tcolorbox}
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+\subsubsection{Limitation de l'usage de la machine 5}
+TODO
+\subsubsection{Limitation de l'usage des machines 3 et 5} 
 On calcule donc les temps passés sur les machines pour chaque produit, d'où la formule suivante permettant de calculer les coefficients de la fonction : 
 \begin{align*} 
  C_{i} = \sum_{j\in\lbrace3;5\rbrace}tupM_{j} 
@@ -468,7 +522,7 @@ Satisfaction des contraintes :
 \end{align*}
 Bien que le produit B ait été préférable, sa production est limitée par la quantité de matière première 1 (Contrainte nulle). Il a donc fallu compléter la production avec un produit n'utilisant pas cette matière, seul le produit E correspond à ce critère d'où sa production en second choix.
 Comme pour le cas du responsable des Stocks, il est encore possible d'augmenter la production (MP 2 et 3 ne sont pas écoulées). Néanmoins, le plan de production donné ici respecte la contrainte de minimum de chiffre d'affaire donnée en début de partie.
-\section{Point de vue du Responsable d'entreprise : programmation linéaire multicritère}
+\section{Point de vue du Responsable d'entreprise}
 Nous avons défini la matrice de gain suivante:
 \begin{align*}
 Matrice de Gain =
@@ -480,10 +534,9 @@ Matrice de Gain =
 5256,17	&275,38	&1376,92 &74,62	&2182,69   &1178,84 &1003,84
  \end{pmatrix}
 \end{align*}
-\section{Sélection du meilleur plan de production : analyse multicritère}
+\section{Sélection du meilleur plan de production}
 Suite aux études précédentes et aux différentes discussions, nous avons retenu 8 propositions de gestion d'atelier.
 L'entreprise s'est entendue sur 4 critères à considérer pour décider du meilleur plan de production : le bénéfice, la gestion du stock, l'équilibre commercial (Proposer une diversité de produits) et le taux d'utilisation de certaines machines délicates.
-
 Pour résoudre ce problème et trouver la meilleure solution possible, nous avons utilisé la méthode \emph{Electre 1}.
 Dans un premier temps, nous avons déterminé les dominances fortes sur les critères précédents. Ainsi, nous avons déterminé que :
 \begin{itemize}
@@ -510,8 +563,6 @@ M_{concordance} =
   3	&2	&2	&5	&0\\
  \end{pmatrix}
 \end{align*} 
-
-
 Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative. Nous privilégions principalement le bénéfice (Raison d'être de l'entreprise). Nous avons ensuite décider de pondérer de la même manière les critères 2 et 3, que nous jugeons de même importance. Quant au critère 4, nous le considérons comme le moins important, les opérateurs pouvant être formés à l'utilisation de ces machines.
 Pour notre analyse, nous avons réévalué les notes de chaque critère afin de correspondre à une échelle plus adaptée. Nous obtenons donc une nouvelle matrice de jugements, ainsi que de nouvelles matrices de concordance et de discordance :
 \begin{center}
@@ -564,11 +615,6 @@ En appliquant ces valeurs, nous obtenons le graphe de surclassement suivant :
 %	\end{center}
 %	\caption{Diagram label}
 %\end{figure}
-
 %\pagebreak
-
-
 %\include{partie_1} % \include == \clearpage + \input
-
-
 \end{document}
