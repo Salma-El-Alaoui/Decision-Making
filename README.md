@@ -4,11 +4,12 @@ Aide-Decision
 lien pour le gdoc
 https://drive.google.com/folderview?id=0B3sUSdIZDoLrZ1BqSHR4anJyckE&usp=sharing
 
-##Stuff to add to the final report 
+##TODO
 
-- dans la partie du commercial, il faut en plus montrer que les a+b+c = d+e+f
--
 - pour le personnel, il faut montrer le temps d'utilisation minimal `en mn par semaine` pur les machines 3 et 5 séparément.
+
+- toujours dans la partie du personnel, pour le cas de figure des machines 3+5, il faut donner le temps de chaque machine séparément.
+- Et pour le bénéfice, il faut spécifier une unité ? (au moins dire xx unités).
 
 
 ## Rajouter à probleme.m
