@@ -6,14 +6,28 @@ function [ X, opt, C, f ] = Stock( A, B, LB )
 
 rate = 2;
 A = [A; -5.67 -11.88 -12.27 -1.03 -31.65 -27.55];
-B = [B; -OptCompt/rate];
+B1 = [B; -OptCompt/rate];
 
 f = [ 5; 5; 6; 10; 5; 4;];
-X = linprog( f, A, B, [], [], LB, []);
+X = linprog( f, A, B1, [], [], LB, []);
 opt = f'*X;
-C = A*X - B;
+C = A*X - B1;
 
-figure(2)
+R = zeros(100);
+for i=1:100
+    
+    B2 = [B; -(i/100)*OptCompt]; 
+    X1 = linprog( f, A, B2, [], [], LB, []);
+    R(i) = f'*X1;
+    
+end
+figure;
+title('Evolution du stock en fonction du pourcentage de bénéfice minimal');
+hold on
+plot(R)
+hold off;
+
+figure;
 str = {'A','B','C','D','E','F'};
 bar(X);
 title('Stock')
