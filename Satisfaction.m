@@ -1,4 +1,4 @@
-function [VS, PM,Y] = Satisfaction( MG,X,fcompta , fatel, fstock,fpers )
+function [VS, PM,Y] = Satisfaction( MG,X,fcompta , fatel, fstock,fpers,fm3,fm5 )
 %vecteur qui représente le pourcentage de staisfaction de l'objectif de
 %chaque responsable.
 %X est la solution choisie
@@ -12,7 +12,7 @@ for i=1:5
 end 
 ecart=abs((X(1) + X(2) + X(3)) - (X(4) + X(5) + X(6)));
 echelle = X(1) + X(2) + X(3) + X(4) + X(5) + X(6);
-Y=[ fcompta'*X; fatel'*X; fstock'*X;ecart;fpers'*X];
+Y=[ fcompta'*X; fatel'*X; fstock'*X;ecart;fpers'*X; fm3'*X; fm5'*X];
 for i=1:3
 VS(i)= max(0,(1-(abs(PM(i)-Y(i))/PM(i))));
 end

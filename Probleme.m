@@ -64,7 +64,7 @@ B2 = [B; -290; 1450; -10;4000];
 
 %On regarde maintenant le pourcentage de satisfaction des objectifs de
 %chaque responsable:
-[VS, PM,Y]=Satisfaction(MG,X2, fcompta , fatel, fstock,fpers);
+[VS, PM,Y]=Satisfaction(MG,X2, fcompta , fatel, fstock,fpers,fm3, fm5)
 
 %% ================ Partie 3: Analyse multi-critere ================
 Matrice_jugement = [6 5 5 5; 5 4 9 3; 3 4 7 3; 3 7 5 4; 5 4 3 9; 2 5 7 3;5 4 2 9; 3 5 7 4];
@@ -77,9 +77,7 @@ MD = discordance(Matrice_jugement_sans_domines);
 % matrices de concordances et discordance avec application des poids aux critères.
 MC1=concordance(changement_echelle(Matrice_jugement_sans_domines), ponderation);
 MD1 = discordance(changement_echelle(Matrice_jugement_sans_domines));
-
-
-L=changement_echelle(matrice_jugement)
+L=changement_echelle(Matrice_jugement)
 
 
 

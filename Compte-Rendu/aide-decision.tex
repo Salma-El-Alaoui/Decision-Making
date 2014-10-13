@@ -48,7 +48,7 @@
 
 \newcommand*\tick{\item[\Checkmark]}
 \newcommand*\fail{\item[\XSolidBrush]}
-\newcommand*\bulet{\item[$\bullet$]}
+\newcommand*\bulet{\itemi[$\bullet$]}
 \newcommand*\diamont{\item[$\diamond$]}
 
 \setlength{\oddsidemargin}{0mm} % Adjust margins to center the colored title box
@@ -66,6 +66,7 @@ et Anne \textsc{Legait}  }
 \begin{document}
 \thispagestyle{empty} % Remove page numbering on this page
 
+\renewcommand{\labelitemi}{$\bullet$}
 %----------------------------------------------------------------------------------------
 \colorbox{grey}{
 	\parbox[t]{1.0\linewidth}{
@@ -494,9 +495,14 @@ Nous étudierons 3 cas de figures :
 \end{itemize}
 De même que pour le responsable des stocks, il faudra pour chacun de ces cas rajouter une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles.\\ 
 Les courbes ci-dessous tracent l'évolution du temps d'usage des machines 3 et 5 dans le cas de l'optimisation sur la somme des temps d'usage. 
-\begin{center}
-\includegraphics[scale=0.7]{plots_partie1/plot_personnel.png}
-\end{center}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.8]{plots_partie1/plot_personnel.png}
+        \caption{
+            \label{fig} Évolution des temps des machines 3 et 5 en fonction du\%bénéfice minimal
+        }
+    \end{center}
+\end{figure} 
 \subsubsection*{Analyse des courbes}
 Les courbes montrent que les contraintes de bénéfices minimal acceptables sont dans la plage [25\% - 80\%] du bénéfice max. Au delà de 80\% l'utilisation des machines 3 et 5 croit de façon plus rapide. Des contraintes supérieurs à 80\% du bénéfice maximum sont donc à écarter.  \\
 Nous avons donc retenu la même contrainte que pour le responsable des stocks, à savoir que le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale ($\frac{10512}{2} = 5256$ unités monétaires).
@@ -529,8 +535,8 @@ La résolution mathématique de ce problème de programmation linéaire donne le
  } 
 \end{equation*}
 \begin{align*}
-\textbf{Usage minimal de la machine 3 = 1178.8 minutes}\\
-\textbf{Usage de la machine 5 correspondant à ce plan = 1003.8 minutes}
+\textbf{Usage minimal de la machine 3 = 1178.8 minutes/semaine}\\
+\textbf{Usage de la machine 5 correspondant à ce plan = 1003.8 minutes/semaine}
 \end{align*}
 Satisfaction des contraintes : 
 \begin{align*}
@@ -581,8 +587,8 @@ La résolution mathématique de ce problème de programmation linéaire donne le
  } 
 \end{equation*}
 \begin{align*}
-\textbf{Usage minimal de la machine 5 = 785 minutes} \\
-\textbf{Usage de la machine 3 correspondant à ce plan = 2104 minutes}
+\textbf{Usage minimal de la machine 5 = 785 minutes/semaine} \\
+\textbf{Usage de la machine 3 correspondant à ce plan = 2104 minutes/semaine}
 \end{align*}
 
 
@@ -644,10 +650,10 @@ La résolution mathématique de ce problème de programmation linéaire donne le
 \end{equation*}
 On constate qu'il est préférable de fabriquer les produits B et E. En effet, le produit B ne demande qu'une minute de temps d'utilisation cumulé sur les 2 machines, il semble donc correspondre au mieux aux critères. La production seule de ce produits ne permettant pas d'atteindre le seuil de rentabilité défini précédemment, il est nécessaire de produire une autre gamme. Malgré son fort taux d'utilisation, le produit E a été choisi pour compléter la production. L'analyse de la satisfaction des contraintes nous permet de comprendre cette préférence.
 \begin{align*}
-\textbf{Usage minimal des machines = 2182.7 minutes}\\
+\textbf{Usage minimal des machines = 2182.7 minutes/semaine}\\
 \Longleftrightarrow
-\textbf{Usage de la machine 3 = 1178.8 minutes}\\
-\textbf{Usage de la machine 5 = 1003.8 minutes}
+\textbf{Usage de la machine 3 = 1178.8 minutes/semaine}\\
+\textbf{Usage de la machine 5 = 1003.8 minutes/semaine}
 \end{align*}
 Satisfaction des contraintes : 
 \begin{align*}
@@ -691,24 +697,16 @@ Cette matrice représente les objectifs de chacun des cadres (en colonnes) et de
 
 A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif à maximiser le bénéfice(qui nous semble être l'intérêt premier du responsable d'entreprise), avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des autres cadres. 
 
-Notre point de mire correspond à la diagonale de la matrice de gain, c'est à dire aux valeurs optimales pour chaque cadre:
-\begin{align*}
-\boldsymbol{PM = 
-   \left (
-   \begin{aligned}
-      10512\\
-      379\\
-      769\\
-      0\\
-      2183\\
-      1179\\
-      785\\
-   \end{aligned}
-   \right )
- } 
-\end{align*}
+Notre \textbf{point de mire} correspond à la diagonale de la matrice de gain, c'est à dire aux valeurs optimales pour chaque cadre:
+\begin{itemize}
+\item \textbf{10512} d'unités monétaires
+\item  \textbf{379} de produits réalisés
+\item \textbf{769} de produits et matières premières en stock
+\item \textbf{0} de différence de produits entre les 2 catégories (A, B, C) et (D, E, F).
+\item \textbf{2183} de minutes/semaine d'usages pour les machines 3 et 5. Cela correspond à \textbf{1179} minutes/semaine pour la machine 3 et à \textbf{1004} minutes/semaine pour la machine 5.
+\end{itemize}
 C'est de ce point que nous allons essayer de nous rapprocher, en essayant de trouver un compromis qui satisfera les différents responsables.
-
+\\ \\
 Nous obtenons ainsi le problème de programmation linéaire suivant :
 \begin{tcolorbox}
 Maximiser
@@ -720,7 +718,6 @@ Sous les contraintes :
 \item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
 \item nouvelles contraintes déduites des fonctions objectifs des autres cadres:\\
 \end{itemize}
-
 \begin{equation*}
 \left\{
 \begin{aligned}
@@ -735,32 +732,66 @@ Sous les contraintes :
 \end{aligned}
 \right.
 \\
+\newline
 \end{equation*}
-contraintes globales
-atelier 290
-zstock<1450
-zcom>10
-zpers<4000 ,
 \end{tcolorbox}
-Il s'agit maintenant de déterminer les seuils de satisfaction ci-dessus. Nous les fixons tout d'abord aux valeurs de la médiane de chaque colonne de la matrice de gain. Nous essayons ensuite de dégrader les contraintes sur plusieurs itérations pour essayer de nous rapprocher au plus du point de mire. La stratégie du responsable d'entre
-Nous définissons le \textbf{pourcentage d'erreur}comme:
-	\begin{equation*}
-		556
-	\end{equation*}
-et la réponse aux exigences des cadres comme max(0,1-% d’erreur). Le maximum empêche l’obtention de valeurs négatives qui n’auraient aucun sens métier.
-Pour le responsable commercial, la formule est différente car on cherche à réduire l’écart entre les deux catégories de produits. Le pourcentage d’erreur est donc défini comme étant METTRE LA FORMULE. On remet ainsi l’écart à l’échelle de la production.
+Il s'agit maintenant de déterminer les seuils de satisfaction ci-dessus. Nous les fixons tout d'abord aux valeurs de la médiane de chaque colonne de la matrice de gain. Nous essayons ensuite de dégrader les contraintes sur plusieurs itérations pour essayer de nous rapprocher au plus du point de mire. La stratégie du responsable d'entreprise étant de maximiser le bénéfice, nous considérons qu'il est cohérent d'accorder plus d'importance aux fonctions atelier et commercial, et nous appliquons des contraintes moins sévères pour les fonctions stock et personnel.
 
-Nous estimons qu’obtenir une valeur deux fois plus grande que la valeur optimale pour un objectif à minimiser (ou deux fois plus petite si l’objectif est à maximiser) est trop loin de nos exigences. Dans ce cas l’erreur est supérieure à 1 et la réponse aux exigences est de 0.
-
-
-
-Pour déterminer les seuils de satisfaction ci-dessus, nous avons calculé les médianes de chaque objectif (chaque colonne de la matrice de gain) : [360; 1690; 190; 9000; 4700; 4320]
-
-GRAPHE
-
-
-
+A chaque itérations, nous estimons le rapprochement entre les valeurs obtenues pour chaque responsable et le point de mire en fonction du modèle suivant:
  
+Nous définissons le \textbf{pourcentage d'erreur} comme:
+	\begin{equation*}
+		\boldsymbol{\%erreur=|(valeur_{responsable}-valeur Optimale_{responsable}|}
+	\end{equation*}
+et la \textbf{réponse aux exigences} des cadres comme:
+	\begin{equation*}
+		\boldsymbol{max(0, 1-\%erreur)}
+	\end{equation*}
+Le maximum empêche l’obtention de valeurs négatives qui n’auraient aucun sens métier.
+Pour le responsable commercial, la formule est différente car on cherche à réduire l’écart entre les deux catégories de produits. 
+Le pourcentage d’erreur est donc défini comme étant:
+\begin{equation*}
+		\boldsymbol{\%erreur=\frac{(A+B+C)-(D+E+F)}{A+B+C+D+E+F}}
+	\end{equation*}
+A, B, C, D, E, F représentant la quantité du produit correspondant.On remet ainsi l'écart à l'échelle de la production.
+
+\noindent Ce modèle traduit le fait suivant: nous estimons qu'obtenir une valeur deux fois plus grande que la valeur optimale pour un objectif à minimiser (ou deux fois plus petite si l'objectif est à maximiser) est trop loin de nos exigences. Dans ce cas l'erreur est supérieure à 1 et la réponse aux exigences est de 0.
+
+Les seuils que nous obtenons sont:
+\begin{equation*}
+\left\{
+\begin{aligned}
+   Z_{atelier}= x_{A} + x_{B} + x_{C} + x_{D} + x_{E} + x_{F} &\geq290 
+    \\
+   Z_{stocks}= 5x_{A} + 5x_{B} + 6x_{C} + 10x_{D} + 5x_{E} + 4x_{F}
+   &\leq1450 
+   \\
+   Z_{commercial}(X)=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f} &\geq 10
+   \\
+   Z_{personnel}= 13x_{A} + x_{B} + 11x_{C} + 7x_{D} + 20x_{E} + 50x_{F}&\leq 4000
+\end{aligned}
+\right.
+\\
+\\
+\end{equation*}
+Cela donne le plan de production suivant:
+\begin{itemize}
+\item \textbf{7305} d'unités monétaires
+\item  \textbf{2900} de produits réalisés
+\item \textbf{1450} de produits et matières premières en stock
+\item \textbf{100} de différence de produits entre les 2 catégories (A, B, C) et (D, E, F).
+\item \textbf{4000} de minutes/semaine d'usages pour les machines 3 et 5. Cela correspond à \textbf{2047} minutes/semaine pour la machine 3 et à 1952 minutes/semaine pour la machine 5.
+\end{itemize}
+Ce plan correspond à un niveau de réponse aux exigences des différents cadres suivant:
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.8]{plots_partie2/plot_radar.png}
+        \caption{
+            \label{fig} Réponse aux exigences des cadres
+        }
+    \end{center}
+\end{figure}
+TODO: une belle phrase pour conclure 
 \section{Sélection du meilleur plan de production}
 Suite aux études précédentes et aux différentes discussions, nous avons retenu 8 propositions de gestion d'atelier (notées de \textbf{\emph{a}} à \textbf{\emph{h}}).\\
 Les décideurs de l'entreprise se sont entendus sur 4 critères à considérer pour décider du meilleur plan de production : le bénéfice, la gestion du stock, l'équilibre commercial (proposer une diversité de produits) et le taux d'utilisation de certaines machines délicates.\\
