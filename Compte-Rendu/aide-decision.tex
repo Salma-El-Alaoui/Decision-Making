@@ -80,7 +80,7 @@ et Anne \textsc{Legait}  }
 \subsection{Contexte de l'étude}
 Ce document est un compte rendu de l'étude menée par notre hexanôme H4304 pour le compte de la société FaBrique. Cette étude a pour but d'optimiser l'utilisation des ressources de l'entreprise en proposant le meilleur plan de production à mettre en place. \newline
 En premier lieu, nous considèrerons indépendamment les objectifs métiers de chacun des cadres impliqués dans cette étude d'aide à la décision pour apporter une solution optimale à chacun.
-En second lieu, nous proposons au responsable d'entreprise une solution qui satisfait au mieux l'ensemble des points de vue.
+En second lieu, nous proposerons au responsable d'entreprise une solution qui satisfait au mieux l'ensemble des points de vue.
 Finalement, nous dégagerons parmi les 8 propositions de gestion de l'atelier, la solution optimale au vu des critères définis par les décideurs de l'entreprise.    
 \subsection{Notations et conventions}
 Nous expliquons dans ce paragraphe les notations qui seront adoptées dans la suite du document.
@@ -126,7 +126,7 @@ Nous présenterons pour chaque responsable 3 résultats significatifs permettant
  \boldsymbol{A.X^{*}-b}
  \end{align*}
 \end{itemize}
-La matrice A est la matrice donnant les coefficients exprimant les contraintes et b le vecteur des seuils appliqués à chaque contrainte (cf section 2 - Prise en compte des contraintes globales). Dans ce vecteur plus la valeur est proche de 0 plus la contrainte correspondante a été satisfaite. 
+La matrice A est la matrice donnant les coefficients exprimant les contraintes et b le vecteur des seuils appliqués à chaque contrainte (cf section 2 - Prise en compte des contraintes globales). Ainsi, dans le vecteur plus la valeur est proche de 0 plus la contrainte correspondante a été satisfaite. 
 \section{Prise en compte des contraintes globales}
 \label{globconst}
 Deux critères nous semblent limitants d'un point de vue de la production. En effet, les machines ne peuvent fonctionner qu'en présence des ouvriers et leurs horaires de travail sont limités. Il convient donc de limiter les temps d'utilisation de chacune d'elles.
@@ -321,7 +321,15 @@ Cette quantité est calculée en ajoutant le nombre de matières premières util
 \item[$\mathbf{qteMP_{j}}$]\hfill\\La quantité de matière première j, nécessaire pour la fabrication du produit considéré.
 \end{description}
 Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulle (de l'ordre de $ 10 ^{-16}$ ).\\
-Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale. 
+Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à un certain pourcentage du bénéfice maximale.\\
+Le graphe ci-dessous montre l'évolution du nombre de produits en stock en fonction de la contrainte du pourcentage de bénéfice minimal.  
+\begin{center}
+\includegraphics[scale=0.7]{plots_partie1/plot_stock.png}
+\end{center}
+\subsubsection*{Analyse de la courbe}
+La courbe montre une évolution linéaire de la quantité de produits stockés en fonction du pourcentage du bénéfice minimal.\\
+Nous estimons donc que la contrainte suivante assure un certain fonctionnement de l'usine tout en restant raisonnable par rapport à l'objectif du responsable de stock : le bénéfice doit être supérieur ou égal à 50\% du bénéfice maximal. ($\frac{10512}{2} = 5256$ unités monétaires).
+\newpage 
 Il en ressort le problème de programmation linéaire mono-critère suivant:
 \begin{tcolorbox}
 Minimiser
@@ -411,7 +419,7 @@ La résolution mathématique de ce problème de programmation linéaire donne le
    \right )
  } 
 \end{align*}
-On vérifie facilement que la contrainte inhérente au problème du commercial est respecté : le lot de produits \{A, B, C\} est usiné en même quantité que le lot de produits \{D, E, F\}. 
+On vérifie facilement que la contrainte inhérente au problème du commercial est respectée : le lot de produits \{A, B, C\} est usiné en même quantité que le lot de produits \{D, E, F\}. 
 \begin{align*}
 x_{A} + x_{B} + x_{C} = 142.12 + 0 + 44.42 = 186.54 \\
 x_{D} + x_{E} + x_{F} = 0 + 104.81 + 81.73 = 186.54
@@ -444,8 +452,20 @@ Ces valeurs nous indiquent que les facteurs limitants de notre problème sont le
 Dans ces conditions, la machine 7 est sous-exploitée tandis que la 3ème est presque en constante utilisation. Ces constatations sont explicables par l'importante production des modèles A, E et F. 
 \subsection{Le responsable du personnel}
 L'objectif du responsable du personnel est de minimiser l'usage des machines 3 et 5 (ces machines étant délicates).
-Nous étudierons 3 cas de figures : Minimiser le temps d'usage de la machine 3, minimiser le temps d'usage de la machine 5 et minimiser la somme des temps d'usage des deux machines.
-De même que pour le responsable des stocks, il faudra pour chacun de ces cas rajouter une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles. Nous avons retenu la même contrainte, à savoir que le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale.
+Nous étudierons 3 cas de figures : 
+\begin{itemize}
+\item Minimiser le temps d'usage de la machine 3.
+\item Minimiser le temps d'usage de la machine 5.
+\item Minimiser la somme des temps d'usage des deux machines.
+\end{itemize}
+De même que pour le responsable des stocks, il faudra pour chacun de ces cas rajouter une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles.\\ 
+Les courbes ci-dessous tracent l'évolution du temps d'usage des machines 3 et 5 dans le cas de l'optimisation sur la somme des temps d'usage. 
+\begin{center}
+\includegraphics[scale=0.7]{plots_partie1/plot_personnel.png}
+\end{center}
+\subsubsection*{Analyse des courbes}
+Les courbes montrent que les contraintes de bénéfices minimal acceptables sont dans la plage [25\% - 80\%] du bénéfice max. Au delà de 80\% l'utilisation des machines 3 et 5 croit de façon plus rapide. Des contraintes supérieurs à 80\% du bénéfice maximum sont donc à écarter.  \\
+Nous avons donc retenu la même contrainte que pour le responsable des stocks, à savoir que le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale ($\frac{10512}{2} = 5256$ unités monétaires).
 \subsubsection{Limitation de l'usage de la machine 3}
 Le problème de programmation linéaire monocritère posé ici est le suivant :
 \begin{tcolorbox}
