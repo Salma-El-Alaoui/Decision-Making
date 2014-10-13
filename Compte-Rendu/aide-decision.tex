@@ -449,7 +449,7 @@ Le problème de programmation linéaire monocritère posé ici est le suivant :
 \begin{tcolorbox}
 Minimiser
 \begin{equation*}
- Z_{personnel}= 8*x_{A} + x_{B} + 11*x_{C} + 10*x_{E} + 25*x_{F}
+ Z_{personnel/3}= 8*x_{A} + x_{B} + 11*x_{C} + 10*x_{E} + 25*x_{F}
 \end{equation*}
 Sous les contraintes :
 \begin{itemize}
@@ -458,8 +458,97 @@ Sous les contraintes :
 \end{itemize}
 \end{tcolorbox}
 La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+\begin{equation*}
+\boldsymbol{X^{*}_{personnel/3} = 
+   \left (
+   \begin{aligned}
+      x_{A} &= 0 \\
+      x_{B} &= 175.00 \\
+      x_{C} &= 0 \\
+      x_{D} &= 0 \\
+      x_{E} &= 100.38 \\ 
+      x_{F} &= 0 \\
+   \end{aligned}
+   \right )
+ } 
+\end{equation*}
+\begin{align*}
+\textbf{Usage minimal de la machine 3 en min = 1178.8}
+\textbf{Usage de la machine 5 correspondant à ce plan = 1003.8}
+\end{align*}
+Satisfaction des contraintes : 
+\begin{align*}
+\boldsymbol{A.X^{*}_{personnel/3} - b = 
+   \left (
+   \begin{aligned}
+      -2175 \\
+      -3922 \\
+      -3621 \\
+      -1745 \\
+      -3796 \\
+      -3122 \\
+      -4275 \\
+      0 \\
+      -69 \\
+      -284\\
+   \end{aligned}
+   \right )
+ } 
+\end{align*}
+
 \subsubsection{Limitation de l'usage de la machine 5}
-TODO
+Le problème de programmation linéaire monocritère posé ici est le suivant :
+\begin{tcolorbox}
+Minimiser
+\begin{equation*}
+ Z_{personnel/5}= 5*x_{A} + 7*x_{D} + 10*x_{E} + 25*x_{F}
+\end{equation*}
+Sous les contraintes :
+\begin{itemize}
+\item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
+\item $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
+\end{itemize}
+\end{tcolorbox}
+La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
+\begin{equation*}
+\boldsymbol{X^{*}_{personnel/5} = 
+   \left (
+   \begin{aligned}
+      x_{A} &= 0 \\
+      x_{B} &= 120.34 \\
+      x_{C} &= 109.32 \\
+      x_{D} &= 0 \\
+      x_{E} &= 78.52 \\ 
+      x_{F} &= 0 \\
+   \end{aligned}
+   \right )
+ } 
+\end{equation*}
+\begin{align*}
+\textbf{Usage minimal de la machine 5 en min = 785}
+\textbf{Usage de la machine 3 correspondant à ce plan = 2104}
+\end{align*}
+
+
+Satisfaction des contraintes : 
+\begin{align*}
+\boldsymbol{A.X^{*}_{personnel/5} - b = 
+   \left (
+   \begin{aligned}
+      -2995 \\
+      -3911 \\
+      -2692 \\
+      -2029 \\
+      -4015 \\
+      -3242 \\
+      -4892 \\
+      0 \\
+      -113 \\
+      0\\
+   \end{aligned}
+   \right )
+ } 
+\end{align*}
 \subsubsection{Limitation de l'usage des machines 3 et 5} 
 On calcule donc les temps passés sur les machines pour chaque produit, d'où la formule suivante permettant de calculer les coefficients de la fonction : 
 \begin{align*} 
@@ -522,6 +611,8 @@ Satisfaction des contraintes :
 \end{align*}
 Bien que le produit B ait été préférable, sa production est limitée par la quantité de matière première 1 (Contrainte nulle). Il a donc fallu compléter la production avec un produit n'utilisant pas cette matière, seul le produit E correspond à ce critère d'où sa production en second choix.
 Comme pour le cas du responsable des Stocks, il est encore possible d'augmenter la production (MP 2 et 3 ne sont pas écoulées). Néanmoins, le plan de production donné ici respecte la contrainte de minimum de chiffre d'affaire donnée en début de partie.
+\subsubsection{Conclusion}
+Au vu des différents résultats obtenus pour les 3 cas, nous concluons que la solution à retenir est celle qui minimise la machine 3 ou la somme des temps des deux machines (ces deux solutions étant équivalentes).  La solution qui minimise uniquement l'usage de la machine 5 est à rejeter car elle entraine une utilisation excessive de la machine 3. 
 \section{Point de vue du Responsable d'entreprise}
 Nous avons défini la matrice de gain suivante:
 \begin{align*}
