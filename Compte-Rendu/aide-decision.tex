@@ -233,7 +233,7 @@ La résolution mathématique de ce problème de programmation linéaire donne le
 On constate que les produits les plus rentables (E puis F) sont beaucoup produits. Les produits
 les moins rentables (A et D) ne sont pas du tout produits. Le produit C est légèrement plus rentable que le produit B mais B est préféré à C car il n'utilise pas la matière première 3 qui est beaucoup utilisée par E (présence d'une contrainte sur l'utilisation des matières premières).
 \begin{align*}
-\textbf{Bénéfice maximal = 10512}
+\textbf{Bénéfice maximal = 10512 unités monétaires}
 \end{align*}
 Satisfaction des contraintes: 
 \begin{align*} 
@@ -286,7 +286,7 @@ La résolution mathématique de ce problème de programmation linéaire donne le
 \end{align*}
 Nous remarquons que le modèle A n'est pas du tout produit car il mobilise toutes les machines ni le produit D car il mobilise en quantité toutes les matières premières. On produit en quantité les produits B, E et F car ils n'utilisent pas toutes les matières premières. On produit aussi du C car il n'utilise pas du tout 2 machines.
 \begin{align*}
-\textbf{Quantité totale maximale de produits réalisés = 378.81}
+\textbf{Quantité maximale réalisée = 378.81 produits}
 \end{align*}
 La quantité est cohérente car celle-ci ne peut dépasser 620 (quantité maximale de matière
 première 2, matière qui est toujours utilisée). La plupart des produits utilisent 2 unités de 
@@ -351,9 +351,10 @@ La résolution mathématique de ce problème de programmation linéaire donne le
 \end{equation*}
 On remarque que le produit F est le plus fabriqué. De fait, il s'agit du produit qui utilise le moins de matières premières. Ensuite, les produits B et E consomment la même quantité de matières premières. Toutefois, les contraintes associées aux matières premières nous encouragent à préférer l'utilisation de la matière 3 par rapport à la matière 1 (Plus de disponibilité).
 \begin{align*}
-\textbf{Quantité minimale de produits et de matières premières en stock = 768.70}
+\textbf{Quantité minimale en stock = 768.70 éléments (Produits et matières premières)}
 \end{align*}
-TODO : Analyser le résultat\\
+Lors de la production, il faudra donc 769 places dans l'entrepôt pour stocker les marchandises (Produits finis ou matières premières). Toutes les places ne seront pas nécessairement occupées à tout instant (Notamment lors du processus de fabrication des produits).
+\\
 Satisfaction des contraintes : 
 \begin{equation*}
 \boldsymbol{A.X^{*}_{stocks} - b = 
@@ -417,7 +418,7 @@ x_{D} + x_{E} + x_{F} = 0 + 104.81 + 81.73 = 186.54
 \end{align*}
 On remarque que les produits B et D sont totalement supprimés de la production. Cette particularité montre que le modèle B demande plus de ressources et/ou de temps de travail que ses modèles équivalents (A et C) et que d'un point de vue quantitatif, il est préférable de choisir ces derniers. 
 \begin{align*}
-\textbf{Nombre de produits total = 373.08}
+\textbf{Quantité totale réalisée = 373.08 produits}
 \end{align*}
 On trouve une valeur cohérente par rapport à celle trouvée pour le chef d'atelier.\\
 Satisfaction des contraintes : 
@@ -474,8 +475,8 @@ La résolution mathématique de ce problème de programmation linéaire donne le
  } 
 \end{equation*}
 \begin{align*}
-\textbf{Usage minimal de la machine 3 en min = 1178.8}
-\textbf{Usage de la machine 5 correspondant à ce plan = 1003.8}
+\textbf{Usage minimal de la machine 3 = 1178.8 minutes}\\
+\textbf{Usage de la machine 5 correspondant à ce plan = 1003.8 minutes}
 \end{align*}
 Satisfaction des contraintes : 
 \begin{align*}
@@ -526,8 +527,8 @@ La résolution mathématique de ce problème de programmation linéaire donne le
  } 
 \end{equation*}
 \begin{align*}
-\textbf{Usage minimal de la machine 5 en min = 785}
-\textbf{Usage de la machine 3 correspondant à ce plan = 2104}
+\textbf{Usage minimal de la machine 5 = 785 minutes} \\
+\textbf{Usage de la machine 3 correspondant à ce plan = 2104 minutes}
 \end{align*}
 
 
@@ -589,7 +590,10 @@ La résolution mathématique de ce problème de programmation linéaire donne le
 \end{equation*}
 On constate qu'il est préférable de fabriquer les produits B et E. En effet, le produit B ne demande qu'une minute de temps d'utilisation cumulé sur les 2 machines, il semble donc correspondre au mieux aux critères. La production seule de ce produits ne permettant pas d'atteindre le seuil de rentabilité défini précédemment, il est nécessaire de produire une autre gamme. Malgré son fort taux d'utilisation, le produit E a été choisi pour compléter la production. L'analyse de la satisfaction des contraintes nous permet de comprendre cette préférence.
 \begin{align*}
-\textbf{Usage minimal des machines en min = 2182.7}
+\textbf{Usage minimal des machines = 2182.7 minutes}\\
+\Longleftrightarrow
+\textbf{Usage de la machine 3 = 1178.8 minutes}\\
+\textbf{Usage de la machine 5 = 1003.8 minutes}
 \end{align*}
 Satisfaction des contraintes : 
 \begin{align*}
