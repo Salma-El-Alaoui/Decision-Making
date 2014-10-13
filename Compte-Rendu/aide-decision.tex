@@ -656,34 +656,42 @@ Cette matrice représente les objectifs de chacun des cadres (en colonnes) et de
 A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif la maximisation du bénéfice (qui nous semble être l'intérêt premier du responsable d'entreprise) et avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des divers cadres. Dans un premier temps, nous avons déterminé le seuils de satisfaction de ces contraintes en pourcentage de leur valeur optimale. En effet, nous avons supposé que le responsable d'entreprise ne voudrait pas privilégier un cadre par rapport aux autres.
  
 \section{Sélection du meilleur plan de production}
-Suite aux études précédentes et aux différentes discussions, nous avons retenu 8 propositions de gestion d'atelier (notées de \textbf{\emph{a}} à \textbf{\emph{h}}).
-L'entreprise s'est entendue sur 4 critères à considérer pour décider du meilleur plan de production : le bénéfice, la gestion du stock, l'équilibre commercial (proposer une diversité de produits) et le taux d'utilisation de certaines machines délicates.
-Pour résoudre ce problème et trouver la meilleure solution possible, nous avons utilisé la méthode \emph{Electre 1}.
+Suite aux études précédentes et aux différentes discussions, nous avons retenu 8 propositions de gestion d'atelier (notées de \textbf{\emph{a}} à \textbf{\emph{h}}).\\
+Les décideurs de l'entreprise se sont entendus sur 4 critères à considérer pour décider du meilleur plan de production : le bénéfice, la gestion du stock, l'équilibre commercial (proposer une diversité de produits) et le taux d'utilisation de certaines machines délicates.\\
+Pour résoudre ce problème et trouver la meilleure solution possible, nous avons utilisé la méthode \emph{Electre I}.\\
 Dans un premier temps, nous avons déterminé grâce à la matrice de jugements les dominances fortes sur les critères précédents. Ainsi, nous avons déterminé que :
 \begin{itemize}
 \item \textbf{\emph{b}} et \textbf{\emph{h}} dominent \textbf{\emph{c}}
 \item \textbf{\emph{e}} domine \textbf{\emph{g}}
 \item \textbf{\emph{h}} domine \textbf{\emph{f}}
 \end{itemize}
-Nous ne prenons donc plus en compte les propositions \textbf{\emph{c}}, \textbf{\emph{g}} et \textbf{\emph{f}} et nous calculons ensuite les matrices de concordance et de discordance, une première fois sans affecter de poids aux différents critères :
+Nous ne prenons donc plus en compte les propositions \textbf{\emph{c}}, \textbf{\emph{g}} et \textbf{\emph{f}} .\\
+Nous avons par la suite déroulé la méthode Electre I dans deux cas différents. 
+\begin{itemize}
+\item Sans accorder de poids aux différents critères.
+\item En pondérant chacun des critères.
+\end{itemize}
+\subsection{Analyse sans pondération des critères}
+Nous obtenons les matrices de concordance et discordance suivante :
 \begin{align*}
 M_{concordance} =
  \begin{pmatrix}
-  4	&3	&3	&3	&3\\
-  1	&4	&2	&3	&2\\
-  2	&2	&4	&2	&3\\
-  1	&3	&2	&4	&2\\
-  2	&2	&3	&2	&4\\
+  X	&3	&3	&3	&3\\
+  1	&X	&2	&3	&2\\
+  2	&2	&X  &2	&3\\
+  1	&3	&2	&X	&2\\
+  2	&2	&3	&2	&X\\
  \end{pmatrix}& \quad
  M_{discordance} =
  \begin{pmatrix}
-  0	&4	&2	&4	&2\\
-  2	&0	&3	&6	&1\\
-  3	&4	&0	&5	&2\\
-  2	&6	&3	&0	&4\\
-  3	&2	&2	&5	&0\\
+  X	&4	&2	&4	&2\\
+  2	&X	&3	&6	&1\\
+  3	&4	&X	&5	&2\\
+  2	&6	&3	&X	&4\\
+  3	&2	&2	&5	&X\\
  \end{pmatrix}
-\end{align*} 
+\end{align*}
+\subsection{Analyse avec pondération des critères} 
 Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative. Nous privilégions principalement le bénéfice (raison d'être de l'entreprise). Nous avons ensuite décider de pondérer de la même manière les critères 2 et 3, que nous jugeons de même importance. Quant au critère 4, nous le considérons comme le moins important, les opérateurs pouvant être formés à l'utilisation de ces machines.
 Pour notre analyse, nous avons réévalué les notes de chaque critère afin de correspondre à une échelle plus adaptée. Nous obtenons donc une nouvelle matrice de jugements, ainsi que de nouvelles matrices de concordance et de discordance, sans les propositions dominées \textbf{\emph{c}}, \textbf{\emph{g}} et \textbf{\emph{f}} :
 \begin{center}
