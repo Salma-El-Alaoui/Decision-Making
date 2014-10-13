@@ -505,12 +505,12 @@ Le problème de programmation linéaire monocritère posé ici est le suivant :
 \begin{tcolorbox}
 Minimiser
 \begin{equation*}
- Z_{personnel/3}= 8*x_{A} + x_{B} + 11*x_{C} + 10*x_{E} + 25*x_{F}
+ Z_{personnel/3}= 8x_{A} + x_{B} + 11x_{C} + 10x_{E} + 25x_{F}
 \end{equation*}
 Sous les contraintes :
 \begin{itemize}
 \item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
-\item $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
+\item $ Z_{comptable}= 5.67x_{A} +11.88x_{B} +12.27x_{C} +1.03x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
 \end{itemize}
 \end{tcolorbox}
 La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
@@ -557,12 +557,12 @@ Le problème de programmation linéaire monocritère posé ici est le suivant :
 \begin{tcolorbox}
 Minimiser
 \begin{equation*}
- Z_{personnel/5}= 5*x_{A} + 7*x_{D} + 10*x_{E} + 25*x_{F}
+ Z_{personnel/5}= 5x_{A} + 7x_{D} + 10x_{E} + 25x_{F}
 \end{equation*}
 Sous les contraintes :
 \begin{itemize}
 \item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
-\item $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
+\item $ Z_{comptable}= 5.67x_{A} +11.88x_{B} +12.27x_{C} +1.03x_{D} +31.65x_{E} +27.55x_{F} \geq 5256$
 \end{itemize}
 \end{tcolorbox}
 La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
@@ -624,7 +624,7 @@ Minimiser
 Sous les contraintes :
 \begin{itemize}
 \item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
-\item $ Z_{comptable}= 5.67*x_{A} +11.88*x_{B} +12.27*x_{C} +1.03*x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
+\item $ Z_{comptable}= 5.67x_{A} +11.88x_{B} +12.27x_{C} +1.03x_{D} +31.65*x_{E} +27.55*x_{F} \geq 5256$
 \end{itemize}
 \end{tcolorbox}
 La résolution mathématique de ce problème de programmation linéaire donne les résultats suivant :\\
@@ -687,9 +687,66 @@ Matrice de Gain =
  \end{pmatrix}
 \end{align*}\\
 
-Cette matrice représente les objectifs de chacun des cadres (en colonnes) et des solutions optimales calculées en prenant ces objectifs séparément (en lignes). Les colonnes indiquent (de gauche à droite) le bénéfice, la production totale, le nombre de produits et matières premières en stock, l'écart entre la production des 2 gammes de produits, le temps d'utilisation total des machines 3 et 5, le temps d'utilisation de la machine 3 et enfin le temps d'utilisation de la machine 5.
+Cette matrice représente les objectifs de chacun des cadres (en colonnes) et des solutions optimales calculées en prenant les objectif séparément (en lignes). Les colonnes indiquent (de gauche à droite),le bénéfice, la production totale, le nombre de produits et matières premières en stock, l'écart entre la production des 2 gammes de produits, le temps d'utilisation total des machines 3 et 5, le temps d'utilisation de la machine 3 et enfin le temps d'utilisation de la machine 5.
 
-A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif la maximisation du bénéfice (qui nous semble être l'intérêt premier du responsable d'entreprise) et avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des divers cadres. 
+A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif à maximiser le bénéfice(qui nous semble être l'intérêt premier du responsable d'entreprise), avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des autres cadres. 
+
+Notre point de mire correspond à la diagonale de la matrice de gain, c'est à dire aux valeurs optimales pour chaque cadre:
+\begin{align*}
+\boldsymbol{PM = 
+   \left (
+   \begin{aligned}
+      10512\\
+      379\\
+      769\\
+      0\\
+      2183\\
+      1179\\
+      785\\
+   \end{aligned}
+   \right )
+ } 
+\end{align*}
+C'est de ce point que nous allons essayer de nous rapprocher, en essayant de trouver un compromis qui satisfera les différents responsables.
+
+Nous obtenons ainsi le problème de programmation linéaire suivant :
+Maximiser la fonction FONCTION COMPTABLE sous les contraintes :
+\begin{tcolorbox}
+Maximiser
+\begin{equation*}
+ Z_{comptable}= 5.67x_{A} +11.88x_{B} +12.27x_{C} +1.03x_{D} +31.65x_{E} +27.55x_{F}
+\end{equation*}
+Sous les contraintes :
+\begin{itemize}
+\item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
+\item $Z_{atelier}= x_{A} + x_{B} + x_{C} + x_{D} + x_{E} + x_{F} \geq valeur_{atelier}$
+\item $Z_{stocks}= 5x_{A} + 5x_{B} + 6x_{C} + 10x_{D} + 5x_{E} + 4x_{F}\leq valeur_{atelier} $
+\item $(x_{a} + x_{b} + x_{c}) - (x_{d} + x_{e} + x_{f}) 0$
+\item $Z_{personnel}= 13x_{A} + x_{B} + 11x_{C} + 7x_{D} + 20x_{E} + 50x_{F}$
+contraintes globales
+atelier 290
+zstock<1450
+zcom>10
+zpers<4000 ,
+\end{itemize}
+\end{tcolorbox}
+
+
+Nous définissons le \textbf{pourcentage d'erreur}comme:
+	\begin{equation*}
+		556
+	\end{equation*}
+et la réponse aux exigences des cadres comme max(0,1-% d’erreur). Le maximum empêche l’obtention de valeurs négatives qui n’auraient aucun sens métier.
+Pour le responsable commercial, la formule est différente car on cherche à réduire l’écart entre les deux catégories de produits. Le pourcentage d’erreur est donc défini comme étant METTRE LA FORMULE. On remet ainsi l’écart à l’échelle de la production.
+
+Nous estimons qu’obtenir une valeur deux fois plus grande que la valeur optimale pour un objectif à minimiser (ou deux fois plus petite si l’objectif est à maximiser) est trop loin de nos exigences. Dans ce cas l’erreur est supérieure à 1 et la réponse aux exigences est de 0.
+
+
+
+Pour déterminer les seuils de satisfaction ci-dessus, nous avons calculé les médianes de chaque objectif (chaque colonne de la matrice de gain) : [360; 1690; 190; 9000; 4700; 4320]
+
+GRAPHE
+
 
 
  
