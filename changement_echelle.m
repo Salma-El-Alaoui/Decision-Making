@@ -13,7 +13,7 @@ for i=1:C
     switch i
         case 2 %Critère g2 de poids faible
             a2 = 3;
-            b2 = 7;
+            b2 = 7; 
         case 3 %Critère g3 de poids moyen
             a2 = 2;
             b2 = 8;
