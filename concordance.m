@@ -9,7 +9,7 @@ for i=1:L
     for k=1:L
         for j=1:C
             if (jugement(i,j) >= jugement(k,j))
-                mat_concordance(i,k) = mat_concordance(i,k) + poids(1,j);
+                mat_concordance(i,k) = mat_concordance(i,k) + poids(1,j); 
             end
         end
     end
