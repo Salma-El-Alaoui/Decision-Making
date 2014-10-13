@@ -49,17 +49,19 @@ Med = median(MG,1);
 % réecriture du problème
 % On veut maximiser le bénefice. On transforme les autres fonctions
 % objectif en contraintes.
-A2 = [A;(-fatel)';fstock';(-fcom)';fpers';fm3';fm5'];
-B2 = [B; -360; 1690; -190; 9000; 4700; 4320]; 
-[X1, opt1, C1, fcompta] = Comptable(A2,B2,LB);
+A2 = [A;(-fatel)';fstock';(-fcom)';fpers'];
+B2 = [B; -290; 1450; -10;4000]; 
+%B2 = [B; -200; 1400; -200;4000]; 
+%Medianes : B2 = [B; -360; 1690; -190; 9000; 4700; 4320];
+[X2, opt1, C1, fcompta] = Comptable(A2,B2,LB);
 %On essaye d'améliorer les critères
-ajustement = eye(16,16);
-for i=11:16
-ajustement(:,i)= ajustement(:,i)*1.1;
-end
-B3 =  ajustement*B2;
-[X2, opt2, C2, fcompta] = Comptable(A2,B3,LB);
-X2
+% ajustement = eye(16,16);
+% for i=11:16
+% ajustement(:,i)= ajustement(:,i)*1.1;
+% end
+% B3 =  ajustement*B2;
+% [X2, opt2, C2, fcompta] = Comptable(A2,B2,LB);
+
 %On regarde maintenant le pourcentage de satisfaction des objectifs de
 %chaque responsable:
 [VS, PM,Y]=Satisfaction(MG,X2, fcompta , fatel, fstock,fpers);
