@@ -887,7 +887,7 @@ En analysant les différents graphes, on peut déduire que le plan de production
 
 ~
 \subsection{Analyse avec pondération des critères} 
-Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative. Nous privilégions principalement le bénéfice (raison d'être de l'entreprise). Nous avons ensuite décider de pondérer de la même manière les critères 2 et 3, que nous jugeons de même importance. Quant au critère 4, nous le considérons comme le moins important, les opérateurs pouvant être formés à l'utilisation de ces machines.
+Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative et au vu des résultats de la partie 2. Nous privilégions principalement le bénéfice (raison d'être de l'entreprise) auquel nous affectons un poids fort égal à 5. Nous avons ensuite décider d'affecter une pondération moyenne égale à 3 au critère 3 garantissant une production de produits diversifiée. Quant aux critères 2 et 4, nous les considérons comme les moins importants (poids faible égal à 2), vu que les opérateurs peuvent être formés à l'utilisation des machines et que le maintien d'un stock minimal n'est pas d'une importance primordiale.\\
 Pour notre analyse, nous avons réévalué les notes de chaque critère afin de correspondre à une échelle plus adaptée. Nous obtenons donc une nouvelle matrice de jugements, ainsi que de nouvelles matrices de concordance et de discordance, sans les propositions dominées \textbf{\emph{c}}, \textbf{\emph{g}} et \textbf{\emph{f}} :
 \begin{center}
 \newcolumntype{M}{>{\centering\arraybackslash} m{1.5cm} }
@@ -896,51 +896,97 @@ Pour notre analyse, nous avons réévalué les notes de chaque critère afin de 
 \begin{tabular}{|L|M|M|M|M|}
 \hline 
 Critère & g1 & g2 & g3 & g4 \\\hline  
-Coefficient & 5 & 3 & 3 & 2 \\ \hline 
-Echelle & 0 $ \Rightarrow $ 10 & 2 $ \Rightarrow $ 8 & 2 $ \Rightarrow $ 8 & 3 $ \Rightarrow $ 7 \\ \hline 
+Coefficient & 5 & 2 & 3 & 2 \\ \hline 
+Echelle & 0 $ \Rightarrow $ 10 & 3 $ \Rightarrow $ 7 & 2 $ \Rightarrow $ 8 & 3 $ \Rightarrow $ 7 \\ \hline 
 a & 6 & 5 & 5 & 5 \\ \hline 
-b & 5 & 4.4 & 7.4 & 4.2 \\ \hline 
-c & 3 & 4.4 & 6.2 & 4.2 \\ \hline 
-d & 3 & 6.2 & 5 & 4.6 \\ \hline 
-e & 5 & 4.4 & 3.8 & 6.6 \\ \hline 
+b & 5 & 4.6 & 7.4 & 4.2 \\ \hline 
+c & 3 & 4.6 & 6.2 & 4.2 \\ \hline 
+d & 3 & 5.8 & 5 & 4.6 \\ \hline 
+e & 5 & 4.6 & 3.8 & 6.6 \\ \hline 
 f & 2 & 5 & 6.2 & 4.2 \\ \hline 
-g & 5 & 4.4 & 3.2 & 6.6 \\ \hline 
+g & 5 & 4.6 & 3.2 & 6.6 \\ \hline 
 h & 3 & 5 & 6.2 & 4.6 \\ 
 \hline 
 \end{tabular} 
 \end{center}
-\begin{align*}
-M_{concordance}*13 =
- \begin{pmatrix}
-  4	&3	&3	&3	&3\\
-1	&4	&2	&3	&2\\
-2	&2	&4	&2	&3\\
-1	&3	&2	&4	&2\\
-2	&2	&3	&2	&4
- \end{pmatrix}& \quad
- M_{discordance}*10 =
- \begin{pmatrix}
- 0,00	&2,40 &1,20 &1,60 &1,20\\
- 1,00   &0,00 &1,80	&2,40 &0,60\\
- 3,00	&2,40 &0,00 &2,00 &1,20\\
- 1,20	&3,60	&1,80 &0,00	&2,40\\
- 3,00	&2,00	&1,20  &2,00  &0,00
- \end{pmatrix}
-\end{align*}
-Durant les itérations, nous avons choisi les seuils suivants :
-\begin{description}
-\item[$C_{1}$] = Seuil de concordance = 3/4
-\item[$C_{2}$] = Seuil de discordance = 2/10
-\end{description}
-En appliquant ces valeurs, nous obtenons le graphe de surclassement suivant : 
-\begin{center}
-\includegraphics[scale=1.5]{graphes/s_3sur4____v_2sur10}
-\end{center}
+\begin{minipage}{0.45\textwidth}
+C = $\frac{1}{12}$*\bordermatrix{~ & a & b & d & e & h \cr
+                  a & - & 9 & 10 & 10 & 9 \cr
+                  b & 3 & - & 8 & 10 & 8 \cr
+                  d & 5 & 4 & - & 5 & 9 \cr
+                  e & 2 & 9 & 7 & - & 7 \cr
+                  h & 5 & 4 & 10 & 5 & - \cr}
+\end{minipage}
+~
+\begin{minipage}{0.45\textwidth}
+D = $\frac{1}{10}$*\bordermatrix{~ & a & b & d & e & h \cr
+                  a & - & 2.4 & 0.8 & 1.6 & 1.2 \cr
+                  b & 1.0 & - & 1.2 & 2.4 & 0.4 \cr
+                  d & 3.0 & 2.4 & - & 2.0 & 1.2 \cr
+                  e & 1.2 & 3.6 & 1.2 & - & 2.4 \cr
+                  h & 3.0 & 2.0 & 0.8 & 2.0 & - \cr}
+\end{minipage}\\[0.5cm]
+Nous avons appliqué 3 seuillages (strict, intermédiaire et lache) afin de déterminer le meilleur plan de production. Voici les graphes de surclassement qui en résultent : \\
+\vspace{10pt}
+\fbox{\begin{minipage}{0.3\textwidth}
+Strict :
+$C_1=\frac{10}{12}$; $D_1=\frac{1.5}{10}$ \\
+\begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
+   mauvaise action/.style={font=\sffamily\Large\bfseries},
+   bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
 
-En diminuant le seuil de concordance (C1 = 2/4) et en augmentant le seuil de discordance(C2 = 3/10), nous obtenons le graphe suivant : 
-\begin{center}
-\includegraphics[scale=1]{graphes/s_2sur4____v_3sur10}
-\end{center}
+  \node[bonne action] (a) {a};
+  \node[bonne action](b) [below right of=a] {b};
+  \node[mauvaise action] (d) [below of=b] {d};
+  \node[bonne action] (h) [below left of=a] {h};
+  \node[bonne action] (e) [below of=h] {e};
+
+  \foreach \from/\to in {a/d,h/d} \draw (\from) -- (\to);
+\end{tikzpicture}\\
+\centering
+ensemble des meilleures actions potentielles = \{a,b,e,h\}
+\end{minipage}}
+~
+\vspace{10pt}
+\fbox{\begin{minipage}{0.3\textwidth}
+Moyen :
+$C_2=\frac{8}{12}$; $D_2=\frac{2.5}{10}$ \\
+\begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
+   mauvaise action/.style={font=\sffamily\Large\bfseries},
+   bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[bonne action] (a) {a};
+  \node[bonne action](b) [below right of=a] {b};
+  \node[mauvaise action] (d) [below of=b] {d};
+  \node[mauvaise action] (h) [below left of=a] {h};
+  \node[mauvaise action] (e) [below of=h] {e};
+
+  \foreach \from/\to in {a/d,a/b,a/e,a/h,b/d,b/e,b/h,d/h,h/d} \draw (\from) -- (\to);
+\end{tikzpicture}\\
+\centering
+ensemble des meilleures actions potentielles = \{a,b\}
+\end{minipage}}
+~
+\vspace{10pt}
+\fbox{\begin{minipage}{0.3\textwidth}
+Lache : TODO
+$C_3=\frac{7}{12}$; $D_3=\frac{3}{10}$ \\
+\begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
+   mauvaise action/.style={font=\sffamily\Large\bfseries},
+   bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[bonne action] (a) {a};
+  \node[bonne action](b) [below right of=a] {b};
+  \node[mauvaise action] (d) [below of=b] {d};
+  \node[mauvaise action] (h) [below left of=a] {h};
+  \node[bonne action] (e) [below of=h] {e};
+
+  \foreach \from/\to in {a/d,h/d} \draw (\from) -- (\to);
+\end{tikzpicture}\\
+\centering
+ensemble des meilleures actions potentielles = \{a,b,e\}
+\end{minipage}}
+Analyse : TODO 
 \newpage
 \section*{Annexe}
 \lstinputlisting{../Atelier.m}
