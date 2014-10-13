@@ -30,7 +30,7 @@ LB = zeros (6,1);
  % ====================== Comptable ======================
  [Xcompta, optcompta, Ccompta, fcompta] = Comptable(A,B,LB);
  % ====================== Responsable d'atelier ======================
- [Xatel, optatel, Catel, fatel] = Atelier(A,B,LB);
+ [Xatel, optatel, Catel, fatel] = Atelier(A,B,LB); 
  % ====================== Responsable des stocks ======================
  [Xstock, optstock, Cstock, fstock] = Stock(A,B,LB);
  % ====================== Responsable commercial ======================
