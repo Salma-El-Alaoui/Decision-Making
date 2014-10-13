@@ -1,10 +1,12 @@
 \documentclass[12pt]{article}
 
 \usepackage{ucs}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
 \usepackage[frenchb]{babel}
 %\usepackage{fontenc}
 %amazing maths packages
+\DeclareUnicodeCharacter{00A0}{ }
 \usepackage{array}
 \usepackage{amsmath}
 \usepackage{ragged2e}
@@ -17,6 +19,32 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{tikz}
+
+%matlab file inclusion
+
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Matlab,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \newcommand*\tick{\item[\Checkmark]}
 \newcommand*\fail{\item[\XSolidBrush]}
@@ -156,7 +184,7 @@ De plus, la production est limitée par les matières premières. De fait, en ap
 \end{aligned}
 \right.
 \end{equation*}
-Il en découle les matrices A et b (définies à la section précédente) suivante :
+Il en découle les matrices A et b (définies à la section précédente) suivantes :
 \begin{align*}
 A =
  \begin{pmatrix}
@@ -171,7 +199,7 @@ A =
 2 &2 &1 &2 &2 &2\\
 1 &0 &3 &2 &2 &0
  \end{pmatrix}
-  , b = 
+  \quad b = 
    \left (
    \begin{aligned}
       4800 \\
@@ -323,10 +351,15 @@ Cette quantité est calculée en ajoutant le nombre de matières premières util
 \end{description}
 Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulle (de l'ordre de $ 10 ^{-16}$ ).\\
 Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à un certain pourcentage du bénéfice maximale.\\
-Le graphe ci-dessous montre l'évolution du nombre de produits en stock en fonction de la contrainte du pourcentage de bénéfice minimal.  
-\begin{center}
-\includegraphics[scale=0.7]{plots_partie1/plot_stock.png}
-\end{center}
+Le graphe ci-dessous montre l'évolution du nombre de produits en stock en fonction de la contrainte du pourcentage de bénéfice minimal. 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.8]{plots_partie1/plot_stock.png}
+        \caption{
+            \label{fig} Évolution du stock en fonction de \%bénéfice minimal
+        }
+    \end{center}
+\end{figure} 
 \subsubsection*{Analyse de la courbe}
 La courbe montre une évolution linéaire de la quantité de produits stockés en fonction du pourcentage du bénéfice minimal.\\
 Nous estimons donc que la contrainte suivante assure un certain fonctionnement de l'usine tout en restant raisonnable par rapport à l'objectif du responsable de stock : le bénéfice doit être supérieur ou égal à 50\% du bénéfice maximal. ($\frac{10512}{2} = 5256$ unités monétaires).
@@ -644,17 +677,21 @@ Nous avons défini la matrice de gain suivante:
 \begin{align*}
 Matrice de Gain =
  \begin{pmatrix}
-  10512,33	&357,09	&1691,28 &316,28& 9579,59 &4800 &4779,59\\
-9712,21	&378,81	&1833,81	&187,96	&9117,65	&4800	&4317,65\\
-5256,17	&188,74	&768,71	&188,74	&9024,83	&4512,41	&4512,41\\
-6919,71	&373,08	&1828,08	&0	&8518,85	&4716,92	&3801,92\\
-5256,17	&275,38	&1376,92 &74,62	&2182,69   &1178,84 &1003,84
+    10512    &357   &1691    &316   &9580   &4800   &4780\\
+    9712     &379   &1834    &188   &9118   &4800   &4318\\
+    5256    &189    &769    &189     &9025   &4512   &4512\\
+    6920    &373   &1828    &0       &8519    &4717   &3802\\
+    5256    &275   &1377    &75     &2183    &1179   &1004\\
+    5256    &275   &1377   &75     &2183    &1179   &1004\\
+    5256    &308   &1650    &151   &2893    &2108    &785
  \end{pmatrix}
 \end{align*}\\
 
-Cette matrice représente les objectifs de chacun des cadres (en colonnes) et des solutions optimales calculées en prenant ces objectifs séparément (en lignes). Les colonnes indiquent (de gauche à droite) le bénéfice, la production totale, le nombre de produits et matières premières en stock, l'écart entre la production des 2 gammes de produits, le temps d'utilisation total des machines 3 et 5, le temps d'utilisation de la machine 3 et enfin le temps d'utilisation de la machine 5.\\
+Cette matrice représente les objectifs de chacun des cadres (en colonnes) et des solutions optimales calculées en prenant ces objectifs séparément (en lignes). Les colonnes indiquent (de gauche à droite) le bénéfice, la production totale, le nombre de produits et matières premières en stock, l'écart entre la production des 2 gammes de produits, le temps d'utilisation total des machines 3 et 5, le temps d'utilisation de la machine 3 et enfin le temps d'utilisation de la machine 5.
 
-A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif la maximisation du bénéfice (qui nous semble être l'intérêt premier du responsable d'entreprise) et avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des divers cadres. Dans un premier temps, nous avons déterminé le seuils de satisfaction de ces contraintes en pourcentage de leur valeur optimale. En effet, nous avons supposé que le responsable d'entreprise ne voudrait pas privilégier un cadre par rapport aux autres.
+A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif la maximisation du bénéfice (qui nous semble être l'intérêt premier du responsable d'entreprise) et avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des divers cadres. 
+
+
  
 \section{Sélection du meilleur plan de production}
 Suite aux études précédentes et aux différentes discussions, nous avons retenu 8 propositions de gestion d'atelier (notées de \textbf{\emph{a}} à \textbf{\emph{h}}).\\
@@ -766,13 +803,7 @@ En diminuant le seuil de concordance (C1 = 2/4) et en augmentant le seuil de dis
 \begin{center}
 \includegraphics[scale=1]{graphes/s_2sur4____v_3sur10}
 \end{center}
-
-%\begin{figure}
-%	\begin{center}
-%	\includegraphics[scale=0.7]{graphe_surclassement.png}
-%	\end{center}
-%	\caption{Diagram label}
-%\end{figure}
-%\pagebreak
-%\include{partie_1} % \include == \clearpage + \input
+\newpage
+\section*{Annexe}
+\lstinputlisting{../Atelier.m}
 \end{document}
