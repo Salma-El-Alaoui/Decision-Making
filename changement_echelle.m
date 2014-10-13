@@ -1,6 +1,6 @@
 function [ jugement_pondere ] = changement_echelle( jugement )
-% Applique le changement d'echelle à la matrice de jugements en fonction
-% des poids définis.
+% Applique le changement d'echelle Ã  la matrice de jugements en fonction
+% des poids dÃ©finis.
 %  
 
 jugement_pondere = zeros(size(jugement));
@@ -11,13 +11,13 @@ a2=0;
 b2=10;
 for i=1:C
     switch i
-        case 2 %Critère g2 de poids moyen
+        case 2 %CritÃ¨re g2 de poids moyen
+            a2 = 3;
+            b2 = 7;
+        case 3 %CritÃ¨re g3 de poids moyen
             a2 = 2;
             b2 = 8;
-        case 3 %Critère g3 de poids moyen
-            a2 = 2;
-            b2 = 8;
-        case 4 %Critère g4 de poids faible
+        case 4 %CritÃ¨re g4 de poids faible
             a2 = 3;
             b2 = 7;
     end
