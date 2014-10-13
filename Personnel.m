@@ -46,11 +46,11 @@ title('machines 3 et 5');
 subplot(3,1,2),
 plot(R3,'g')
 title('machine 3');
+ylabel('temps dutisation des machines en mn par semaine');
 subplot(3,1,3),
 plot(R5,'b')
 title('machine 5');
 xlabel('pourcentage de benefice minimal');
-ylabel('temps dutisation en mn..');
 hold off
 
 

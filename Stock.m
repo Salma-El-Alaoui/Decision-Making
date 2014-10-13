@@ -22,7 +22,8 @@ for i=1:100
     
 end
 figure;
-title('Evolution du stock en fonction du pourcentage de bénéfice minimal');
+xlabel('pourcentage de benefice minimal');
+ylabel('quantité de produits et de matières premières dans le stock');;
 hold on
 plot(R)
 hold off;
