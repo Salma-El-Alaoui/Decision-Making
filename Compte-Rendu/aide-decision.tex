@@ -710,7 +710,6 @@ Notre point de mire correspond à la diagonale de la matrice de gain, c'est à d
 C'est de ce point que nous allons essayer de nous rapprocher, en essayant de trouver un compromis qui satisfera les différents responsables.
 
 Nous obtenons ainsi le problème de programmation linéaire suivant :
-Maximiser la fonction FONCTION COMPTABLE sous les contraintes :
 \begin{tcolorbox}
 Maximiser
 \begin{equation*}
@@ -719,19 +718,31 @@ Maximiser
 Sous les contraintes :
 \begin{itemize}
 \item contraintes globales (cf section 2 - Prise en compte des contraintes globales )
-\item $Z_{atelier}= x_{A} + x_{B} + x_{C} + x_{D} + x_{E} + x_{F} \geq valeur_{atelier}$
-\item $Z_{stocks}= 5x_{A} + 5x_{B} + 6x_{C} + 10x_{D} + 5x_{E} + 4x_{F}\leq valeur_{atelier} $
-\item $(x_{a} + x_{b} + x_{c}) - (x_{d} + x_{e} + x_{f}) 0$
-\item $Z_{personnel}= 13x_{A} + x_{B} + 11x_{C} + 7x_{D} + 20x_{E} + 50x_{F}$
+\item nouvelles contraintes déduites des fonctions objectifs des autres cadres:\\
+\end{itemize}
+
+\begin{equation*}
+\left\{
+\begin{aligned}
+   Z_{atelier}= x_{A} + x_{B} + x_{C} + x_{D} + x_{E} + x_{F} &\geq seuil_{atelier}
+    \\
+   Z_{stocks}= 5x_{A} + 5x_{B} + 6x_{C} + 10x_{D} + 5x_{E} + 4x_{F}
+   &\leq seuil_{stock}
+   \\
+   Z_{commercial}(X)=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f} &\geq seuil_{commercial}
+   \\
+   Z_{personnel}= 13x_{A} + x_{B} + 11x_{C} + 7x_{D} + 20x_{E} + 50x_{F}&\leq seuil_{personnel}
+\end{aligned}
+\right.
+\\
+\end{equation*}
 contraintes globales
 atelier 290
 zstock<1450
 zcom>10
 zpers<4000 ,
-\end{itemize}
 \end{tcolorbox}
-
-
+Il s'agit maintenant de déterminer les seuils de satisfaction ci-dessus. Nous les fixons tout d'abord aux valeurs de la médiane de chaque colonne de la matrice de gain. Nous essayons ensuite de dégrader les contraintes sur plusieurs itérations pour essayer de nous rapprocher au plus du point de mire. La stratégie du responsable d'entre
 Nous définissons le \textbf{pourcentage d'erreur}comme:
 	\begin{equation*}
 		556

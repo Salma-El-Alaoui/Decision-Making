@@ -77,6 +77,7 @@ MC1=concordance(changement_echelle(Matrice_jugement_sans_domines));
 MD1 = discordance(changement_echelle(Matrice_jugement_sans_domines));
 
 
+L=changement_echelle(matrice_jugement)
 
 
 
