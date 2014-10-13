@@ -769,7 +769,8 @@ Nous avons par la suite déroulé la méthode Electre I dans deux cas différent
 \subsection{Analyse sans pondération des critères}
 Nous obtenons les matrices de concordance (C) et discordance (D) suivante : \\
 \begin{minipage}{0.45\textwidth}
-C = $\frac{1}{4}$*\bordermatrix{~ & a & b & d & e & h \cr
+C = $\frac{1}{4}$*\bordermatrix{
+				  ~ & a & b & d & e & h \cr
                   a & - & 3 & 3 & 3 & 3 \cr
                   b & 1 & - & 2 & 3 & 2 \cr
                   d & 2 & 2 & - & 2 & 3 \cr
@@ -778,14 +779,15 @@ C = $\frac{1}{4}$*\bordermatrix{~ & a & b & d & e & h \cr
 \end{minipage}
 ~
 \begin{minipage}{0.45\textwidth}
-D = $\frac{1}{10}$*\bordermatrix{~ & a & b & d & e & h \cr
+D = $\frac{1}{10}$*\bordermatrix{
+				  ~ & a & b & d & e & h \cr
                   a & - & 4 & 2 & 4 & 2 \cr
                   b & 2 & - & 3 & 6 & 1 \cr
                   d & 3 & 4 & - & 5 & 2 \cr
                   e & 2 & 6 & 3 & - & 4 \cr
                   h & 3 & 2 & 2 & 5 & - \cr}
 \end{minipage}\\[0.5cm]
-En nous basant sur ces matrices et en fixant différents seuils de concordance(s)/discordance, nous traçons les graphes de surclassement suivants :\\ Z! Ceci est un example FAUX, qui sert de modèle pour tracer les graphes en LaTeX Z!\\
+En nous basant sur ces matrices et en fixant différents seuils de concordance/discordance, nous traçons les graphes de surclassement suivants :\\
 \vspace{10pt}
 \fbox{\begin{minipage}{0.3\textwidth}
 $C_1=\frac{3}{4}$; $C_2=\frac{2}{10}$ \\
@@ -793,17 +795,54 @@ $C_1=\frac{3}{4}$; $C_2=\frac{2}{10}$ \\
    mauvaise action/.style={font=\sffamily\Large\bfseries},
    bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
 
-  \node[bonne action] (a) {a};
+  \node[bonne action](a) {a};
   \node[bonne action](b) [below right of=a] {b};
-  \node[mauvaise action] (d) [below of=b] {d};
-  \node[mauvaise action] (h) [below left of=a] {h};
-  \node[bonne action] (e) [below of=h] {e};
+  \node[mauvaise action](d) [below of=b] {d};
+  \node[mauvaise action](h) [below left of=a] {h};
+  \node[bonne action](e) [below of=h] {e};
 
-  \foreach \from/\to in {a/d,a/h,h/d} \draw (\from) -- (\to);
+  \foreach \from/\to in {a/d,a/h,d/h, h/d} \draw (\from) -- (\to);
 \end{tikzpicture}\\
 \centering
 ensemble des meilleures actions potentielles = \{a,b,e\}
 \end{minipage}}
+\fbox{\begin{minipage}{0.3\textwidth}
+$C_1=\frac{2}{4}$; $C_2=\frac{2}{10}$ \\
+\begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
+   mauvaise action/.style={font=\sffamily\Large\bfseries},
+   bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[bonne action](a) {a};
+  \node[mauvaise action](b) [below right of=a] {b};
+  \node[mauvaise action](d) [below of=b] {d};
+  \node[mauvaise action](h) [below left of=a] {h};
+  \node[bonne action](e) [below of=h] {e};
+
+  \foreach \from/\to in {a/d,a/h,b/h,d/h,h/b,h/d} \draw (\from) -- (\to);
+\end{tikzpicture}\\
+\centering
+ensemble des meilleures actions potentielles = \newline\{a,e\}
+\end{minipage}}
+\fbox{\begin{minipage}{0.3\textwidth}
+$C_1=\frac{3}{4}$; $C_2=\frac{4}{10}$ \\
+\begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
+   mauvaise action/.style={font=\sffamily\Large\bfseries},
+   bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[bonne action](a) {a};
+  \node[mauvaise action](b) [below right of=a] {b};
+  \node[mauvaise action](d) [below of=b] {d};
+  \node[mauvaise action](h) [below left of=a] {h};
+  \node[mauvaise action](e) [below of=h] {e};
+
+  \foreach \from/\to in {a/b,a/d,a/e,a/h,d/h, h/d} \draw (\from) -- (\to);
+\end{tikzpicture}\\
+\centering
+ensemble des meilleures actions potentielles = \newline\{a\}
+\end{minipage}}
+\\
+En analysant les différents graphes, on peut déduire que le plan de production A serait le plan répondant le mieux aux critères malgré un léger effet de rattrapage (Augmentation du coefficient C$_{2}$ requise).
+
 ~
 \subsection{Analyse avec pondération des critères} 
 Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative. Nous privilégions principalement le bénéfice (raison d'être de l'entreprise). Nous avons ensuite décider de pondérer de la même manière les critères 2 et 3, que nous jugeons de même importance. Quant au critère 4, nous le considérons comme le moins important, les opérateurs pouvant être formés à l'utilisation de ces machines.
