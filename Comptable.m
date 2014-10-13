@@ -10,7 +10,7 @@ opt=F'*X;
 
 C=A*X-B;
 
-figure(1)
+figure;
 str = {'A','B','C','D','E','F'};
 bar(X);
 title('Comptable')

@@ -15,6 +15,7 @@
 \usepackage{fancyhdr, graphicx}
 \usepackage[normalem]{ulem}
 \usepackage{fullpage}
+\usepackage{graphicx}
 
 \newcommand*\tick{\item[\Checkmark]}
 \newcommand*\fail{\item[\XSolidBrush]}
@@ -624,18 +625,23 @@ Matrice de Gain =
 6919,71	&373,08	&1828,08	&0	&8518,85	&4716,92	&3801,92\\
 5256,17	&275,38	&1376,92 &74,62	&2182,69   &1178,84 &1003,84
  \end{pmatrix}
-\end{align*}
+\end{align*}\\
+
+Cette matrice représente les objectifs de chacun des cadres (en colonnes) et des solutions optimales calculées en prenant ces objectifs séparément (en lignes). Les colonnes indiquent (de gauche à droite) le bénéfice, la production totale, le nombre de produits et matières premières en stock, l'écart entre la production des 2 gammes de produits, le temps d'utilisation total des machines 3 et 5, le temps d'utilisation de la machine 3 et enfin le temps d'utilisation de la machine 5.\\
+
+A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif la maximisation du bénéfice (qui nous semble être l'intérêt premier du responsable d'entreprise) et avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des divers cadres. Dans un premier temps, nous avons déterminé le seuils de satisfaction de ces contraintes en pourcentage de leur valeur optimale. En effet, nous avons supposé que le responsable d'entreprise ne voudrait pas privilégier un cadre par rapport aux autres.
+ 
 \section{Sélection du meilleur plan de production}
-Suite aux études précédentes et aux différentes discussions, nous avons retenu 8 propositions de gestion d'atelier.
-L'entreprise s'est entendue sur 4 critères à considérer pour décider du meilleur plan de production : le bénéfice, la gestion du stock, l'équilibre commercial (Proposer une diversité de produits) et le taux d'utilisation de certaines machines délicates.
+Suite aux études précédentes et aux différentes discussions, nous avons retenu 8 propositions de gestion d'atelier (notées de \textbf{\emph{a}} à \textbf{\emph{h}}).
+L'entreprise s'est entendue sur 4 critères à considérer pour décider du meilleur plan de production : le bénéfice, la gestion du stock, l'équilibre commercial (proposer une diversité de produits) et le taux d'utilisation de certaines machines délicates.
 Pour résoudre ce problème et trouver la meilleure solution possible, nous avons utilisé la méthode \emph{Electre 1}.
-Dans un premier temps, nous avons déterminé les dominances fortes sur les critères précédents. Ainsi, nous avons déterminé que :
+Dans un premier temps, nous avons déterminé grâce à la matrice de jugements les dominances fortes sur les critères précédents. Ainsi, nous avons déterminé que :
 \begin{itemize}
 \item \textbf{\emph{b}} et \textbf{\emph{h}} dominent \textbf{\emph{c}}
 \item \textbf{\emph{e}} domine \textbf{\emph{g}}
 \item \textbf{\emph{h}} domine \textbf{\emph{f}}
 \end{itemize}
-Nous avons ensuite calculé les matrices de concordance et de discordance, une première fois sans affecter de poids aux différents critères:
+Nous ne prenons donc plus en compte les propositions \textbf{\emph{c}}, \textbf{\emph{g}} et \textbf{\emph{f}} et nous calculons ensuite les matrices de concordance et de discordance, une première fois sans affecter de poids aux différents critères :
 \begin{align*}
 M_{concordance} =
  \begin{pmatrix}
@@ -654,8 +660,8 @@ M_{concordance} =
   3	&2	&2	&5	&0\\
  \end{pmatrix}
 \end{align*} 
-Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative. Nous privilégions principalement le bénéfice (Raison d'être de l'entreprise). Nous avons ensuite décider de pondérer de la même manière les critères 2 et 3, que nous jugeons de même importance. Quant au critère 4, nous le considérons comme le moins important, les opérateurs pouvant être formés à l'utilisation de ces machines.
-Pour notre analyse, nous avons réévalué les notes de chaque critère afin de correspondre à une échelle plus adaptée. Nous obtenons donc une nouvelle matrice de jugements, ainsi que de nouvelles matrices de concordance et de discordance :
+Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative. Nous privilégions principalement le bénéfice (raison d'être de l'entreprise). Nous avons ensuite décider de pondérer de la même manière les critères 2 et 3, que nous jugeons de même importance. Quant au critère 4, nous le considérons comme le moins important, les opérateurs pouvant être formés à l'utilisation de ces machines.
+Pour notre analyse, nous avons réévalué les notes de chaque critère afin de correspondre à une échelle plus adaptée. Nous obtenons donc une nouvelle matrice de jugements, ainsi que de nouvelles matrices de concordance et de discordance, sans les propositions dominées \textbf{\emph{c}}, \textbf{\emph{g}} et \textbf{\emph{f}} :
 \begin{center}
 \newcolumntype{M}{>{\centering\arraybackslash} m{1.5cm} }
 \newcolumntype{L}{>{\centering\arraybackslash} m{1.75cm} }
@@ -677,7 +683,7 @@ h & 3 & 5 & 6.2 & 4.6 \\
 \end{tabular} 
 \end{center}
 \begin{align*}
-M_{concordance} =
+M_{concordance}*13 =
  \begin{pmatrix}
   4	&3	&3	&3	&3\\
 1	&4	&2	&3	&2\\
@@ -685,7 +691,7 @@ M_{concordance} =
 1	&3	&2	&4	&2\\
 2	&2	&3	&2	&4
  \end{pmatrix}& \quad
- M_{discordance} =
+ M_{discordance}*10 =
  \begin{pmatrix}
  0,00	&2,40 &1,20 &1,60 &1,20\\
  1,00   &0,00 &1,80	&2,40 &0,60\\
@@ -696,10 +702,19 @@ M_{concordance} =
 \end{align*}
 Durant les itérations, nous avons choisi les seuils suivants :
 \begin{description}
-\item[$C_{1}$] = Seuil de concordance = 
-\item[$C_{2}$] = Seuil de discordance = 
+\item[$C_{1}$] = Seuil de concordance = 3/4
+\item[$C_{2}$] = Seuil de discordance = 2/10
 \end{description}
-En appliquant ces valeurs, nous obtenons le graphe de surclassement suivant :
+En appliquant ces valeurs, nous obtenons le graphe de surclassement suivant : 
+\begin{center}
+\includegraphics[scale=1.5]{graphes/s_3sur4____v_2sur10}
+\end{center}
+
+En diminuant le seuil de concordance (C1 = 2/4) et en augmentant le seuil de discordance(C2 = 3/10), nous obtenons le graphe suivant : 
+\begin{center}
+\includegraphics[scale=1]{graphes/s_2sur4____v_3sur10}
+\end{center}
+
 %\begin{figure}
 %	\begin{center}
 %	\includegraphics[scale=0.7]{graphe_surclassement.png}

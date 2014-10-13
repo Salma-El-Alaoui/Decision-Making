@@ -42,7 +42,7 @@ LB = zeros (6,1);
 % On calcule la matrice de gain pour les différentes solutions trouvées précédemment. 
 % On maximise toutes les fonctions sauf fstock et fpers (et fm3 et fm5).
 
-MG = MatriceGain( Xcompta, Xatel, Xstock, Xcom, Xpers,fcompta , fatel, fstock,fpers, fm3, fm5 );
+MG = MatriceGain( Xcompta, Xatel, Xstock, Xcom, Xpers, Xm3, Xm5, fcompta , fatel, fstock,fpers, fm3, fm5 );
 Moy = sum(MG,1)/5;
 Med = median(MG,1);
 
@@ -51,18 +51,28 @@ Med = median(MG,1);
 % objectif en contraintes.
 A2 = [A;(-fatel)';fstock';(-fcom)';fpers';fm3';fm5'];
 B2 = [B; -360; 1690; -190; 9000; 4700; 4320]; 
-[X1, opt1, C1, fcompta] = Comptable(A2,B2,LB)
+[X1, opt1, C1, fcompta] = Comptable(A2,B2,LB);
 %On essaye d'améliorer les critères
 ajustement = eye(16,16);
-ajustement(:,11)= ajustement(:,11)*1.1;
-ajustement(:,12)= ajustement(:,12)*1.1;
-ajustement(:,13)= ajustement(:,13)*1.1;
-ajustement(:,14)= ajustement(:,14)*1.1;
-ajustement(:,15)= ajustement(:,15)*1.1;
-ajustement(:,16)= ajustement(:,16)*1.1;
+for i=11:16
+ajustement(:,i)= ajustement(:,i)*1.1;
+end
+B3 =  ajustement*B2;
+[X2, opt2, C2, fcompta] = Comptable(A2,B3,LB);
+X2
+%On regarde maintenant le pourcentage de satisfaction des objectifs de
+%chaque responsable:
+[VS, PM,Y]=Satisfaction(MG,X2, fcompta , fatel, fstock,fpers);
 
-B3 =  ajustement*B2
-[X2, opt2, C2, fcompta] = Comptable(A2,B3,LB)
+%% ================ Partie 3: Analyse multi-critere ================
+Matrice_jugement = [6 5 5 5; 5 4 9 3; 3 4 7 3; 3 7 5 4; 5 4 3 9; 2 5 7 3;5 4 2 9; 3 5 7 4];
+Matrice_jugement_sans_domines = [6 5 5 5; 5 4 9 3; 3 7 5 4; 5 4 3 9; 3 5 7 4];
+% matrices de concordances et discordance sans application des poids.
+MC=concordance(Matrice_jugement_sans_domines );
+MD = discordance(Matrice_jugement_sans_domines);
+% matrices de concordances et discordance avec application des poids aux critères.
+MC1=concordance(changement_echelle(Matrice_jugement_sans_domines));
+MD1 = discordance(changement_echelle(Matrice_jugement_sans_domines));
 
 
 
