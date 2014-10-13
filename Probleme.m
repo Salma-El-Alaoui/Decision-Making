@@ -52,7 +52,7 @@ Med = median(MG,1);
 A2 = [A;(-fatel)';fstock';(-fcom)';fpers'];
 B2 = [B; -290; 1450; -10;4000]; 
 %B2 = [B; -200; 1400; -200;4000]; 
-%Medianes : B2 = [B; -360; 1690; -190; 9000; 4700; 4320];
+%Medianes : B2 = [B; -360; 1690; -190; 9000];
 [X2, opt1, C1, fcompta] = Comptable(A2,B2,LB);
 %On essaye d'améliorer les critères
 % ajustement = eye(16,16);
