@@ -930,9 +930,9 @@ D = $\frac{1}{10}$*\bordermatrix{~ & a & b & d & e & h \cr
                   e & 1.2 & 3.6 & 1.2 & - & 2.4 \cr
                   h & 3.0 & 2.0 & 0.8 & 2.0 & - \cr}
 \end{minipage}\\[0.5cm]
-Nous avons appliqué 3 seuillages (strict, intermédiaire et lache) afin de déterminer le meilleur plan de production. Voici les graphes de surclassement qui en résultent : \\
+Nous avons appliqué 4 seuillages en modifiant seuil de concordance et discordance afin de déterminer le meilleur plan de production. Voici les graphes de surclassement qui en résultent : \\
 \vspace{10pt}
-\fbox{\begin{minipage}{0.3\textwidth}
+\fbox{\begin{minipage}{0.2\textwidth}
 Strict :
 $C_1=\frac{10}{12}$; $D_1=\frac{1.5}{10}$ \\
 \begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
@@ -948,13 +948,33 @@ $C_1=\frac{10}{12}$; $D_1=\frac{1.5}{10}$ \\
   \foreach \from/\to in {a/d,h/d} \draw (\from) -- (\to);
 \end{tikzpicture}\\
 \centering
-ensemble des meilleures actions potentielles = \{a,b,e,h\}
+meilleures actions potentielles = \{a,b,e,h\}
 \end{minipage}}
 ~
 \vspace{10pt}
-\fbox{\begin{minipage}{0.3\textwidth}
-Moyen :
-$C_2=\frac{8}{12}$; $D_2=\frac{2.5}{10}$ \\
+\fbox{\begin{minipage}{0.2\textwidth}
+Moyen strict:
+$C_2=\frac{10}{12}$; $D_2=\frac{2}{10}$ \\
+\begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
+   mauvaise action/.style={font=\sffamily\Large\bfseries},
+   bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[bonne action] (a) {a};
+  \node[bonne action](b) [below right of=a] {b};
+  \node[mauvaise action] (d) [below of=b] {d};
+  \node[bonne action] (h) [below left of=a] {h};
+  \node[mauvaise action] (e) [below of=h] {e};
+
+  \foreach \from/\to in {a/d,a/e,h/d} \draw (\from) -- (\to);
+\end{tikzpicture}\\
+\centering
+meilleures actions potentielles = \{a,b,h\}
+\end{minipage}}
+~
+\vspace{10pt}
+\fbox{\begin{minipage}{0.2\textwidth}
+Moyen : 
+$C_2=\frac{8}{12}$; $D_2=\frac{2}{10}$ \\
 \begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
    mauvaise action/.style={font=\sffamily\Large\bfseries},
    bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
@@ -965,32 +985,33 @@ $C_2=\frac{8}{12}$; $D_2=\frac{2.5}{10}$ \\
   \node[mauvaise action] (h) [below left of=a] {h};
   \node[mauvaise action] (e) [below of=h] {e};
 
-  \foreach \from/\to in {a/d,a/b,a/e,a/h,b/d,b/e,b/h,d/h,h/d} \draw (\from) -- (\to);
+  \foreach \from/\to in {a/d,a/e,h/d,a/h,d/h,b/d,b/h} \draw (\from) -- (\to);
 \end{tikzpicture}\\
 \centering
-ensemble des meilleures actions potentielles = \{a,b\}
+meilleures actions potentielles = \{a,b\}
 \end{minipage}}
 ~
 \vspace{10pt}
-\fbox{\begin{minipage}{0.3\textwidth}
-Lache : TODO
-$C_3=\frac{7}{12}$; $D_3=\frac{3}{10}$ \\
+\fbox{\begin{minipage}{0.2\textwidth}
+Lâche : 
+$C_2=\frac{8}{12}$; $D_2=\frac{2.5}{10}$ \\
 \begin{tikzpicture}[->,auto,node distance=1.5cm,thick,
    mauvaise action/.style={font=\sffamily\Large\bfseries},
    bonne action/.style={circle,draw,font=\sffamily\Large\bfseries}]
 
   \node[bonne action] (a) {a};
-  \node[bonne action](b) [below right of=a] {b};
+  \node[mauvaise action](b) [below right of=a] {b};
   \node[mauvaise action] (d) [below of=b] {d};
   \node[mauvaise action] (h) [below left of=a] {h};
-  \node[bonne action] (e) [below of=h] {e};
+  \node[mauvaise action] (e) [below of=h] {e};
 
-  \foreach \from/\to in {a/d,h/d} \draw (\from) -- (\to);
+  \foreach \from/\to in {a/d,a/b,a/e,a/h,b/d,b/e,b/h,d/h,h/d} \draw (\from) -- (\to);
 \end{tikzpicture}\\
 \centering
-ensemble des meilleures actions potentielles = \{a,b,e\}
+meilleures actions potentielles = \{a\}
 \end{minipage}}
-Analyse : TODO 
+\\Avec le seuillage strict, nous ne pouvons pas déterminer de meilleurs solutions car nous ne pouvons comparer les comportements des plans de production \textbf{\emph{a}}, \textbf{\emph{b}} et \textbf{\emph{e}}. En augmentant les seuils de concordance et discordance, nous voyons se dégager des meilleurs actions potentielles. En relâchant les seuils, nous arrivons à comparer des plans de productions ayant des comportements différents. En effet, avec le seuillage moyen, les solutions \textbf{\emph{a}} et \textbf{\emph{b}} ressortent. Tandis que le plan \textbf{\emph{a}} est stable pour les quatre critères, le plan \textbf{\emph{b}} rattrape ses résultats faibles (\textbf{\emph{g2}} et \textbf{\emph{g4}}) avec le critère \textbf{\emph{g3}}.
+Finalement, nous pouvons conclure que le plan \textbf{\emph{a}} est la meilleure solution. Cela s'explique grâce à ses résultats stables et son bon résultat au seul critère de poids fort (\textbf{\emph{g1}}) où il obtient 6 sur 10, la meilleure note sur ce critère.
 \newpage
 \section{Annexe}
 \subsection{Description du problème}
