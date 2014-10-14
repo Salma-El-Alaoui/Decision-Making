@@ -350,8 +350,8 @@ Cette quantité est calculée en ajoutant le nombre de matières premières util
 \item[$\mathbf{1}$]\hfill\\ Valeur correspondant au stockage du produit fini.
 \item[$\mathbf{qteMP_{j}}$]\hfill\\La quantité de matière première j, nécessaire pour la fabrication du produit considéré.
 \end{description}
-Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulle (de l'ordre de $ 10 ^{-16}$ ).\\
-Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à un certain pourcentage du bénéfice maximale.\\
+Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulles (de l'ordre de $ 10 ^{-16}$ ).\\
+Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à un certain pourcentage du bénéfice maximal.\\
 Nous estimons donc que la contrainte suivante assure un certain fonctionnement de l'usine tout en restant raisonnable par rapport à l'objectif du responsable de stock : le bénéfice doit être supérieur ou égal à 50\% du bénéfice maximal. ($\frac{10512}{2} = 5256$ unités monétaires).\\
 \\
 Il en ressort le problème de programmation linéaire mono-critère suivant:
@@ -381,7 +381,7 @@ La résolution mathématique de ce problème de programmation linéaire donne le
    \right )
  } 
 \end{equation*}
-On remarque que le produit F est le plus fabriqué. De fait, il s'agit du produit qui utilise le moins de matières premières. Ensuite, les produits B et E consomment la même quantité de matières premières. Toutefois, les contraintes associées aux matières premières nous encouragent à préférer l'utilisation de la matière 3 par rapport à la matière 1 (Plus de disponibilité).
+On remarque que le produit F est le plus fabriqué. De fait, il s'agit du produit qui utilise le moins de matières premières. Ensuite, les produits B et E consomment la même quantité de matières premières. Toutefois, les contraintes associées aux matières premières nous encouragent à préférer l'utilisation de la matière 3 par rapport à la matière 1 (Plus de disponibilité) et donc de fabriquer le produit E.
 \begin{align*}
 \textbf{Quantité minimale en stock = 768.70 éléments (Produits et matières premières)}
 \end{align*}
@@ -432,7 +432,7 @@ Il en ressort le problème de programmation linéaire mono-critère suivant :
 \begin{tcolorbox}
 Maximiser
 \begin{equation*}
- Z_{commercial}(X)=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f}
+ Z_{commercial}=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f}
 \end{equation*}
 Sous les contraintes :
 \begin{itemize}
@@ -699,7 +699,7 @@ Matrice de Gain =
 
 Cette matrice représente les objectifs de chacun des cadres (en colonnes) et des solutions optimales calculées en prenant les objectif séparément (en lignes). Les colonnes indiquent (de gauche à droite),le bénéfice, la production totale, le nombre de produits et matières premières en stock, l'écart entre la production des 2 gammes de produits, le temps d'utilisation total des machines 3 et 5, le temps d'utilisation de la machine 3 et enfin le temps d'utilisation de la machine 5.
 
-A partir de cette matrice, nous avons élaborée une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif à maximiser le bénéfice(qui nous semble être l'intérêt premier du responsable d'entreprise), avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des autres cadres. 
+A partir de cette matrice, nous avons élaboré une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif à maximiser le bénéfice(qui nous semble être l'intérêt premier du responsable d'entreprise), avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des autres cadres. 
 
 Notre \textbf{point de mire} correspond à la diagonale de la matrice de gain, c'est à dire aux valeurs optimales pour chaque cadre:
 \begin{itemize}
@@ -707,7 +707,7 @@ Notre \textbf{point de mire} correspond à la diagonale de la matrice de gain, c
 \item  \textbf{379} de produits réalisés
 \item \textbf{769} de produits et matières premières en stock
 \item \textbf{0} de différence de produits entre les 2 catégories (A, B, C) et (D, E, F).
-\item \textbf{2183} de minutes/semaine d'usages pour les machines 3 et 5. Cela correspond à \textbf{1179} minutes/semaine pour la machine 3 et à \textbf{1004} minutes/semaine pour la machine 5.
+\item \textbf{2183} de minutes/semaine (36.4 h/semaine) d'usages pour les machines 3 et 5. Cela correspond à \textbf{1179} minutes/semaine  (19.6 h/semaine)  pour la machine 3 et à \textbf{1004} minutes/semaine  (16.7 h/semaine)  pour la machine 5.
 \end{itemize}
 C'est de ce point que nous allons essayer de nous rapprocher, en essayant de trouver un compromis qui satisfera les différents responsables.
 \\ \\
@@ -730,7 +730,7 @@ Sous les contraintes :
    Z_{stocks}= 5x_{A} + 5x_{B} + 6x_{C} + 10x_{D} + 5x_{E} + 4x_{F}
    &\leq seuil_{stock}
    \\
-   Z_{commercial}(X)=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f} &\geq seuil_{commercial}
+   Z_{commercial}=x_{a} + x_{b} + x_{c} + x_{d} + x_{e} + x_{f} &\geq seuil_{commercial}
    \\
    Z_{personnel}= 13x_{A} + x_{B} + 11x_{C} + 7x_{D} + 20x_{E} + 50x_{F}&\leq seuil_{personnel}
 \end{aligned}
@@ -891,11 +891,11 @@ $C_1=\frac{3}{4}$; $C_2=\frac{4}{10}$ \\
 ensemble des meilleures actions potentielles = \newline\{a\}
 \end{minipage}}
 \\
-En analysant les différents graphes, on peut déduire que le plan de production A serait le plan répondant le mieux aux critères malgré un léger effet de rattrapage (Augmentation du coefficient C$_{2}$ requise).
+En analysant les différents graphes, on peut déduire que le plan de production A serait le plan répondant au mieux aux critères.
 
 ~
 \subsection{Analyse avec pondération des critères} 
-Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative et au vu des résultats de la partie 2. Nous privilégions principalement le bénéfice (raison d'être de l'entreprise) auquel nous affectons un poids fort égal à 5. Nous avons ensuite décider d'affecter une pondération moyenne égale à 3 au critère 3 garantissant une production de produits diversifiée. Quant aux critères 2 et 4, nous les considérons comme les moins importants (poids faible égal à 2), vu que les opérateurs peuvent être formés à l'utilisation des machines et que le maintien d'un stock minimal n'est pas d'une importance primordiale.\\
+Nous avons ensuite attribué un poids à chacun de ces critères en jugeant de leur importance relative et au vu des résultats de la partie 2. Nous privilégions principalement le bénéfice (raison d'être de l'entreprise) auquel nous affectons un poids fort égal à 5. Nous avons ensuite décider d'affecter une pondération moyenne égale à 3 au critère 3 garantissant une production de produits diversifiée. Quant aux critères 2 et 4, nous les considérons comme les moins importants (poids faible égal à 2), vu que les opérateurs peuvent être formés à l'utilisation des machines et que le maintien d'un stock minimal n'est qu'un problème de logistique.\\
 Pour notre analyse, nous avons réévalué les notes de chaque critère afin de correspondre à une échelle plus adaptée. Nous obtenons donc une nouvelle matrice de jugements, ainsi que de nouvelles matrices de concordance et de discordance, sans les propositions dominées \textbf{\emph{c}}, \textbf{\emph{g}} et \textbf{\emph{f}} :
 \begin{center}
 \newcolumntype{M}{>{\centering\arraybackslash} m{1.5cm} }
