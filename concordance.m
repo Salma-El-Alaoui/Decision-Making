@@ -1,6 +1,5 @@
 function [ mat_concordance ] = concordance( jugement, poids)
-%UNTITLED3 Summary of this function goes here
-%   poids : vecteur ligne des poids affectés à chaque critère [1,1,1,1] ou [5,2,3,2]
+%   poids : vecteur ligne des poids affectes a chaque critere [1,1,1,1] ou [5,2,3,2]
 
 [L,C] = size(jugement);
 mat_concordance = zeros(L);
@@ -14,7 +13,5 @@ for i=1:L
         end
     end
 end
-
-
 end
 

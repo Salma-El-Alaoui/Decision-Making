@@ -1,6 +1,6 @@
 function [ MG ] = MatriceGain( Xcompta, Xatel, Xstock, Xcom, Xpersonnel, Xm3, Xm5,fcompta , fatel, fstock,fpersonnel, fm3, fm5 )
 
-%on remplace le vecteur du commercial par l'écart entre la production de
+%on remplace le vecteur du commercial par l'ecart entre la production de
 %a+b+bc et d+e+f
 ecartCompta = abs((Xcompta(1) + Xcompta(2)+Xcompta(3))- (Xcompta(4) + Xcompta(5)+Xcompta(6)));
 ecartAtel = abs((Xatel(1) + Xatel(2)+Xatel(3))- (Xatel(4) + Xatel(5)+Xatel(6)));

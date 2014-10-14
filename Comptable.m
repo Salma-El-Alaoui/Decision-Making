@@ -15,6 +15,4 @@ str = {'A','B','C','D','E','F'};
 bar(X);
 title('Comptable')
 set(gca, 'XTickLabel',str, 'XTick',1:numel(str));
-
 end
-

@@ -1,6 +1,4 @@
 function [ mat_discordance ] = discordance( jugement )
-%UNTITLED4 Summary of this function goes here
-%   Detailed explanation goes here
 
 [L,C] = size(jugement);
 mat_discordance = zeros(L);

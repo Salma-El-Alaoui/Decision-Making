@@ -1,6 +1,6 @@
 function [ X, opt, C, f ] = Stock( A, B, LB )
 %On veut minimiser la fonction objectif des stocks
-% On rajoute une contrainte pour assurer un bénéfice minimum 
+% On rajoute une contrainte pour assurer un benefice minimum 
 
 [Xcompt, OptCompt, Ccompt]= Comptable(A,B,LB);
 
@@ -23,7 +23,7 @@ for i=1:100
 end
 figure;
 xlabel('pourcentage de benefice minimal');
-ylabel('quantité de produits et de matières premières dans le stock');;
+ylabel('quantite de produits et de matieres premieres dans le stock');;
 hold on
 plot(R)
 hold off;
@@ -33,7 +33,5 @@ str = {'A','B','C','D','E','F'};
 bar(X);
 title('Stock')
 set(gca, 'XTickLabel',str, 'XTick',1:numel(str));
-
-
 end
 

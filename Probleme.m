@@ -1,31 +1,25 @@
-%% Projet d'aide à la décision 
-% 
-%
-%  
-%  ------------
-% 
-%% ================ Définition des contraintes générales ================
+%% ================ Definition des contraintes generales ================
 
-% vecteur de la quantité de produits par semaine
+% vecteur de la quantite de produits par semaine
 %X =[xa; xb; xc; xd; xe; xf];
 
-% Nous avons défini des contraintes suivantes:
+% Nous avons defini des contraintes suivantes:
 %   - temps d'usage de chaque machine < 16 h par jour
-%   - quantité de matières premières  utilisées inférieures aux seuils
-%   précisés
-%   - les quantités des produits doivent êtres positives
+%   - quantite de matieres premieres  utilisees inferieures aux seuils
+%   precises
+%   - les quantites des produits doivent etres positives
 
-% matrice de contraintes générales
+% matrice de contraintes generales
 A = [8 15 0 5 0 10; 7 1 2 15 7 12; 8 1 11 0 10 25; 2 10 5 4 13 7; 5 0 0 7 10 25; 5 5 3 12 8 0;5 3 5 8 0 7; 1 2 1 5 0 2; 2 2 1 2 2 1; 1 0 3 2 2 0];
 % vecteur de seuils
 B = [ 4800 ; 4800; 4800; 4800;4800; 4800; 4800; 350; 620; 485];
 % vecteur de containtes de domaine
 LB = zeros (6,1);
 
-%% ================ Partie 1: Programmation linéaire monocritère ================
+%% ================ Partie 1: Programmation lineaire monocritere ================
 
 % Chaque cadre ayant un objectif de production, il faut dans un premier
-% temps considérer indépendamment chacun des objectifs.
+% temps considerer independamment chacun des objectifs.
 
  % ====================== Comptable ======================
  [Xcompta, optcompta, Ccompta, fcompta] = Comptable(A,B,LB);
@@ -38,23 +32,23 @@ LB = zeros (6,1);
  % ====================== Responsable du personnal ======================
  [Xpers,Xm3, Xm5, opt,opt3, opt5,C,Cm3, Cm5 ,fpers, fm3, fm5 ] = Personnel(A,B,LB);
  
- %% ================ Partie 2: Programmation linéaire multicritère ================
-% On calcule la matrice de gain pour les différentes solutions trouvées précédemment. 
+ %% ================ Partie 2: Programmation lineaire multicritere ================
+% On calcule la matrice de gain pour les differentes solutions trouvees precedemment. 
 % On maximise toutes les fonctions sauf fstock et fpers (et fm3 et fm5).
 
 MG = MatriceGain( Xcompta, Xatel, Xstock, Xcom, Xpers, Xm3, Xm5, fcompta , fatel, fstock,fpers, fm3, fm5 );
 Moy = sum(MG,1)/5;
 Med = median(MG,1);
 
-% réecriture du problème
-% On veut maximiser le bénefice. On transforme les autres fonctions
+% reecriture du probleme
+% On veut maximiser le benefice. On transforme les autres fonctions
 % objectif en contraintes.
 A2 = [A;(-fatel)';fstock';(-fcom)';fpers'];
 B2 = [B; -290; 1450; -10;4000]; 
 %B2 = [B; -200; 1400; -200;4000]; 
 %Medianes : B2 = [B; -360; 1690; -190; 9000];
 [X2, opt1, C1, fcompta] = Comptable(A2,B2,LB);
-%On essaye d'améliorer les critères
+%On essaye d'ameliorer les criteres
 % ajustement = eye(16,16);
 % for i=11:16
 % ajustement(:,i)= ajustement(:,i)*1.1;
@@ -74,10 +68,7 @@ ponderation = [5 2 3 2];
 % matrices de concordances et discordance sans application des poids.
 MC=concordance(Matrice_jugement_sans_domines, poids_uniformes );
 MD = discordance(Matrice_jugement_sans_domines);
-% matrices de concordances et discordance avec application des poids aux critères.
+% matrices de concordances et discordance avec application des poids aux criteres.
 MC1=concordance(changement_echelle(Matrice_jugement_sans_domines), ponderation);
 MD1 = discordance(changement_echelle(Matrice_jugement_sans_domines));
 L=changement_echelle(Matrice_jugement)
-
-
-

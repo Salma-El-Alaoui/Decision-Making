@@ -1,5 +1,5 @@
 function [VS, PM,Y] = Satisfaction( MG,X,fcompta , fatel, fstock,fpers,fm3,fm5 )
-%vecteur qui représente le pourcentage de staisfaction de l'objectif de
+%vecteur qui represente le pourcentage de satisfaction de l'objectif de
 %chaque responsable.
 %X est la solution choisie
 %MG est la matrice de gain
