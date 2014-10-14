@@ -352,19 +352,8 @@ Cette quantité est calculée en ajoutant le nombre de matières premières util
 \end{description}
 Les contraintes globales, bien qu'elles prévoient des quantités fabriquées positives, ne suffisent pas pour assurer une activité minimale de l'entreprise. Et une tentative de résolution du problème du responsable de stock sans ajout de contraintes assurant l'activité minimale, aboutira à des quantités quasi nulle (de l'ordre de $ 10 ^{-16}$ ).\\
 Nous avons donc ajouté la contrainte d'activité minimale suivante : le bénéfice de l'entreprise doit être supérieur à un certain pourcentage du bénéfice maximale.\\
-Le graphe ci-dessous montre l'évolution du nombre de produits en stock en fonction de la contrainte du pourcentage de bénéfice minimal. 
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[scale=0.8]{plots_partie1/plot_stock.png}
-        \caption{
-            \label{fig} Évolution du stock en fonction de \%bénéfice minimal
-        }
-    \end{center}
-\end{figure} 
-\subsubsection*{Analyse de la courbe}
-La courbe montre une évolution linéaire de la quantité de produits stockés en fonction du pourcentage du bénéfice minimal.\\
-Nous estimons donc que la contrainte suivante assure un certain fonctionnement de l'usine tout en restant raisonnable par rapport à l'objectif du responsable de stock : le bénéfice doit être supérieur ou égal à 50\% du bénéfice maximal. ($\frac{10512}{2} = 5256$ unités monétaires).
-\newpage 
+Nous estimons donc que la contrainte suivante assure un certain fonctionnement de l'usine tout en restant raisonnable par rapport à l'objectif du responsable de stock : le bénéfice doit être supérieur ou égal à 50\% du bénéfice maximal. ($\frac{10512}{2} = 5256$ unités monétaires).\\
+\\
 Il en ressort le problème de programmation linéaire mono-critère suivant:
 \begin{tcolorbox}
 Minimiser
@@ -420,6 +409,18 @@ Satisfaction des contraintes :
 \end{equation*}
 On remarque que la matière 1 est limitante car il est légitime de privilégier le produit F jusqu'à épuisement de la ressource 1.
 On constate également que l'on pourrait utiliser plus de ressource 2 et 3 et les différentes machines. Néanmoins, le critère de bénéfice minimal étant atteint, la production est arrêtée malgré les disponibilités.
+
+\subsubsection*{Analyse du résultat en fonction du bénéfice minimal}
+Le graphe ci-dessous montre l'évolution du nombre de produits en stock en fonction de la contrainte du pourcentage de bénéfice minimal. 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.8]{plots_partie1/plot_stock.png}
+        \caption{
+            \label{fig} Évolution du stock en fonction de \%bénéfice minimal
+        }
+    \end{center}
+\end{figure} 
+La courbe montre une évolution linéaire de la quantité de produits stockés en fonction du pourcentage du bénéfice minimal.\\
 \subsection{Le responsable commercial}
 L'objectif du commercial est de conserver une certaine diversité dans sa gamme de produits tout en produisant le plus de produits. Concrètement, l'entreprise doit produire autant de produit de la gamme 1 (composée des produits A,B,C) que de la gamme 2 (composée des produits D,E,F).
 On peut donc en déduire une contrainte d'égalité :
@@ -494,17 +495,7 @@ Nous étudierons 3 cas de figures :
 \item Minimiser la somme des temps d'usage des deux machines.
 \end{itemize}
 De même que pour le responsable des stocks, il faudra pour chacun de ces cas rajouter une contrainte assurant une  activité minimale de l'entreprise afin d'obtenir des quantités produites non nulles.\\ 
-Les courbes ci-dessous tracent l'évolution du temps d'usage des machines 3 et 5 dans le cas de l'optimisation sur la somme des temps d'usage. 
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[scale=0.8]{plots_partie1/plot_personnel.png}
-        \caption{
-            \label{fig} Évolution des temps des machines 3 et 5 en fonction du\%bénéfice minimal
-        }
-    \end{center}
-\end{figure} 
-\subsubsection*{Analyse des courbes}
-Les courbes montrent que les contraintes de bénéfices minimal acceptables sont dans la plage [25\% - 80\%] du bénéfice max. Au delà de 80\% l'utilisation des machines 3 et 5 croit de façon plus rapide. Des contraintes supérieurs à 80\% du bénéfice maximum sont donc à écarter.  \\
+
 Nous avons donc retenu la même contrainte que pour le responsable des stocks, à savoir que le bénéfice de l'entreprise doit être supérieur à 50\% du bénéfice maximale ($\frac{10512}{2} = 5256$ unités monétaires).
 \subsubsection{Limitation de l'usage de la machine 3}
 Le problème de programmation linéaire monocritère posé ici est le suivant :
@@ -676,6 +667,19 @@ Satisfaction des contraintes :
 \end{align*}
 Bien que le produit B ait été préférable, sa production est limitée par la quantité de matière première 1 (Contrainte nulle). Il a donc fallu compléter la production avec un produit n'utilisant pas cette matière, seul le produit E correspond à ce critère d'où sa production en second choix.
 Comme pour le cas du responsable des Stocks, il est encore possible d'augmenter la production (MP 2 et 3 ne sont pas écoulées). Néanmoins, le plan de production donné ici respecte la contrainte de minimum de chiffre d'affaire donnée en début de partie.
+
+\subsubsection*{Analyse du résultat en fonction du bénéfice minimal}
+Les courbes ci-dessous tracent l'évolution du temps d'usage des machines 3 et 5 dans le cas de l'optimisation sur la somme des temps d'usage. 
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.8]{plots_partie1/plot_personnel.png}
+        \caption{
+            \label{fig} Évolution des temps des machines 3 et 5 en fonction du\%bénéfice minimal
+        }
+    \end{center}
+\end{figure} 
+Les courbes montrent que les contraintes de bénéfices minimal acceptables sont dans la plage [25\% - 80\%] du bénéfice max. Au delà de 80\% l'utilisation des machines 3 et 5 croit de façon plus rapide. Des contraintes supérieurs à 80\% du bénéfice maximum sont donc à écarter.  \\
+
 \subsubsection{Conclusion}
 Au vu des différents résultats obtenus pour les 3 cas, nous concluons que la solution à retenir est celle qui minimise la machine 3 ou la somme des temps des deux machines (ces deux solutions étant équivalentes).  La solution qui minimise uniquement l'usage de la machine 5 est à rejeter car elle entraine une utilisation excessive de la machine 3. 
 \section{Point de vue du Responsable d'entreprise}
