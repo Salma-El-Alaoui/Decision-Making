@@ -639,7 +639,7 @@ La résolution mathématique de ce problème de programmation linéaire donne le
    \right )
  } 
 \end{equation*}
-On constate qu'il est préférable de fabriquer les produits B et E. En effet, le produit B ne demande qu'une minute de temps d'utilisation cumulé sur les 2 machines, il semble donc correspondre au mieux aux critères. La production seule de ce produits ne permettant pas d'atteindre le seuil de rentabilité défini précédemment, il est nécessaire de produire une autre gamme. Malgré son fort taux d'utilisation, le produit E a été choisi pour compléter la production. L'analyse de la satisfaction des contraintes nous permet de comprendre cette préférence.
+On constate qu'il est préférable de fabriquer les produits B et E. En effet, le produit B ne demande qu'une minute de temps d'utilisation cumulé sur les 2 machines, il semble donc correspondre au mieux aux critères. La production seule de ce produit ne permettant pas d'atteindre le seuil de rentabilité défini précédemment, il est nécessaire de produire une autre gamme. Malgré son fort taux d'utilisation, le produit E a été choisi pour compléter la production. L'analyse de la satisfaction des contraintes nous permet de comprendre cette préférence.
 \begin{align*}
 \textbf{Usage minimal des machines = 2182.7 minutes/semaine}\\
 \Longleftrightarrow
@@ -674,29 +674,29 @@ Les courbes ci-dessous tracent l'évolution du temps d'usage des machines 3 et 5
     \begin{center}
         \includegraphics[scale=0.8]{plots_partie1/plot_personnel.png}
         \caption{
-            \label{fig} Évolution des temps des machines 3 et 5 en fonction du\%bénéfice minimal
+            \label{fig} Évolution des temps des machines 3 et 5 en fonction du \% de bénéfice minimal
         }
     \end{center}
 \end{figure} 
-Les courbes montrent que les contraintes de bénéfices minimal acceptables sont dans la plage [25\% - 80\%] du bénéfice max. Au delà de 80\% l'utilisation des machines 3 et 5 croit de façon plus rapide. Des contraintes supérieurs à 80\% du bénéfice maximum sont donc à écarter.  \\
+Les courbes montrent que les contraintes de bénéfice minimal acceptables sont dans la plage [25\% - 80\%] du bénéfice max. Au delà de 80\% l'utilisation des machines 3 et 5 croit de façon plus rapide. Des contraintes supérieurs à 80\% du bénéfice maximum sont donc à écarter.  \\
 
 \subsubsection{Conclusion}
 Au vu des différents résultats obtenus pour les 3 cas, nous concluons que la solution à retenir est celle qui minimise la machine 3 ou la somme des temps des deux machines (ces deux solutions étant équivalentes).  La solution qui minimise uniquement l'usage de la machine 5 est à rejeter car elle entraine une utilisation excessive de la machine 3. 
 \section{Point de vue du Responsable d'entreprise}
-Nous avons défini la matrice de gain suivante:
-\begin{align*}
-Matrice de Gain =
- \begin{pmatrix}
-    10512    &357   &1691    &316   &9580   &4800   &4780\\
-    9712     &379   &1834    &188   &9118   &4800   &4318\\
-    5256    &189    &769    &189     &9025   &4512   &4512\\
-    6920    &373   &1828    &0       &8519    &4717   &3802\\
-    5256    &275   &1377    &75     &2183    &1179   &1004\\
-    5256    &275   &1377   &75     &2183    &1179   &1004\\
-    5256    &308   &1650    &151   &2893    &2108    &785
- \end{pmatrix}
-\end{align*}\\
+Nous avons défini la matrice de gain suivante: \newline
 
+\begin{minipage}{0.45\textwidth}
+\bordermatrix{
+				  ~ & $Z_{comptable}$ & $Z_{atelier}$ & $Z_{stock}$ & $Z_{commercial}$ & $Z_{personnel}$ & $Z_{personnel3}$ & $Z_{personnel5}$ \cr
+                  $X^{*}_{comptable}$ & 10512    &357   &1691    &316   &9580   &4800   &4780 \cr
+                  $X^{*}_{atelier}$ & 9712     &379   &1834    &188   &9118   &4800   &4318 \cr
+                  $X^{*}_{stock}$ & 5256    &189    &769    &189     &9025   &4512   &4512 \cr
+                  $X^{*}_{commercial}$ & 6920    &373   &1828    &0       &8519    &4717   &3802 \cr
+                  $X^{*}_{personnel}$ & 5256    &275   &1377    &75     &2183    &1179   &1004 \cr
+                  $X^{*}_{personnel3}$ & 5256    &275   &1377   &75     &2183    &1179   &1004 \cr
+                  $X^{*}_{personnel5}$ & 5256    &308   &1650    &151   &2893    &2108    &785 \cr}
+\end{minipage}\newline
+\\
 Cette matrice représente les objectifs de chacun des cadres (en colonnes) et des solutions optimales calculées en prenant les objectif séparément (en lignes). Les colonnes indiquent (de gauche à droite),le bénéfice, la production totale, le nombre de produits et matières premières en stock, l'écart entre la production des 2 gammes de produits, le temps d'utilisation total des machines 3 et 5, le temps d'utilisation de la machine 3 et enfin le temps d'utilisation de la machine 5.
 
 A partir de cette matrice, nous avons élaboré une solution de compromis en définissant des seuils de satisfaction minimale pour chacun des objectifs. Nous avons donc reformulé le problème avec comme fonction objectif à maximiser le bénéfice(qui nous semble être l'intérêt premier du responsable d'entreprise), avec des contraintes supplémentaires correspondant à la satisfaction des objectifs des autres cadres. 
